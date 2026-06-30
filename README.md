@@ -221,7 +221,7 @@ python -m pytest tests -q
 在仓库根目录也可以直接运行测试：
 
 ```bash
-python -m pytest engine\tests -q
+python -m pytest engine/tests -q
 ```
 
 当前本地验证结果：
