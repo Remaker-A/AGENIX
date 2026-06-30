@@ -1,6 +1,6 @@
-# ModelMark / AGENIX Agentic Test Engine
+# AGENIX Agentic Test Engine
 
-ModelMark 是一个面向大模型 Agent 能力的自动化评测项目。仓库里的评测引擎名为 **AGENIX**，它关注的不是模型能不能把一道题“说得像对的”，而是模型能不能在一个可验证的环境里完成任务：读数据、调用工具、处理中间状态、避开安全陷阱，并把最终结果真正写到正确位置。
+AGENIX 是一个面向大模型 Agent 能力的自动化评测项目。它关注的不是模型能不能把一道题“说得像对的”，而是模型能不能在一个可验证的环境里完成任务：读数据、调用工具、处理中间状态、避开安全陷阱，并把最终结果真正写到正确位置。
 
 一句话概括：
 
@@ -285,6 +285,6 @@ python report.py results/eval_<timestamp>.json
 
 ---
 
-## 许可
+## License
 
-本仓库当前尚未添加开源许可证。使用或分发前请先确认授权边界。
+本仓库使用 [MIT License](LICENSE)。
