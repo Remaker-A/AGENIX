@@ -1,0 +1,46 @@
+{
+  "description": "Example LLM-as-judge panel. Use at least three judge families, all different from the tested model family.",
+  "judge_policy": "diagnostic",
+  "alpha_gate": 0.667,
+  "human_calibration_gate": {
+    "spearman_min": 0.8,
+    "mae_max": 0.2,
+    "required_for_conditional_headline": true
+  },
+  "tested_model_families": {
+    "doubao-seed-evolving": "seed"
+  },
+  "excluded_scopes": [
+    "state_verification",
+    "numeric_calibration",
+    "grounding",
+    "safety"
+  ],
+  "rubric_scope": "residual_subjective_rationale_only",
+  "judges": [
+    {
+      "id": "judge-deepseek-v3",
+      "family": "deepseek",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "temperature": 0.0
+    },
+    {
+      "id": "judge-kimi-k2",
+      "family": "moonshot",
+      "provider": "kimi",
+      "model": "moonshot-v1-8k",
+      "api_key_env": "MOONSHOT_API_KEY",
+      "temperature": 0.0
+    },
+    {
+      "id": "judge-glm-4",
+      "family": "zhipu",
+      "provider": "glm",
+      "model": "glm-4",
+      "api_key_env": "ZHIPUAI_API_KEY",
+      "temperature": 0.0
+    }
+  ]
+}

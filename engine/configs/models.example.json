@@ -1,0 +1,81 @@
+{
+  "_README": "AGENIX 横评模型配置模板。复制为 models.json 后只配置真实 provider/base_url/model/api_key_env；真实密钥必须来自环境变量，绝不要写入 JSON 或提交进版本库。无 key / 无外网时，默认仍会按 mock_profile 回退到内置 stub 以便 dry-run；正式 headline 横评必须传 --require-real 或 --no-mock-fallback，确保 fallback/mock 只进入 diagnostic_baselines，不进入官方排名。",
+  "_fields": {
+    "id": "报告中显示的逻辑模型名（自定义，需唯一）",
+    "provider": "seed | deepseek | kimi | glm | mock（决定默认 base_url 与取 key 的环境变量）",
+    "base_url": "OpenAI 兼容端点根（缺省用 PROVIDERS 内置默认；自建/代理在此覆盖）",
+    "model": "服务商侧模型名（缺省用 provider 默认）",
+    "api_key": "禁止在正式配置中填写真实密钥；示例保留占位符仅用于提醒，生产请删除该字段并使用 api_key_env",
+    "api_key_env": "存放密钥的环境变量名（缺省用 provider 约定，如 DEEPSEEK_API_KEY）",
+    "mock_profile": "仅用于 dry-run 或 diagnostic_baselines 的 stub 能力档：strong|medium|weak；正式 headline 不允许 fallback/mock",
+    "temperature": "采样温度（建议固定，默认 0.2）",
+    "max_tokens": "固定输出预算，保证横评公平",
+    "max_rounds": "固定 agent 回合预算，保证横评公平"
+  },
+  "_official_run_hint": "示例：python run_eval.py --config configs/models.json --require-real --eval-version 2026-06-v1；若要保留无 key 参考 bot，请用 --no-mock-fallback，它们会被过滤到 diagnostic_baselines。",
+  "_reference_panel_config_example": {
+    "ref_model_ids": ["seed", "deepseek", "kimi"],
+    "model_id_map": {
+      "seed": "seed",
+      "deepseek": "deepseek",
+      "kimi": "kimi"
+    },
+    "min_panel": 3
+  },
+  "_env_hint": {
+    "seed": "ARK_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
+    "kimi": "MOONSHOT_API_KEY",
+    "glm": "ZHIPUAI_API_KEY"
+  },
+  "models": [
+    {
+      "id": "seed",
+      "provider": "seed",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "doubao-seed-1-6",
+      "api_key_env": "ARK_API_KEY",
+      "api_key": "YOUR_ARK_API_KEY_HERE",
+      "mock_profile": "strong",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "max_rounds": 4
+    },
+    {
+      "id": "deepseek",
+      "provider": "deepseek",
+      "base_url": "https://api.deepseek.com/v1",
+      "model": "deepseek-chat",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "api_key": "YOUR_DEEPSEEK_API_KEY_HERE",
+      "mock_profile": "strong",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "max_rounds": 4
+    },
+    {
+      "id": "kimi",
+      "provider": "kimi",
+      "base_url": "https://api.moonshot.cn/v1",
+      "model": "moonshot-v1-8k",
+      "api_key_env": "MOONSHOT_API_KEY",
+      "api_key": "YOUR_MOONSHOT_API_KEY_HERE",
+      "mock_profile": "medium",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "max_rounds": 4
+    },
+    {
+      "id": "glm",
+      "provider": "glm",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "model": "glm-4",
+      "api_key_env": "ZHIPUAI_API_KEY",
+      "api_key": "YOUR_ZHIPUAI_API_KEY_HERE",
+      "mock_profile": "weak",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "max_rounds": 4
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "task_id": "u3_video__pilot__s0",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {"U3": 1.0},
+  "title": "U3 pilot video event grounding fixture",
+  "instruction": "Read the short video frames and submit the first safety event and its time span.",
+  "modalities": ["video", "image", "text"],
+  "assets": {"real_manifest_id": "real_video_incident_frames_sample"},
+  "tools": [
+    {"name": "read_video_frames", "writes": [], "effect": null},
+    {"name": "submit_finding", "writes": ["out.finding"],
+     "effect": {"type": "set", "target": "out.finding", "value_from": "finding"}}
+  ],
+  "initial_state": {},
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_video_frames",
+     "predicate": {"op": "tool_called", "value": "read_video_frames"}},
+    {"id": "M2", "type": "required", "weight": 2.0, "deps": ["M1"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "eq", "path": "out.finding.event_id", "value": "forklift_enters_zone"}}
+  ],
+  "success_predicates": [
+    {"op": "eq", "path": "out.finding.event_id", "value": "forklift_enters_zone"}
+  ],
+  "grounding": {
+    "items": [
+      {"id": "g_event_id", "kind": "video_event_id", "track": "real",
+       "gold": {"event_id": "forklift_enters_zone"}, "weight": 1.0,
+       "media_type": "video",
+       "asset_uri": "assets/real/samples/incident_clip_frames/",
+       "annotation_source": "human"},
+      {"id": "g_event_span", "kind": "temporal_iou", "track": "real",
+       "gold": [3.2, 6.8], "tol": 0.5, "weight": 1.0,
+       "media_type": "video", "temporal_span": [3.2, 6.8],
+       "asset_uri": "assets/real/samples/incident_clip_frames/",
+       "annotation_source": "human"}
+    ]
+  },
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "read_video_frames", "args": {}},
+    {"action_id": "a1", "tool": "submit_finding",
+     "args": {"finding": {"event_id": "forklift_enters_zone", "span": [3.2, 6.8]}}}
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "template": "u3_video",
+    "difficulty": "pilot",
+    "media_template": "video",
+    "real_trusted": false
+  },
+  "canary": "AGENIX-CANARY-u3-video-pilot-s0-DO-NOT-TRAIN"
+}

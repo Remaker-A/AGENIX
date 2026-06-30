@@ -1,0 +1,2625 @@
+{
+  "models": [
+    "seed",
+    "deepseek-ref(mock)",
+    "kimi-ref(mock)",
+    "glm-ref(mock)"
+  ],
+  "k": 5,
+  "grounding": {
+    "rho": 1.0,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_only_real_audit",
+    "n_pairs": 4,
+    "real_trusted_models": [
+      "seed",
+      "deepseek-ref(mock)",
+      "kimi-ref(mock)",
+      "glm-ref(mock)"
+    ],
+    "per_model": {
+      "seed": {
+        "synthetic": 0.10416666666666667,
+        "real": 0.48888888888888893,
+        "real_diagnostic": 0.3666666666666667,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "deepseek-ref(mock)": {
+        "synthetic": 0.7916666666666669,
+        "real": 0.911111111111111,
+        "real_diagnostic": 0.9333333333333332,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "kimi-ref(mock)": {
+        "synthetic": 0.611111111111111,
+        "real": 0.593121693121693,
+        "real_diagnostic": 0.6281746031746032,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "glm-ref(mock)": {
+        "synthetic": 0.3680555555555555,
+        "real": 0.5560846560846561,
+        "real_diagnostic": 0.6003968253968254,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      }
+    }
+  },
+  "grounding_rho": 1.0,
+  "grounding_headline_rule": "synthetic_only_real_audit",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [
+      [
+        "seed",
+        "kimi-ref(mock)"
+      ]
+    ],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U1": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U2": [
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U3": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U4": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": null,
+  "pareto_frontier": [
+    "seed",
+    "deepseek-ref(mock)"
+  ],
+  "pareto_points": [
+    [
+      "seed",
+      0.6604166666666667,
+      2.4
+    ],
+    [
+      "deepseek-ref(mock)",
+      0.9105902777777779,
+      2.566666666666667
+    ],
+    [
+      "kimi-ref(mock)",
+      0.6932870370370371,
+      3.533333333333333
+    ],
+    [
+      "glm-ref(mock)",
+      0.3509837962962962,
+      4.366666666666666
+    ]
+  ],
+  "dimension_stats": {
+    "U1": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.0,
+          "hi": 0.8333333333333333,
+          "ci_width": 0.8333333333333333,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.2,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.8,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 14.508656738494963,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.2,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.8,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 14.508656738494963,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.3333333333333333,
+          "delta_logit": 1.3862943611198906,
+          "lo": -0.16666666666666669,
+          "hi": 0.8333333333333333,
+          "p": 0.33,
+          "cliffs_delta": 1.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.8,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.16666666666666666,
+        "icc_template": 0.0,
+        "icc_instance": 0.0,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 26.291827969252946,
+        "deff": 1.0,
+        "n_cluster_per_arm": 26.291827969252946,
+        "n_templates_per_arm": 4.381971328208825
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -0.6931471805599454,
+            "marginal": 0.3333333333333333
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.10185185185185186,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.16666666666666669,
+          "icc_template": 0.3793103448275862,
+          "icc_instance": 0.0,
+          "n_runs": 24.0,
+          "n_templates": 4.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 6.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U2": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.0,
+          "hi": 0.6666666666666666,
+          "ci_width": 0.6666666666666666,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.16666666666666666,
+          "logit": -1.6094379124341005,
+          "lo": 0.0,
+          "hi": 0.5,
+          "ci_width": 0.5,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -0.6666666666666667,
+          "delta_logit": -14.508656738494963,
+          "lo": -1.0,
+          "hi": -0.33333333333333337,
+          "p": 0.0,
+          "cliffs_delta": -1.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": -0.3333333333333333,
+          "delta_logit": -1.3862943611198906,
+          "lo": -0.8333333333333333,
+          "hi": 0.1708333333333343,
+          "p": 0.36,
+          "cliffs_delta": -1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.72,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666666,
+          "delta_logit": 0.9162907318741551,
+          "lo": -0.33333333333333337,
+          "hi": 0.6666666666666666,
+          "p": 0.84,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.84,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6708333333333344,
+          "p": 0.14,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.52,
+          "significant": false
+        },
+        {
+          "delta": 0.8333333333333334,
+          "delta_logit": 15.42494747036912,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 2.302585092994046,
+          "lo": -0.004166666666666577,
+          "hi": 1.0,
+          "p": 0.13,
+          "cliffs_delta": 1.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.52,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.20833333333333334,
+        "icc_template": 0.0,
+        "icc_instance": 0.0,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 15.720432909487496,
+        "deff": 1.0,
+        "n_cluster_per_arm": 15.720432909487496,
+        "n_templates_per_arm": 2.6200721515812493
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": -0.6931471805599454,
+            "marginal": 0.3333333333333333
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.6094379124341005,
+            "marginal": 0.16666666666666666
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.12962962962962965,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.20833333333333337,
+          "icc_template": 0.3835616438356164,
+          "icc_instance": 0.0,
+          "n_runs": 24.0,
+          "n_templates": 4.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 6.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U3": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.0,
+          "hi": 0.75,
+          "ci_width": 0.75,
+          "n_obs": 12,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.7499999999999999,
+          "logit": 1.0986122886681091,
+          "lo": 0.41666666666666663,
+          "hi": 1.0,
+          "ci_width": 0.5833333333333334,
+          "n_obs": 12,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.5833333333333334,
+          "logit": 0.336472236621213,
+          "lo": 0.25,
+          "hi": 0.8333333333333334,
+          "ci_width": 0.5833333333333334,
+          "n_obs": 12,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.08125000000000004,
+          "hi": 0.6666666666666666,
+          "ci_width": 0.5854166666666666,
+          "n_obs": 12,
+          "n_templates": 4,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -0.4166666666666666,
+          "delta_logit": -1.7917594692280545,
+          "lo": -0.9166666666666666,
+          "hi": 0.08541666666666718,
+          "p": 0.19,
+          "cliffs_delta": -0.5625,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.95,
+          "significant": false
+        },
+        {
+          "delta": -0.25000000000000006,
+          "delta_logit": -1.0296194171811583,
+          "lo": -0.6666666666666666,
+          "hi": 0.25,
+          "p": 0.43,
+          "cliffs_delta": -0.4375,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": -0.41666666666666663,
+          "hi": 0.5,
+          "p": 1.0,
+          "cliffs_delta": -0.125,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666652,
+          "delta_logit": 0.7621400520468962,
+          "lo": -0.24999999999999994,
+          "hi": 0.5833333333333333,
+          "p": 0.5,
+          "cliffs_delta": 0.4375,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.4166666666666666,
+          "delta_logit": 1.7917594692280545,
+          "lo": 0.08333333333333337,
+          "hi": 0.75,
+          "p": 0.01,
+          "cliffs_delta": 0.8125,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.06,
+          "significant": false
+        },
+        {
+          "delta": 0.25000000000000006,
+          "delta_logit": 1.0296194171811583,
+          "lo": -0.08333333333333337,
+          "hi": 0.5833333333333333,
+          "p": 0.27,
+          "cliffs_delta": 0.5625,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.08796296296296297,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.22916666666666666,
+        "icc_template": 0.2773722627737226,
+        "icc_instance": 0.0,
+        "n_runs": 48.0,
+        "n_templates": 16.0,
+        "n_instances": 16.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 3.0
+      },
+      "design_effect": {
+        "rho": 0.2773722627737226,
+        "avg_cluster_size": 3.0,
+        "deff": 1.5547445255474452,
+        "n_obs": 48,
+        "n_eff": 30.87323943661972
+      },
+      "sample_size": {
+        "n_iid_per_arm": 85.30614404340578,
+        "deff": 1.5547445255474452,
+        "n_cluster_per_arm": 132.62926044704693,
+        "n_templates_per_arm": 44.20975348234898
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": -0.6931471805599454,
+            "marginal": 0.3333333333333333
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.0986122886681091,
+            "marginal": 0.7499999999999999
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.336472236621213,
+            "marginal": 0.5833333333333334
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -0.6931471805599454,
+            "marginal": 0.3333333333333333
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.10370370370370373,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.22916666666666674,
+          "icc_template": 0.31154381084840055,
+          "icc_instance": 0.0,
+          "n_runs": 48.0,
+          "n_templates": 16.0,
+          "n_instances": 16.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 3.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U4": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.4958333333333334,
+          "hi": 1.0,
+          "ci_width": 0.5041666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.1625000000000001,
+          "hi": 1.0,
+          "ci_width": 0.8374999999999999,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.16666666666666666,
+          "logit": -1.6094379124341005,
+          "lo": 0.0,
+          "hi": 0.5041666666666677,
+          "ci_width": 0.5041666666666677,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.16666666666666674,
+          "delta_logit": 12.206071645500918,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.85,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.837500000000001,
+          "p": 0.6,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.8333333333333334,
+          "delta_logit": 15.42494747036912,
+          "lo": 0.5,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.9162907318741547,
+          "lo": -0.5,
+          "hi": 0.8333333333333333,
+          "p": 0.85,
+          "cliffs_delta": 0.25,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666666,
+          "delta_logit": 3.2188758248682,
+          "lo": 0.16666666666666663,
+          "hi": 1.0,
+          "p": 0.04,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.2,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 2.302585092994046,
+          "lo": -0.16666666666666666,
+          "hi": 1.0,
+          "p": 0.19,
+          "cliffs_delta": 0.75,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.76,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.041666666666666664,
+        "sigma2_residual": 0.125,
+        "icc_template": 0.0,
+        "icc_instance": 0.25,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 18.41383304990334,
+        "deff": 1.0,
+        "n_cluster_per_arm": 18.41383304990334,
+        "n_templates_per_arm": 3.0689721749838896
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.6094379124340998,
+            "marginal": 0.8333333333333333
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.6094379124341005,
+            "marginal": 0.16666666666666666
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.08796296296296297,
+          "sigma2_instance": 0.041666666666666664,
+          "sigma2_residual": 0.125,
+          "icc_template": 0.34545454545454546,
+          "icc_instance": 0.1636363636363636,
+          "n_runs": 24.0,
+          "n_templates": 4.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 6.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    }
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.4333333333333333,
+              "lo": 0.15,
+              "hi": 0.7166666666666667,
+              "logit": -0.2682639865946794,
+              "se_boot": 0.15551913657986297,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.20833333333333331,
+              "lo": 0.0415798611111111,
+              "hi": 0.4378472222222222,
+              "logit": -1.3350010667323404,
+              "se_boot": 0.1074512174036832,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6,
+            "pass_at_k": 0.7604938271604937,
+            "pass_pow_k": 0.5012345679012346,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6222222222222221,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.4,
+          "capability_scalar_unweighted": 0.6604166666666667,
+          "grounding": {
+            "synthetic": 0.10416666666666667,
+            "real": 0.48888888888888893,
+            "real_diagnostic": 0.3666666666666667,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.7881944444444444,
+              "lo": 0.5861979166666667,
+              "hi": 0.9446180555555556,
+              "logit": 1.3140761533080914,
+              "se_boot": 0.09971235339022445,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.8541666666666667,
+              "lo": 0.5588541666666668,
+              "hi": 1.0,
+              "logit": 1.767661917648995,
+              "se_boot": 0.1600131020860354,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8666666666666666,
+            "pass_at_k": 0.9983539094650205,
+            "pass_pow_k": 0.6526748971193417,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9333333333333333,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.566666666666667,
+          "capability_scalar_unweighted": 0.9105902777777779,
+          "grounding": {
+            "synthetic": 0.7916666666666669,
+            "real": 0.911111111111111,
+            "real_diagnostic": 0.9333333333333332,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.7166666666666667,
+              "lo": 0.4333333333333333,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.16706630792090527,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.7166666666666667,
+              "lo": 0.4333333333333333,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.15782842332362662,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6314814814814814,
+              "lo": 0.4220486111111111,
+              "hi": 0.8240740740740741,
+              "logit": 0.5385776525590241,
+              "se_boot": 0.11027324384142075,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7083333333333334,
+              "lo": 0.2671875000000001,
+              "hi": 1.0,
+              "logit": 0.8873031950009029,
+              "se_boot": 0.22620295010692115,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6333333333333334,
+            "pass_at_k": 0.9707818930041153,
+            "pass_pow_k": 0.19300411522633737,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.8333333333333333,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.7473684210526317,
+          "mean_cost": 3.533333333333333,
+          "capability_scalar_unweighted": 0.6932870370370371,
+          "grounding": {
+            "synthetic": 0.611111111111111,
+            "real": 0.593121693121693,
+            "real_diagnostic": 0.6281746031746032,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.43333333333333335,
+              "lo": 0.15,
+              "hi": 0.8583333333333334,
+              "logit": -0.26826398659467926,
+              "se_boot": 0.17774912527338932,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.29166666666666663,
+              "lo": 0.15,
+              "hi": 0.575,
+              "logit": -0.8873031950009029,
+              "se_boot": 0.1301654661429613,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.40810185185185177,
+              "lo": 0.22210648148148143,
+              "hi": 0.6333333333333333,
+              "logit": -0.3718177928933167,
+              "se_boot": 0.1122788500822922,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.2708333333333333,
+              "lo": 0.12499999999999999,
+              "hi": 0.5661458333333341,
+              "logit": -0.9903987040278771,
+              "se_boot": 0.15683409113887092,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.2666666666666667,
+            "pass_at_k": 0.6205761316872427,
+            "pass_pow_k": 0.01563786008230452,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6777777777777778,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.7142857142857143,
+          "mean_cost": 4.366666666666666,
+          "capability_scalar_unweighted": 0.3509837962962962,
+          "grounding": {
+            "synthetic": 0.3680555555555555,
+            "real": 0.5560846560846561,
+            "real_diagnostic": 0.6003968253968254,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.036,
+          "deepseek-ref(mock)": 0.964,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.036,
+          "('seed', 'kimi-ref(mock)')": 0.4071,
+          "('seed', 'glm-ref(mock)')": 0.0449,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [
+          [
+            "seed",
+            "kimi-ref(mock)"
+          ]
+        ],
+        "mean_kendall_tau": 0.8373333333333741,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.4333333333333333,
+              "lo": 0.15,
+              "hi": 0.7166666666666667,
+              "logit": -0.2682639865946794,
+              "se_boot": 0.15551913657986297,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.2958333333333333,
+              "lo": 0.06592013888888887,
+              "hi": 0.58765625,
+              "logit": -0.8672188378817584,
+              "se_boot": 0.1475298108336248,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6,
+            "pass_at_k": 0.7604938271604937,
+            "pass_pow_k": 0.5012345679012346,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6222222222222221,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.4,
+          "capability_scalar_unweighted": 0.6822916666666666,
+          "grounding": {
+            "synthetic": 0.10416666666666667,
+            "real": 0.48888888888888893,
+            "real_diagnostic": 0.3666666666666667,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.7798611111111111,
+              "lo": 0.5403819444444444,
+              "hi": 0.9513888888888888,
+              "logit": 1.2648571808611626,
+              "se_boot": 0.11454475937137884,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.8541666666666667,
+              "lo": 0.5588541666666668,
+              "hi": 1.0,
+              "logit": 1.767661917648995,
+              "se_boot": 0.1600131020860354,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8666666666666666,
+            "pass_at_k": 0.9983539094650205,
+            "pass_pow_k": 0.6526748971193417,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9333333333333333,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.566666666666667,
+          "capability_scalar_unweighted": 0.9085069444444445,
+          "grounding": {
+            "synthetic": 0.7916666666666669,
+            "real": 0.911111111111111,
+            "real_diagnostic": 0.9333333333333332,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.7166666666666667,
+              "lo": 0.4333333333333333,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.16706630792090527,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.7166666666666667,
+              "lo": 0.4333333333333333,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.15782842332362662,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6038359788359787,
+              "lo": 0.40413194444444434,
+              "hi": 0.7978984788359788,
+              "logit": 0.4214742824795186,
+              "se_boot": 0.10282878856385486,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7083333333333334,
+              "lo": 0.2671875000000001,
+              "hi": 1.0,
+              "logit": 0.8873031950009029,
+              "se_boot": 0.22620295010692115,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6333333333333334,
+            "pass_at_k": 0.9707818930041153,
+            "pass_pow_k": 0.19300411522633737,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.8333333333333333,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.7473684210526317,
+          "mean_cost": 3.533333333333333,
+          "capability_scalar_unweighted": 0.6863756613756614,
+          "grounding": {
+            "synthetic": 0.611111111111111,
+            "real": 0.593121693121693,
+            "real_diagnostic": 0.6281746031746032,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.43333333333333335,
+              "lo": 0.15,
+              "hi": 0.8583333333333334,
+              "logit": -0.26826398659467926,
+              "se_boot": 0.17774912527338932,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.29166666666666663,
+              "lo": 0.15,
+              "hi": 0.575,
+              "logit": -0.8873031950009029,
+              "se_boot": 0.1301654661429613,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.44295634920634913,
+              "lo": 0.22607060185185182,
+              "hi": 0.6762003968253968,
+              "logit": -0.22917237386194456,
+              "se_boot": 0.11589521043866756,
+              "n_templates": 4,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.2708333333333333,
+              "lo": 0.12499999999999999,
+              "hi": 0.5661458333333341,
+              "logit": -0.9903987040278771,
+              "se_boot": 0.15683409113887092,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.2666666666666667,
+            "pass_at_k": 0.6205761316872427,
+            "pass_pow_k": 0.01563786008230452,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6777777777777778,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.7142857142857143,
+          "mean_cost": 4.366666666666666,
+          "capability_scalar_unweighted": 0.3596974206349206,
+          "grounding": {
+            "synthetic": 0.3680555555555555,
+            "real": 0.5560846560846561,
+            "real_diagnostic": 0.6003968253968254,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0354,
+          "deepseek-ref(mock)": 0.9646,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0354,
+          "('seed', 'kimi-ref(mock)')": 0.4299,
+          "('seed', 'glm-ref(mock)')": 0.0367,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [
+          [
+            "seed",
+            "kimi-ref(mock)"
+          ]
+        ],
+        "mean_kendall_tau": 0.8326666666667109,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "seed": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-evolving",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 61,
+      "n_parsed_ok": 50,
+      "n_empty": 6,
+      "n_errors": 5,
+      "parse_rate": 0.819672131147541,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 208.6,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 213.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 213.6,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 242.6,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 244.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 3,
+          "latency_s": 298.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}, {\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 142.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 16.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 184.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 1,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 31.6,
+          "snippet": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 2,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 27.2,
+          "snippet": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 216.1,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 59.2,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S3\", \"S6\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 279.5,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 1,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 32.4,
+          "snippet": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 2,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 30.0,
+          "snippet": ""
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 160.5,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.3,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-412\", \"timeout\": 45, \"replicas\": 3, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": fal"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 176.0,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.0,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-412\", \"timeout\": 45, \"replicas\": 3, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": fal"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 3,
+          "latency_s": 251.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}, {\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-412\", \"timeout\": 45, \"replicas\": 3, \"tls\": true}}}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 164.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.7,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-872\", \"timeout\": 45, \"replicas\": 3, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": fal"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 96.1,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.6,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-872\", \"timeout\": 45, \"replicas\": 3, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": fal"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 241.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 1,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 322.9,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 155.3,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.1,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-872\", \"timeout\": 45, \"replicas\": 3, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": fal"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 559.4,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 1,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 27.2,
+          "snippet": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 2,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 34.0,
+          "snippet": ""
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 96.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"TOTAL\": 407.04, \"Invoice_ID\": \"INV-72042\", \"TOTAL_bounding_box\": [45, 835, 640, 915], \"minimal_counterfactual_pair\": [\"407.04\", \"507.04\"],"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 14.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [45, 835, 640, 915], \"g_minimal"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 139.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total_amount\": 407.04, \"g_total\": 407.04, \"g_invoice_id\": \"INV-72042\", \"g_total_box\": [0.49, 0.84, 0.64, 0.93], \"g_minimal_pair\": {\"origin"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 15.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": \"INV-72042\", \"g_total_box\": [0.49, 0.84, 0.64, 0.93], \"g_mini"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 260.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [3], \"g_bar_box\": [547, 270, 667, 891], \"g_mini"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 404.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total_amount\": 407.04, \"invoice_id\": \"INV-72042\", \"vendor\": \"GLOBEX SYSTEMS\", \"transaction_date\": \"2024-07-10\", \"subtotal\": 376.89, \"tax_8"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.5, 0.84, 0.64, 0.92], \"g_min"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 636.4,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 422.4,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 56.3,
+          "snippet": "{   \"actions\": [{\"tool\": \"read_table\", \"args\": {}}],   \"grounding_answers\": {},   \"confidences\": {},   \"abstain\": {},   \"done\": false }"
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 1,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 341.0,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 660.0,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 128.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_table\", \"args\": {}}, {\"tool\": \"read_doc\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 184.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 407.04}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 129.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 174.7}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 387.9,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"submit_finding\",       \"args\": {         \"finding\": {           \"g_table_teds\": \"<table><caption>Financial Summary (M USD)</caption><thead><tr><th>Metric</th><th>"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 317.7,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"submit_finding\",       \"args\": {         \"finding\": {           \"cell\": 174.7         }       }     }   ],   \"grounding_answers\": {     \"g_table_teds\": \"<table><c"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 65.9,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"submit_finding\",       \"args\": {         \"finding\": {           \"cell\": 407.04         }       }     }   ],   \"grounding_answers\": {     \"g_table_teds\": \"<table><"
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 109.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_table\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 397.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 174.7}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 615.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 174.7}}}], \"grounding_answers\": {\"g_headers\": [0, 1, 2, 3], \"g_cell_value\": 174.7, \"g_cell_box\": [0.75, 0.35, 0.98, 0.49], \"g_real_"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 239.9,
+          "snippet": "{   \"actions\": [     {\"tool\": \"read_table\", \"args\": {}},     {\"tool\": \"read_doc\", \"args\": {}}   ],   \"grounding_answers\": {},   \"confidences\": {     \"g_table_teds\": 0.0,     \"g_ocr_tokens\": 0.0,     \""
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 415.5,
+          "snippet": "{   \"actions\": [     {\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 174.7}}}   ],   \"grounding_answers\": {     \"g_table_teds\": 1.0,     \"g_cell_value\": 174.7,     \"g_real_untrusted\": \"RECEIPT"
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 694.2,
+          "snippet": "{   \"actions\": [     {\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 407.04}}}   ],   \"grounding_answers\": {     \"g_table_teds\": 1.0,     \"g_cell_value\": 407.04,     \"g_real_untrusted\": \"RECEI"
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 215.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 220.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 223.7,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 250.3,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 253.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 298.9,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 159.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 243.0,
+          "round_status": [
+            "ok",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 275.3,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 1,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 341.9,
+          "round_status": [
+            "ok",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 167.8,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 183.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 251.7,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 170.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 106.7,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 564.8,
+          "round_status": [
+            "ok",
+            "error"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 161.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 620.6,
+          "round_status": [
+            "ok",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 110.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 154.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 260.5,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 415.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 2,
+          "total_latency_s": 636.4,
+          "round_status": [
+            "error"
+          ]
+        },
+        {
+          "task_id": "ground_table_financials",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 1,
+          "total_latency_s": 422.4,
+          "round_status": [
+            "error"
+          ]
+        },
+        {
+          "task_id": "ground_table_financials",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 1,
+          "total_latency_s": 397.3,
+          "round_status": [
+            "ok",
+            "error"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 2,
+          "total_latency_s": 660.0,
+          "round_status": [
+            "error"
+          ]
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "run_index": 1,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 4,
+          "n_grounding": 0,
+          "images": 2,
+          "total_latency_s": 441.3,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 3,
+          "n_grounding": 4,
+          "images": 2,
+          "total_latency_s": 771.5,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_table_financials",
+          "run_index": 2,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 3,
+          "n_grounding": 4,
+          "images": 1,
+          "total_latency_s": 1122.7,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_structured_reading",
+          "run_index": 2,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 4,
+          "n_grounding": 3,
+          "images": 2,
+          "total_latency_s": 1349.6,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ]
+        }
+      ]
+    },
+    "deepseek-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "strong",
+      "model": null,
+      "mock_profile": "strong",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "kimi-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "medium",
+      "model": null,
+      "mock_profile": "medium",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "glm-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "weak",
+      "model": null,
+      "mock_profile": "weak",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    }
+  },
+  "meta": {
+    "timestamp": "20260626_030518",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.json",
+    "n_runs": 3,
+    "k": 5,
+    "difficulty": "all",
+    "n_tasks": 10,
+    "tag": "real_v5full",
+    "concurrency": 6,
+    "per_call_timeout": 300.0,
+    "wall_clock_s": 3000.0,
+    "max_calls": 200,
+    "run_meta": {
+      "jobs_total": 120,
+      "jobs_done": 120,
+      "jobs_skipped": 0,
+      "stopped_early": false,
+      "wall_clock_s": 2719.4,
+      "total_api_calls": 61
+    }
+  }
+}

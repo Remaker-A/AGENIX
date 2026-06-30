@@ -1,0 +1,89 @@
+{
+  "chart_id": "chart_bar",
+  "kind": "bar",
+  "title": "Cloud ARR by Quarter (M USD)",
+  "x_label": "Quarter",
+  "y_label": "M USD",
+  "categories": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4"
+  ],
+  "values": [
+    17.7,
+    18.7,
+    22.2,
+    20.3
+  ],
+  "unit": "M USD",
+  "argmax_category": "Q3",
+  "argmin_category": "Q1",
+  "max_value": 22.2,
+  "min_value": 17.7,
+  "bars_bbox": {
+    "Q1": [
+      102.5,
+      159.5,
+      75.2,
+      196.5
+    ],
+    "Q2": [
+      227.8,
+      148.4,
+      75.2,
+      207.6
+    ],
+    "Q3": [
+      353.1,
+      109.6,
+      75.2,
+      246.4
+    ],
+    "Q4": [
+      478.3,
+      130.7,
+      75.2,
+      225.3
+    ]
+  },
+  "plot_bbox": [
+    80.0,
+    48.0,
+    496.0,
+    308.0
+  ],
+  "tokens": [
+    {
+      "text": "Cloud ARR by Quarter (M USD)",
+      "bbox": [
+        200.2,
+        25.7,
+        255.5,
+        18.0
+      ]
+    },
+    {
+      "text": "Quarter",
+      "bbox": [
+        301.1,
+        385.3,
+        53.8,
+        14.0
+      ]
+    },
+    {
+      "text": "M USD",
+      "bbox": [
+        33.1,
+        179.0,
+        14.0,
+        46.0
+      ]
+    }
+  ],
+  "image_size": [
+    640,
+    400
+  ]
+}

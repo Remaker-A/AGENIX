@@ -1,0 +1,175 @@
+{
+  "task_id": "u2_trip_replan__medium__s1",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.4
+  },
+  "title": "动态重订路线 → 悉尼",
+  "instruction": "在以下硬约束下为前往 悉尼 重订路线并选定唯一可行最优方案：layover_rest, loyalty, budget。必须先查询每项约束再决策；存在一条更便宜但不可行的诱饵方案。  [干扰提示] 方案 RT-003 票价最低——但其过境点需要你不持有的签证。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "query_layover_rest",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "query_loyalty",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "query_budget",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "select_option",
+      "writes": [
+        "out.plan.selected"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.plan.selected",
+        "value_from": "option"
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "stock_ticker",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "timezone_lookup",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M_q1",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_layover_rest"
+      },
+      "epistemic_action": "query_layover_rest"
+    },
+    {
+      "id": "M_q2",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_loyalty"
+      },
+      "epistemic_action": "query_loyalty"
+    },
+    {
+      "id": "M_q3",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_budget"
+      },
+      "epistemic_action": "query_budget"
+    },
+    {
+      "id": "M_select",
+      "type": "required",
+      "weight": 3.0,
+      "predicate": {
+        "op": "eq",
+        "path": "out.plan.selected",
+        "value": "RT-034"
+      },
+      "deps": [
+        "M_q1",
+        "M_q2",
+        "M_q3"
+      ],
+      "provenance": [
+        "out.plan.selected"
+      ]
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "eq",
+      "path": "out.plan.selected",
+      "value": "RT-034"
+    }
+  ],
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "query_layover_rest",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "query_loyalty",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "query_budget",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "select_option",
+      "args": {
+        "option": "RT-034"
+      }
+    }
+  ],
+  "c_star": 4.0,
+  "difficulty_knobs": {
+    "difficulty": "medium",
+    "seed": 1,
+    "template": "u2_trip_replan",
+    "canary": true,
+    "dynamic_inventory": true,
+    "noise_tools": [
+      "stock_ticker",
+      "timezone_lookup"
+    ],
+    "misleading": true,
+    "partial_observable": false
+  },
+  "canary": "AGENIX-CANARY-u2_trip_replan-medium-b9bef078-DO-NOT-TRAIN",
+  "env_events": [
+    {
+      "id": "inventory_shift",
+      "after_action_index": 1,
+      "effect": {
+        "type": "set",
+        "target": "market.cheapest",
+        "value": "RT-003"
+      }
+    }
+  ],
+  "gold_milestone_count": 4,
+  "gold_selected": "RT-034",
+  "trap_option": "RT-003"
+}

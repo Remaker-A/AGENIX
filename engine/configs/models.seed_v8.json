@@ -1,0 +1,35 @@
+{
+  "_README": "v8 真实 seed 横评配置：seed=doubao-seed-evolving 为【真跑】（api_key 走环境变量 ARK_API_KEY，本文件不含密钥）。max_rounds=5 给觅食/expert 多步任务留足回路；timeout=300s。deepseek/kimi/glm 无密钥→自动回退 mock 作为参考 bot（oracle-fed，非公平基线，仅供跨模型 GLMM/ρ/权重翻转统计成形）。",
+  "models": [
+    {
+      "id": "seed",
+      "provider": "seed",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "doubao-seed-evolving",
+      "api_key_env": "ARK_API_KEY",
+      "mock_profile": "strong",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "timeout": 300,
+      "send_seed": false,
+      "stream": true,
+      "max_retries": 1,
+      "max_rounds": 3
+    },
+    {
+      "id": "deepseek-ref(mock)",
+      "provider": "deepseek",
+      "mock_profile": "strong"
+    },
+    {
+      "id": "kimi-ref(mock)",
+      "provider": "kimi",
+      "mock_profile": "medium"
+    },
+    {
+      "id": "glm-ref(mock)",
+      "provider": "glm",
+      "mock_profile": "weak"
+    }
+  ]
+}

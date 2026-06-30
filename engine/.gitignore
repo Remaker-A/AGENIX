@@ -1,0 +1,7 @@
+# 用户本地横评配置（可能含 base_url/真实 api_key）——绝不提交
+configs/models.json
+
+# Python / pytest 缓存
+__pycache__/
+*.pyc
+.pytest_cache/

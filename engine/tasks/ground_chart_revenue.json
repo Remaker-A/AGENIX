@@ -1,0 +1,206 @@
+{
+  "task_id": "ground_chart_revenue",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {
+    "U3": 1.0,
+    "U2": 0.3
+  },
+  "title": "图表读数 grounding（柱状图：数值/极值/定位/反事实最小对 + 真实 OCR 轨）",
+  "instruction": "阅读柱状图，报告最高季度与其数值；并完成数值/定位/反事实最小对的 grounding。",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "assets": {
+    "chart": "assets/generated/chart_bar.png",
+    "chart_cf": "assets/generated/chart_bar_cf.png"
+  },
+  "tools": [
+    {
+      "name": "read_chart",
+      "writes": [],
+      "effect": null
+    },
+    {
+      "name": "submit_finding",
+      "writes": [
+        "out.finding"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.finding",
+        "value_from": "finding"
+      }
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M1",
+      "type": "required",
+      "weight": 1.0,
+      "epistemic_action": "read_chart",
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_chart"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "required",
+      "weight": 2.0,
+      "deps": [
+        "M1"
+      ],
+      "provenance": [
+        "out.finding"
+      ],
+      "predicate": {
+        "op": "eq",
+        "path": "out.finding.top",
+        "value": "Q3"
+      }
+    },
+    {
+      "id": "M3",
+      "type": "required",
+      "weight": 2.0,
+      "deps": [
+        "M2"
+      ],
+      "provenance": [
+        "out.finding"
+      ],
+      "predicate": {
+        "op": "approx",
+        "path": "out.finding.value",
+        "value": 22.2,
+        "tol": 0.05
+      }
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "eq",
+      "path": "out.finding.top",
+      "value": "Q3"
+    },
+    {
+      "op": "approx",
+      "path": "out.finding.value",
+      "value": 22.2,
+      "tol": 0.05
+    }
+  ],
+  "grounding": {
+    "items": [
+      {
+        "id": "g_bar_value",
+        "kind": "numeric",
+        "track": "synthetic",
+        "gold": 18.7,
+        "tol": 0.05,
+        "weight": 1.0,
+        "note": "图表数值容差 5%（Q2）"
+      },
+      {
+        "id": "g_top_quarter",
+        "kind": "closed_id",
+        "track": "synthetic",
+        "gold": [
+          "Q3"
+        ],
+        "weight": 1.0,
+        "note": "极值类别（闭式 ID 精确匹配）"
+      },
+      {
+        "id": "g_bar_box",
+        "kind": "iou",
+        "track": "synthetic",
+        "gold": [
+          227.8,
+          148.4,
+          75.2,
+          207.6
+        ],
+        "tol": 0.5,
+        "weight": 1.0,
+        "note": "该柱 bbox（IoU>=0.5）"
+      },
+      {
+        "id": "g_minimal_pair",
+        "kind": "minimal_pair",
+        "track": "synthetic",
+        "gold": {
+          "pair_id": "chart_topbar",
+          "image0": "assets/generated/chart_bar.png",
+          "image1": "assets/generated/chart_bar_cf.png",
+          "caption0": "The highest bar is Q3.",
+          "caption1": "The highest bar is Q4.",
+          "assignment": {
+            "i0": "c0",
+            "i1": "c1"
+          },
+          "change": {
+            "type": "bar_value",
+            "category": "Q3",
+            "from": 22.2,
+            "to": 19.8,
+            "argmax_before": "Q3",
+            "argmax_after": "Q4"
+          }
+        },
+        "weight": 1.0,
+        "note": "反事实最小对 group-score（极值翻转）"
+      },
+      {
+        "id": "g_real_title_ocr",
+        "kind": "cer",
+        "track": "real",
+        "gold": "Cloud ARR by Quarter (M USD)",
+        "weight": 1.0,
+        "calibration": {
+          "verifier": "ocr_extractor_hi",
+          "metric": "ocr_cer_acc",
+          "threshold": 0.95,
+          "samples": [
+            {
+              "gold": "Cloud ARR by Quarter (M USD)"
+            },
+            {
+              "gold": "Quarter"
+            },
+            {
+              "gold": "M USD"
+            }
+          ]
+        },
+        "note": "真实生态轨：标题 OCR；ML 抽取器须先过标定门(>=0.95)"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "read_chart",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "submit_finding",
+      "args": {
+        "finding": {
+          "top": "Q3",
+          "value": 22.2
+        }
+      }
+    }
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "modalities": 2,
+    "evidence_conflict": false
+  },
+  "canary": "AGENIX-CANARY-ground-chart-a1b2-DO-NOT-TRAIN"
+}

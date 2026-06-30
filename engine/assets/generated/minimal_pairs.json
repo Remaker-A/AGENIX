@@ -1,0 +1,38 @@
+{
+  "chart": {
+    "pair_id": "chart_topbar",
+    "image0": "assets/generated/chart_bar.png",
+    "image1": "assets/generated/chart_bar_cf.png",
+    "caption0": "The highest bar is Q3.",
+    "caption1": "The highest bar is Q4.",
+    "assignment": {
+      "i0": "c0",
+      "i1": "c1"
+    },
+    "change": {
+      "type": "bar_value",
+      "category": "Q3",
+      "from": 22.2,
+      "to": 19.8,
+      "argmax_before": "Q3",
+      "argmax_after": "Q4"
+    }
+  },
+  "doc": {
+    "pair_id": "doc_total",
+    "image0": "assets/generated/doc_receipt.png",
+    "image1": "assets/generated/doc_receipt_cf.png",
+    "caption0": "The total amount is 407.04.",
+    "caption1": "The total amount is 507.04.",
+    "assignment": {
+      "i0": "c0",
+      "i1": "c1"
+    },
+    "change": {
+      "type": "field_text",
+      "field": "total",
+      "from": "407.04",
+      "to": "507.04"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "task_id": "u3_chart_discrepancy",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {"U3": 1.0, "U2": 0.4},
+  "title": "跨模态财报差异核查（合成-符号 GT + 真实生态层）",
+  "instruction": "从柱状图与 PDF 表格读出 Q3 净利润，判定冲突来源并给出差额与更正值。",
+  "modalities": ["image", "pdf", "text"],
+  "tools": [
+    {"name": "read_chart", "writes": [], "effect": null},
+    {"name": "read_pdf", "writes": [], "effect": null},
+    {"name": "submit_finding", "writes": ["out.finding"],
+     "effect": {"type": "set", "target": "out.finding", "value_from": "finding"}}
+  ],
+  "initial_state": {},
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_chart",
+     "predicate": {"op": "tool_called", "value": "read_chart"}},
+    {"id": "M2", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_pdf",
+     "predicate": {"op": "tool_called", "value": "read_pdf"}},
+    {"id": "M3", "type": "required", "weight": 2.0, "deps": ["M1", "M2"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "set_eq", "path": "out.finding.conflict",
+                   "value": ["chart", "pdf"]}},
+    {"id": "M4", "type": "required", "weight": 2.0, "deps": ["M3"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "approx", "path": "out.finding.delta",
+                   "value": 1.5, "tol": 0.01}}
+  ],
+  "success_predicates": [
+    {"op": "set_eq", "path": "out.finding.conflict", "value": ["chart", "pdf"]},
+    {"op": "approx", "path": "out.finding.delta", "value": 1.5, "tol": 0.01}
+  ],
+  "grounding": {
+    "items": [
+      {"id": "g_chart_q3", "kind": "numeric", "track": "synthetic", "gold": 12.5, "tol": 0.005, "weight": 1.0},
+      {"id": "g_pdf_q3", "kind": "numeric", "track": "synthetic", "gold": 14.0, "tol": 0.005, "weight": 1.0},
+      {"id": "g_chart_box", "kind": "iou", "track": "synthetic", "gold": [10, 20, 40, 15], "tol": 0.5, "weight": 1.0},
+      {"id": "g_minimal_pair", "kind": "minimal_pair", "track": "synthetic", "gold": {}, "weight": 1.0},
+      {"id": "g_real_ocr", "kind": "cer", "track": "real", "gold": "Q3 Net 14.0M", "weight": 1.0}
+    ]
+  },
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "read_chart", "args": {}},
+    {"action_id": "a1", "tool": "read_pdf", "args": {}},
+    {"action_id": "a2", "tool": "submit_finding",
+     "args": {"finding": {"conflict": ["chart", "pdf"], "delta": 1.5, "corrected": 14.0}}}
+  ],
+  "c_star": 3,
+  "canary": "AGENIX-CANARY-u3-2c5e-DO-NOT-TRAIN"
+}

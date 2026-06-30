@@ -1,0 +1,1313 @@
+{
+  "models": [
+    "seed",
+    "deepseek-ref(mock)",
+    "kimi-ref(mock)",
+    "glm-ref(mock)"
+  ],
+  "k": 5,
+  "grounding": {
+    "rho": 0.2581988897471611,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_and_real_coheadline",
+    "n_pairs": 4,
+    "real_trusted_models": [
+      "seed",
+      "deepseek-ref(mock)",
+      "kimi-ref(mock)",
+      "glm-ref(mock)"
+    ],
+    "per_model": {
+      "seed": {
+        "synthetic": 0.3333333333333333,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.975,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "deepseek-ref(mock)": {
+        "synthetic": 1.0,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "kimi-ref(mock)": {
+        "synthetic": 0.7916666666666666,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "glm-ref(mock)": {
+        "synthetic": 0.5,
+        "real": 0.6349206349206349,
+        "real_diagnostic": 0.6349206349206349,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      }
+    }
+  },
+  "grounding_rho": 0.2581988897471611,
+  "grounding_headline_rule": "synthetic_and_real_coheadline",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U1": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U3": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": null,
+  "pareto_frontier": [
+    "seed",
+    "deepseek-ref(mock)"
+  ],
+  "pareto_points": [
+    [
+      "seed",
+      0.7638888888888888,
+      1.8888888888888888
+    ],
+    [
+      "deepseek-ref(mock)",
+      0.9486111111111111,
+      2.2222222222222223
+    ],
+    [
+      "kimi-ref(mock)",
+      0.5277777777777778,
+      2.4444444444444446
+    ],
+    [
+      "glm-ref(mock)",
+      0.47916666666666663,
+      3.111111111111111
+    ]
+  ],
+  "dimension_stats": {
+    "U1": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 3,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 3,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.0,
+          "hi": 1.0,
+          "ci_width": 1.0,
+          "n_obs": 3,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.0,
+          "hi": 1.0,
+          "ci_width": 1.0,
+          "n_obs": 3,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 14.508656738494963,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.04,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.24,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 14.508656738494963,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.04,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.24,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 14.508656738494963,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.04,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.24,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 14.508656738494963,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.04,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.24,
+          "significant": false
+        },
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": -0.6666666666666666,
+          "hi": 0.6666666666666666,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.16666666666666666,
+        "icc_template": 0.0,
+        "icc_instance": 0.0,
+        "n_runs": 12.0,
+        "n_templates": 4.0,
+        "n_instances": 4.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 3.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 3.0,
+        "deff": 1.0,
+        "n_obs": 12,
+        "n_eff": 12.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 18.413833049903353,
+        "deff": 1.0,
+        "n_cluster_per_arm": 18.413833049903353,
+        "n_templates_per_arm": 6.137944349967785
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": -0.6931471805599454,
+            "marginal": 0.3333333333333333
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -0.6931471805599454,
+            "marginal": 0.3333333333333333
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.14814814814814814,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.16666666666666669,
+          "icc_template": 0.4705882352941176,
+          "icc_instance": 0.0,
+          "n_runs": 12.0,
+          "n_templates": 4.0,
+          "n_instances": 4.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 3.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U3": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.5,
+          "hi": 1.0,
+          "ci_width": 0.5,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.0,
+          "hi": 1.0,
+          "ci_width": 1.0,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.0,
+          "hi": 1.0,
+          "ci_width": 1.0,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.16666666666666674,
+          "delta_logit": 12.206071645500918,
+          "lo": 0.0,
+          "hi": 0.5041666666666677,
+          "p": 0.88,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.58,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.58,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333326,
+          "delta_logit": 1.6094379124340998,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.6,
+          "cliffs_delta": 0.25,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333326,
+          "delta_logit": 1.6094379124340998,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.6,
+          "cliffs_delta": 0.25,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.2638888888888889,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.041666666666666664,
+        "icc_template": 0.8636363636363635,
+        "icc_instance": 0.0,
+        "n_runs": 24.0,
+        "n_templates": 8.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 3.0
+      },
+      "design_effect": {
+        "rho": 0.8636363636363635,
+        "avg_cluster_size": 3.0,
+        "deff": 2.727272727272727,
+        "n_obs": 24,
+        "n_eff": 8.8
+      },
+      "sample_size": {
+        "n_iid_per_arm": 33.68037193045739,
+        "deff": 2.727272727272727,
+        "n_cluster_per_arm": 91.85555981033833,
+        "n_templates_per_arm": 30.618519936779446
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.6094379124340998,
+            "marginal": 0.8333333333333333
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.0,
+            "marginal": 0.5
+          },
+          "glm-ref(mock)": {
+            "theta_logit": 0.0,
+            "marginal": 0.5
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.2043650793650794,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.04166666666666667,
+          "icc_template": 0.8306451612903226,
+          "icc_instance": 0.0,
+          "n_runs": 24.0,
+          "n_templates": 8.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 3.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    }
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U1",
+        "U3"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.5277777777777777,
+              "lo": 0.49999999999999983,
+              "hi": 0.5694444444444444,
+              "logit": 0.111225635110224,
+              "se_boot": 0.022534856781152017,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.3333333333333333,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.8888888888888888,
+          "capability_scalar_unweighted": 0.7638888888888888,
+          "grounding": {
+            "synthetic": 0.3333333333333333,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.975,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.8972222222222221,
+              "lo": 0.6916666666666667,
+              "hi": 1.0,
+              "logit": 2.166734410578431,
+              "se_boot": 0.09443376955469743,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8888888888888888,
+            "pass_at_k": 0.9986282578875172,
+            "pass_pow_k": 0.7105624142661179,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9259259259259259,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.2222222222222223,
+          "capability_scalar_unweighted": 0.9486111111111111,
+          "grounding": {
+            "synthetic": 1.0,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.4333333333333333,
+              "lo": 0.15,
+              "hi": 1.0,
+              "logit": -0.2682639865946794,
+              "se_boot": 0.2387324614773563,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.6222222222222222,
+              "lo": 0.2579861111111111,
+              "hi": 0.9861111111111112,
+              "logit": 0.4989911661189879,
+              "se_boot": 0.24216297381611004,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.4444444444444444,
+            "pass_at_k": 0.6227709190672154,
+            "pass_pow_k": 0.33470507544581624,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7037037037037036,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.9,
+          "mean_cost": 2.4444444444444446,
+          "capability_scalar_unweighted": 0.5277777777777778,
+          "grounding": {
+            "synthetic": 0.7916666666666666,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.4333333333333333,
+              "lo": 0.15,
+              "hi": 1.0,
+              "logit": -0.2682639865946794,
+              "se_boot": 0.2387324614773563,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.5249999999999999,
+              "lo": 0.13263888888888886,
+              "hi": 0.9027777777777777,
+              "logit": 0.10008345855698222,
+              "se_boot": 0.25112127572901305,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.4444444444444444,
+            "pass_at_k": 0.6227709190672154,
+            "pass_pow_k": 0.33470507544581624,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7037037037037036,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.8571428571428572,
+          "mean_cost": 3.111111111111111,
+          "capability_scalar_unweighted": 0.47916666666666663,
+          "grounding": {
+            "synthetic": 0.5,
+            "real": 0.6349206349206349,
+            "real_diagnostic": 0.6349206349206349,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0,
+          "deepseek-ref(mock)": 1.0,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0,
+          "('seed', 'kimi-ref(mock)')": 0.2381,
+          "('seed', 'glm-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 0.9206333333333432,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U1",
+        "U3"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.7499999999999999,
+              "lo": 0.7499999999999999,
+              "hi": 0.7499999999999999,
+              "logit": 1.0986122886681091,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.3333333333333333,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.8888888888888888,
+          "capability_scalar_unweighted": 0.875,
+          "grounding": {
+            "synthetic": 0.3333333333333333,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.975,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.8972222222222221,
+              "lo": 0.6916666666666667,
+              "hi": 1.0,
+              "logit": 2.166734410578431,
+              "se_boot": 0.09443376955469743,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8888888888888888,
+            "pass_at_k": 0.9986282578875172,
+            "pass_pow_k": 0.7105624142661179,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9259259259259259,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.2222222222222223,
+          "capability_scalar_unweighted": 0.9486111111111111,
+          "grounding": {
+            "synthetic": 1.0,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.4333333333333333,
+              "lo": 0.15,
+              "hi": 1.0,
+              "logit": -0.2682639865946794,
+              "se_boot": 0.2387324614773563,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.6916666666666667,
+              "lo": 0.3833333333333333,
+              "hi": 1.0,
+              "logit": 0.8079226951523734,
+              "se_boot": 0.21177218366675554,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.4444444444444444,
+            "pass_at_k": 0.6227709190672154,
+            "pass_pow_k": 0.33470507544581624,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7037037037037036,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.9,
+          "mean_cost": 2.4444444444444446,
+          "capability_scalar_unweighted": 0.5625,
+          "grounding": {
+            "synthetic": 0.7916666666666666,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.4333333333333333,
+              "lo": 0.15,
+              "hi": 1.0,
+              "logit": -0.2682639865946794,
+              "se_boot": 0.2387324614773563,
+              "n_templates": 1,
+              "single_cluster": true
+            },
+            "U3": {
+              "point": 0.5699735449735449,
+              "lo": 0.12410714285714286,
+              "hi": 0.9814814814814814,
+              "logit": 0.28174321731193247,
+              "se_boot": 0.27013871060030753,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.4444444444444444,
+            "pass_at_k": 0.6227709190672154,
+            "pass_pow_k": 0.33470507544581624,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7037037037037036,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.8571428571428572,
+          "mean_cost": 3.111111111111111,
+          "capability_scalar_unweighted": 0.5016534391534391,
+          "grounding": {
+            "synthetic": 0.5,
+            "real": 0.6349206349206349,
+            "real_diagnostic": 0.6349206349206349,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0,
+          "deepseek-ref(mock)": 1.0,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0,
+          "('seed', 'kimi-ref(mock)')": 0.0,
+          "('seed', 'glm-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "seed": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-evolving",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 14,
+      "n_parsed_ok": 14,
+      "n_empty": 0,
+      "n_errors": 0,
+      "parse_rate": 1.0,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 166.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [\"Q3\"], \"g_bar_box\": [547, 270, 667, 890], \"g_m"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 187.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [\"Q3\"], \"g_bar_box\": [0.60, 0.27, 0.73, 0.89], "
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 189.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"TOTAL\": 407.04, \"invoice_id\": \"INV-72042\", \"total_bbox\": [0.26, 0.70, 0.34, 0.76], \"minimal_pair\": \"The authentic receipt has TOTAL=407.04"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 13.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.49, 0.83, 0.64, 0.91], \"g_mi"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 225.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04, \"vendor\": \"GLOBEX SYSTEMS\", \"invoice_id\": \"INV-72042\", \"date\": \"2024-07-10\", \"subtotal\": 376.89, \"tax\": 30.15}}}], \"ground"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 137.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.8,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 337.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"TOTAL\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.5, 0.83, 0.6, 0.92], \"g_mini"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 11.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.48, 0.82, 0.64, 0.93], \"g_mi"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 208.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 410.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [\"Q3\"], \"g_bar_box\": [0.57, 0.28, 0.70, 0.94], "
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 281.3,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 166.9,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 187.9,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 203.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 225.7,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 145.5,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 348.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 218.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 410.0,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 289.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        }
+      ]
+    },
+    "deepseek-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "strong",
+      "model": null,
+      "mock_profile": "strong",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "kimi-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "medium",
+      "model": null,
+      "mock_profile": "medium",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "glm-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "weak",
+      "model": null,
+      "mock_profile": "weak",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    }
+  },
+  "meta": {
+    "timestamp": "20260626_012401",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.json",
+    "n_runs": 3,
+    "k": 5,
+    "difficulty": "all",
+    "n_tasks": 3,
+    "tag": "real_v4",
+    "concurrency": 6,
+    "per_call_timeout": 300.0,
+    "wall_clock_s": 1800.0,
+    "max_calls": 40,
+    "run_meta": {
+      "jobs_total": 36,
+      "jobs_done": 36,
+      "jobs_skipped": 0,
+      "stopped_early": false,
+      "wall_clock_s": 492.8,
+      "total_api_calls": 14
+    }
+  }
+}

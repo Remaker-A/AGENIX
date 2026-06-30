@@ -1,0 +1,56 @@
+{
+  "task_id": "u3_document__pilot__s0",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {"U3": 1.0},
+  "title": "U3 pilot document layout grounding fixture",
+  "instruction": "Read the receipt scan and submit the total amount.",
+  "modalities": ["image", "document", "text"],
+  "assets": {"real_manifest_id": "real_document_receipt_scan_sample"},
+  "tools": [
+    {"name": "read_document", "writes": [], "effect": null},
+    {"name": "submit_finding", "writes": ["out.finding"],
+     "effect": {"type": "set", "target": "out.finding", "value_from": "finding"}}
+  ],
+  "initial_state": {},
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_document",
+     "predicate": {"op": "tool_called", "value": "read_document"}},
+    {"id": "M2", "type": "required", "weight": 2.0, "deps": ["M1"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "approx", "path": "out.finding.total", "value": 407.04, "tol": 0.005}}
+  ],
+  "success_predicates": [
+    {"op": "approx", "path": "out.finding.total", "value": 407.04, "tol": 0.005}
+  ],
+  "grounding": {
+    "items": [
+      {"id": "g_total", "kind": "numeric", "track": "synthetic",
+       "gold": 407.04, "tol": 0.005, "weight": 1.0, "media_type": "document"},
+      {"id": "g_layout", "kind": "doc_layout_f1", "track": "real",
+       "gold": [
+         {"label": "title", "bbox": [24.0, 23.0, 100.0, 18.0], "text": "RECEIPT"},
+         {"label": "field_label", "bbox": [23.0, 256.0, 65.0, 13.0], "text": "TOTAL:"},
+         {"label": "field_value", "bbox": [230.0, 256.0, 61.0, 13.0], "text": "407.04"}
+       ],
+       "tol": 0.5, "cer_tol": 0.3, "weight": 1.0,
+       "media_type": "document",
+       "asset_uri": "assets/real/samples/receipt_scan.png",
+       "annotation_source": "human"}
+    ]
+  },
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "read_document", "args": {}},
+    {"action_id": "a1", "tool": "submit_finding",
+     "args": {"finding": {"total": 407.04}}}
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "template": "u3_document",
+    "difficulty": "pilot",
+    "media_template": "document",
+    "real_trusted": false
+  },
+  "canary": "AGENIX-CANARY-u3-document-pilot-s0-DO-NOT-TRAIN"
+}

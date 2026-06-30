@@ -1,0 +1,237 @@
+{
+  "task_id": "u2_supplier_sourcing__medium__s100001",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.3
+  },
+  "title": "供应商寻源与合规入围（原材料）",
+  "instruction": "逐一核验 4 家供应商的资质/价格/交期，提交满足全部硬约束的入围集合。未核验即入围视为失败。  [干扰提示] 销售邮件声称某未达标供应商'可特批'，无据可依。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "check_sup_021",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_007",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_010",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_025",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "submit_shortlist",
+      "writes": [
+        "out.shortlist"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.shortlist",
+        "value_from": "ids",
+        "value": null
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "lorem_ipsum",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "emoji_suggest",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "env_events": [],
+  "fault_injection": [],
+  "milestones": [
+    {
+      "id": "M_chk1",
+      "weight": 1.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "check_sup_021",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "check_sup_021",
+      "is_recovery": false
+    },
+    {
+      "id": "M_chk2",
+      "weight": 1.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "check_sup_007",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "check_sup_007",
+      "is_recovery": false
+    },
+    {
+      "id": "M_chk3",
+      "weight": 1.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "check_sup_010",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "check_sup_010",
+      "is_recovery": false
+    },
+    {
+      "id": "M_chk4",
+      "weight": 1.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "check_sup_025",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "check_sup_025",
+      "is_recovery": false
+    },
+    {
+      "id": "M_shortlist",
+      "weight": 3.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [
+        "M_chk1",
+        "M_chk2",
+        "M_chk3",
+        "M_chk4"
+      ],
+      "gradable": false,
+      "predicate": {
+        "op": "set_eq",
+        "path": "out.shortlist",
+        "value": [
+          "SUP-007",
+          "SUP-025"
+        ],
+        "tol": 0.0
+      },
+      "provenance": [
+        "out.shortlist"
+      ],
+      "epistemic_action": null,
+      "is_recovery": false
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "set_eq",
+      "path": "out.shortlist",
+      "value": [
+        "SUP-007",
+        "SUP-025"
+      ],
+      "tol": 0.0
+    }
+  ],
+  "critical_violations": [],
+  "grounding": null,
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "check_sup_021",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "check_sup_007",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "check_sup_010",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "check_sup_025",
+      "args": {}
+    },
+    {
+      "action_id": "a4",
+      "tool": "submit_shortlist",
+      "args": {
+        "ids": [
+          "SUP-007",
+          "SUP-025"
+        ]
+      }
+    }
+  ],
+  "c_star": 5.0,
+  "budget_max_actions": 200,
+  "difficulty_knobs": {
+    "difficulty": "medium",
+    "seed": 100001,
+    "template": "u2_supplier_sourcing",
+    "canary": true,
+    "noise_tools": [
+      "lorem_ipsum",
+      "emoji_suggest"
+    ],
+    "misleading": true,
+    "partial_observable": false
+  },
+  "canary": "AGENIX-CANARY-u2_supplier_sourcing-medium-22250098-DO-NOT-TRAIN",
+  "gold_milestone_count": 5,
+  "gold_shortlist": [
+    "SUP-007",
+    "SUP-025"
+  ]
+}

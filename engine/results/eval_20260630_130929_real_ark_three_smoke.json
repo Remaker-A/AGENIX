@@ -1,0 +1,1086 @@
+{
+  "models": [
+    "doubao_seed_evolving",
+    "doubao_seed_2_1_pro",
+    "doubao_seed_2_1_turbo"
+  ],
+  "k": 5,
+  "u5_headline_version": "u5_v2_calibration_coverage_gated",
+  "u5_legacy_headline_version": "u5_v1_selective_partition",
+  "grounding": {
+    "rho": 1.0,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_only_real_audit",
+    "n_pairs": 3,
+    "real_trusted_models": [
+      "doubao_seed_evolving",
+      "doubao_seed_2_1_pro",
+      "doubao_seed_2_1_turbo"
+    ],
+    "per_model": {
+      "doubao_seed_evolving": {
+        "synthetic": 0.25,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "doubao_seed_2_1_pro": {
+        "synthetic": 0.0,
+        "real": 0.0,
+        "real_diagnostic": 0.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "doubao_seed_2_1_turbo": {
+        "synthetic": 0.25,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      }
+    },
+    "u3": {
+      "status": "pilot",
+      "pilot": true,
+      "template_count": 1,
+      "templates": [
+        "ground_chart_revenue"
+      ],
+      "per_template": [
+        {
+          "template": "ground_chart_revenue",
+          "task_count": 1,
+          "real_track_sample_count": 1
+        }
+      ],
+      "real_track_sample_count": 1,
+      "real_trusted": true,
+      "real_trusted_models": [
+        "doubao_seed_evolving",
+        "doubao_seed_2_1_pro",
+        "doubao_seed_2_1_turbo"
+      ],
+      "rho": 1.0,
+      "rho_gate": 0.8,
+      "rho_status": "met",
+      "headline_rule": "synthetic_only_real_audit",
+      "note": "U3 has <2 templates; report as pilot and do not claim per-dimension >=2 templates."
+    }
+  },
+  "grounding_rho": 1.0,
+  "grounding_headline_rule": "synthetic_only_real_audit",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U3": [
+        [
+          "doubao_seed_evolving",
+          "doubao_seed_2_1_turbo"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": {
+    "trusted": true,
+    "r_a": 0.8802696719752344,
+    "r_b": 0.9938894688087294,
+    "status": "trusted",
+    "use": "item_selection_only",
+    "enters_headline": false,
+    "note": "IRT 仅做 item 难度/区分度校准；trusted 后用于选题/抗饱和，绝不进 headline (CP3)"
+  },
+  "judge": {
+    "policy": "diagnostic",
+    "enters_headline": false,
+    "alpha_gate": 0.667,
+    "rubric": [
+      "states the binding constraint / decisive rule it relied on",
+      "cites the specific evidence (ids/values) used",
+      "makes no unsupported or hallucinated claim",
+      "final conclusion follows from the cited evidence"
+    ],
+    "n_judges": 3,
+    "families": [
+      "famA",
+      "famB",
+      "famC"
+    ],
+    "cross_family_ok": true,
+    "cross_family": {
+      "ok": true,
+      "families": [
+        "famA",
+        "famB",
+        "famC"
+      ],
+      "n_families": 3,
+      "tested_families": [],
+      "no_tested_family_overlap": null
+    },
+    "human_calibration": {
+      "passed": false,
+      "spearman_gate": 0.8,
+      "mae_gate": 0.2,
+      "report": {
+        "method": "identity"
+      }
+    },
+    "scope": "residual_subjective_rubric_only",
+    "excluded_scopes": [
+      "state_verification",
+      "numeric_calibration",
+      "grounding",
+      "safety"
+    ],
+    "backend": "deterministic_mock_panel",
+    "per_model": {
+      "doubao_seed_evolving": {
+        "score": 0.75,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "alpha_ok": true,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 1.0
+      },
+      "doubao_seed_2_1_pro": {
+        "score": 0.0,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "alpha_ok": true,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 0.0
+      },
+      "doubao_seed_2_1_turbo": {
+        "score": 0.75,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "alpha_ok": true,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 1.0
+      }
+    },
+    "judge_headline": null,
+    "note": "judge 仅评残余主观项（解释理由质量）作为有已知误差的测量仪器：列每模型 judge 分 + flip_rate + Krippendorff α 可信带。默认 policy=diagnostic；只有 policy=conditional_headline 且 α≥0.667、跨家族、judge→human 校准达标时，才写入独立 judge_headline。能力 headline 仍为 verifier-first，_task_component_value 不含 judge；judge 绝不评 state/数值/grounding/安全。"
+  },
+  "judge_policy": "diagnostic",
+  "judge_headline": null,
+  "pareto_frontier": [
+    "doubao_seed_evolving",
+    "doubao_seed_2_1_pro",
+    "doubao_seed_2_1_turbo"
+  ],
+  "pareto_points": [
+    [
+      "doubao_seed_evolving",
+      0.4999999999999999,
+      1.0
+    ],
+    [
+      "doubao_seed_2_1_pro",
+      0.0,
+      0.0
+    ],
+    [
+      "doubao_seed_2_1_turbo",
+      0.7499999999999999,
+      2.0
+    ]
+  ],
+  "dimension_stats": {
+    "U3": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "doubao_seed_evolving",
+        "doubao_seed_2_1_pro",
+        "doubao_seed_2_1_turbo"
+      ],
+      "per_model": {
+        "doubao_seed_evolving": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 1,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "doubao_seed_2_1_pro": {
+          "marginal": 0.0,
+          "logit": -13.815509557963773,
+          "lo": 0.0,
+          "hi": 0.0,
+          "ci_width": 0.0,
+          "n_obs": 1,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "doubao_seed_2_1_turbo": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 1,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 1.0,
+          "delta_logit": 27.63101911589879,
+          "lo": 1.0,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "doubao_seed_evolving",
+          "b": "doubao_seed_2_1_pro",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "doubao_seed_evolving",
+          "b": "doubao_seed_2_1_turbo",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": -1.0,
+          "delta_logit": -27.63101911589879,
+          "lo": -1.0,
+          "hi": -1.0,
+          "p": 0.0,
+          "cliffs_delta": -1.0,
+          "a": "doubao_seed_2_1_pro",
+          "b": "doubao_seed_2_1_turbo",
+          "p_adj": 0.0,
+          "significant": true
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.0,
+        "icc_template": 0.0,
+        "icc_instance": 0.0,
+        "n_runs": 3.0,
+        "n_templates": 3.0,
+        "n_instances": 3.0,
+        "avg_runs_per_instance": 1.0,
+        "avg_runs_per_template": 1.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 1.0,
+        "deff": 1.0,
+        "n_obs": 3,
+        "n_eff": 3.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 18.41383304990334,
+        "deff": 1.0,
+        "n_cluster_per_arm": 18.41383304990334,
+        "n_templates_per_arm": 18.41383304990334
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "doubao_seed_evolving": {
+            "theta_logit": 1.4696671033848812,
+            "marginal": 0.8130067821133626
+          },
+          "doubao_seed_2_1_pro": {
+            "theta_logit": 0.24636447246757415,
+            "marginal": 0.5612814723209631
+          },
+          "doubao_seed_2_1_turbo": {
+            "theta_logit": 1.469661090376899,
+            "marginal": 0.8130058679735547
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.13598089315493533,
+          "instance": -0.13598355299828285
+        },
+        "reference_model": "doubao_seed_2_1_pro",
+        "models": [
+          "doubao_seed_evolving",
+          "doubao_seed_2_1_pro",
+          "doubao_seed_2_1_turbo"
+        ]
+      }
+    }
+  },
+  "longitudinal_equating": {
+    "enabled": false,
+    "eval_version": null,
+    "prev_summary": null,
+    "reference_panel_config": null,
+    "method": "linear",
+    "min_panel": 3,
+    "raw_ranking_basis": "dim_vector",
+    "trend_basis": "equated_dim_vector",
+    "old_scale_source": "previous equated_dim_vector when present, else previous raw dim_vector",
+    "profiles": {},
+    "status": "disabled_no_prev_summary"
+  },
+  "diagnostic_baselines": null,
+  "headline_model_policy": {
+    "require_real": true,
+    "no_mock_fallback": false,
+    "ranking_basis": "raw_dim_vector",
+    "trend_basis": "equated_dim_vector_when_available",
+    "excluded_mock_model_ids": []
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U3"
+      ],
+      "per_model": {
+        "doubao_seed_evolving": {
+          "profile": "R",
+          "dim_vector": {
+            "U3": {
+              "point": 0.4999999999999999,
+              "lo": 0.4999999999999999,
+              "hi": 0.4999999999999999,
+              "logit": -4.440892098500627e-16,
+              "se_boot": 5.55806705462024e-17,
+              "n_templates": 1,
+              "single_cluster": true
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.0,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.0,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": null,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": null,
+            "rollback_correctness": null,
+            "post_recovery_stability": null,
+            "regression_free_window": null
+          },
+          "capability_scalar_unweighted": 0.4999999999999999,
+          "grounding": {
+            "synthetic": 0.25,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "doubao_seed_2_1_pro": {
+          "profile": "R",
+          "dim_vector": {
+            "U3": {
+              "point": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "logit": -13.815509557963773,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            }
+          },
+          "reliability": {
+            "per_run": 0.0,
+            "pass_at_k": 0.0,
+            "pass_pow_k": 0.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.0,
+          "asr": 0.0,
+          "efficiency_success_subset": null,
+          "mean_cost": 0.0,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": null,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": null,
+            "rollback_correctness": null,
+            "post_recovery_stability": null,
+            "regression_free_window": null
+          },
+          "capability_scalar_unweighted": 0.0,
+          "grounding": {
+            "synthetic": 0.0,
+            "real": 0.0,
+            "real_diagnostic": 0.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "doubao_seed_2_1_turbo": {
+          "profile": "R",
+          "dim_vector": {
+            "U3": {
+              "point": 0.7499999999999999,
+              "lo": 0.7499999999999999,
+              "hi": 0.7499999999999999,
+              "logit": 1.0986122886681091,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 1.0,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.0,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": null,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": null,
+            "rollback_correctness": null,
+            "post_recovery_stability": null,
+            "regression_free_window": null
+          },
+          "capability_scalar_unweighted": 0.7499999999999999,
+          "grounding": {
+            "synthetic": 0.25,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "doubao_seed_evolving": 0.0,
+          "doubao_seed_2_1_pro": 0.0,
+          "doubao_seed_2_1_turbo": 1.0
+        },
+        "flip_prob": {
+          "('doubao_seed_evolving', 'doubao_seed_2_1_pro')": 0.0,
+          "('doubao_seed_evolving', 'doubao_seed_2_1_turbo')": 0.0,
+          "('doubao_seed_2_1_pro', 'doubao_seed_2_1_turbo')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U3"
+      ],
+      "per_model": {
+        "doubao_seed_evolving": {
+          "profile": "D",
+          "dim_vector": {
+            "U3": {
+              "point": 0.7499999999999999,
+              "lo": 0.7499999999999999,
+              "hi": 0.7499999999999999,
+              "logit": 1.0986122886681091,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.0,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.0,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": null,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": null,
+            "rollback_correctness": null,
+            "post_recovery_stability": null,
+            "regression_free_window": null
+          },
+          "capability_scalar_unweighted": 0.7499999999999999,
+          "grounding": {
+            "synthetic": 0.25,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "doubao_seed_2_1_pro": {
+          "profile": "D",
+          "dim_vector": {
+            "U3": {
+              "point": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "logit": -13.815509557963773,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            }
+          },
+          "reliability": {
+            "per_run": 0.0,
+            "pass_at_k": 0.0,
+            "pass_pow_k": 0.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.0,
+          "asr": 0.0,
+          "efficiency_success_subset": null,
+          "mean_cost": 0.0,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": null,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": null,
+            "rollback_correctness": null,
+            "post_recovery_stability": null,
+            "regression_free_window": null
+          },
+          "capability_scalar_unweighted": 0.0,
+          "grounding": {
+            "synthetic": 0.0,
+            "real": 0.0,
+            "real_diagnostic": 0.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "doubao_seed_2_1_turbo": {
+          "profile": "D",
+          "dim_vector": {
+            "U3": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 1,
+              "single_cluster": true
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 1.0,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.0,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": null,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": null,
+            "rollback_correctness": null,
+            "post_recovery_stability": null,
+            "regression_free_window": null
+          },
+          "capability_scalar_unweighted": 1.0,
+          "grounding": {
+            "synthetic": 0.25,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "doubao_seed_evolving": 0.0,
+          "doubao_seed_2_1_pro": 0.0,
+          "doubao_seed_2_1_turbo": 1.0
+        },
+        "flip_prob": {
+          "('doubao_seed_evolving', 'doubao_seed_2_1_pro')": 0.0,
+          "('doubao_seed_evolving', 'doubao_seed_2_1_turbo')": 0.0,
+          "('doubao_seed_2_1_pro', 'doubao_seed_2_1_turbo')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "doubao_seed_evolving": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-evolving",
+      "endpoint_type": "chat_completions",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 1,
+      "n_parsed_ok": 1,
+      "n_empty": 0,
+      "n_errors": 0,
+      "parse_rate": 1.0,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 402.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [\"Q3\"], \"g_bar_box\": [546, 270, 668, 892], \"g_m",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [\"Q3\"], \"g_bar_box\": [546, 270, 668, 892], \"g_minimal_pair\": [\"Q3\", \"Q4\"], \"g_real_title_ocr\": \"Cloud ARR by Quarter (M USD)\"}, \"confidences\": {\"g_bar_value\": 0.99, \"g_top_quarter\": 0.99, \"g_bar_box\": 0.9, \"g_minimal_pair\": 0.85, \"g_real_title_ocr\": 0.99}, \"abstain\": {\"g_bar_value\": false, \"g_top_quarter\": false, \"g_bar_box\": false, \"g_minimal_pair\": false, \"g_real_title_ocr\": false}, \"done\": false}",
+          "rationale": ""
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 402.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        }
+      ]
+    },
+    "doubao_seed_2_1_pro": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-2-1-pro-260628",
+      "endpoint_type": "responses",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 2,
+      "n_parsed_ok": 0,
+      "n_empty": 1,
+      "n_errors": 1,
+      "parse_rate": 0.0,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 118.4,
+          "snippet": "",
+          "raw_response": "",
+          "rationale": ""
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 1,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 4.8,
+          "snippet": "HTTPError: HTTP Error 400: Bad Request"
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 2,
+          "total_latency_s": 123.2,
+          "round_status": [
+            "empty",
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        }
+      ]
+    },
+    "doubao_seed_2_1_turbo": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-2-1-turbo-260628",
+      "endpoint_type": "chat_completions",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 2,
+      "n_parsed_ok": 2,
+      "n_empty": 0,
+      "n_errors": 0,
+      "parse_rate": 1.0,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 75.1,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"read_chart\",       \"args\": {}     }   ],   \"grounding_answers\": {},   \"confidences\": {},   \"abstain\": {},   \"done\": false }",
+          "raw_response": "{\n  \"actions\": [\n    {\n      \"tool\": \"read_chart\",\n      \"args\": {}\n    }\n  ],\n  \"grounding_answers\": {},\n  \"confidences\": {},\n  \"abstain\": {},\n  \"done\": false\n}",
+          "rationale": ""
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 53.4,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"submit_finding\",       \"args\": {         \"finding\": {           \"top\": \"Q3\",           \"value\": 22.2         }       }     }   ],   \"grounding_answers\": {     \"g_",
+          "raw_response": "{\n  \"actions\": [\n    {\n      \"tool\": \"submit_finding\",\n      \"args\": {\n        \"finding\": {\n          \"top\": \"Q3\",\n          \"value\": 22.2\n        }\n      }\n    }\n  ],\n  \"grounding_answers\": {\n    \"g_bar_value\": 22.2,\n    \"g_top_quarter\": [\"Q3\"],\n    \"g_bar_box\": [550, 268, 670, 890],\n    \"g_minimal_pair\": [\"Q3\", \"Q4\"],\n    \"g_real_title_ocr\": \"Cloud ARR by Quarter (M USD)\"\n  },\n  \"confidences\": {\n    \"g_bar_value\": 0.9,\n    \"g_top_quarter\": 0.95,\n    \"g_bar_box\": 0.85,\n    \"g_minimal_pair\": 0.88,\n    \"g_real_title_ocr\": 0.98\n  },\n  \"abstain\": {\n    \"g_bar_value\": false,\n    \"g_top_quarter\": false,\n    \"g_bar_box\": false,\n    \"g_minimal_pair\": false,\n    \"g_real_title_ocr\": false\n  },\n  \"done\": true\n}",
+          "rationale": ""
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 128.5,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        }
+      ]
+    }
+  },
+  "contamination": {
+    "probe_profile": "medium",
+    "difficulty": "medium",
+    "n_pairs": 6,
+    "n_runs_probe": 3,
+    "n_boot": 600,
+    "templates": [
+      "u1_reconcile",
+      "u2_supplier_sourcing",
+      "u4_migration",
+      "u5_due_diligence"
+    ],
+    "per_template": [
+      {
+        "gap": -0.055555555555555636,
+        "delta": -0.05555555555555553,
+        "lo": -0.5555555555555555,
+        "hi": 0.3902777777777765,
+        "p": 0.98,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u1_reconcile",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.49999999999999994,
+        "acc_bridge_mean": 0.5555555555555556
+      },
+      {
+        "gap": 0.16666666666666663,
+        "delta": 0.16666666666666666,
+        "lo": 0.0,
+        "hi": 0.38888888888888884,
+        "p": 0.19,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u2_supplier_sourcing",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.5555555555555555,
+        "acc_bridge_mean": 0.38888888888888884
+      },
+      {
+        "gap": 0.0,
+        "delta": 1.850371707708594e-17,
+        "lo": -0.2222222222222222,
+        "hi": 0.3333333333333333,
+        "p": 0.9633333333333334,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u4_migration",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.6666666666666666,
+        "acc_bridge_mean": 0.6666666666666666
+      },
+      {
+        "gap": 0.05555555555555558,
+        "delta": 0.05555555555555556,
+        "lo": -0.11249999999999993,
+        "hi": 0.22222222222222224,
+        "p": 0.7733333333333333,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u5_due_diligence",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.7222222222222222,
+        "acc_bridge_mean": 0.6666666666666666
+      }
+    ],
+    "any_flag_retire": false,
+    "equating_demo": {
+      "method": "linear",
+      "slope": 1.0089066577910906,
+      "intercept": 0.0365948198689624,
+      "n_panel": 24,
+      "note": "common-person equating：同一探针面板在 原题 vs 新种子同构桥梁 两版分数拟合 旧↔新 量纲映射（§6.3，无需字面 anchor item）"
+    },
+    "note": "isomorph-gap（§6.5）：ContamGap=Acc_orig−Acc_isomorph + 配对 bootstrap 95%CI（复用 stats.paired_bootstrap_diff）；CI 排除 0 且为正(lo>0) → 原题显著比同构题更易 → 疑似训练污染 → flag_retire（该模板族打污染折扣并退役）。本块用**确定性离线探针**（mock stub，非真实 seed，0 API 调用）在 _bridge 同构集上证明该度量已 operationalized（非占位）。"
+  },
+  "meta": {
+    "timestamp": "20260630_130929",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.ark_three_20260630.json",
+    "run_id": "ark_three_smoke_20260630",
+    "partial_path": "D:\\文档\\Cursor\\model test\\engine\\results\\ark_three_smoke_20260630.partial.jsonl",
+    "progress_path": "D:\\文档\\Cursor\\model test\\engine\\results\\ark_three_smoke_20260630.progress.txt",
+    "resume": true,
+    "n_runs": 1,
+    "k": 5,
+    "difficulty": "all",
+    "n_tasks": 1,
+    "tag": "real_ark_three_smoke",
+    "concurrency": 1,
+    "per_call_timeout": 300.0,
+    "wall_clock_s": 1800.0,
+    "max_calls": null,
+    "run_meta": {
+      "jobs_total": 3,
+      "jobs_done": 3,
+      "jobs_new": 3,
+      "jobs_resumed": 0,
+      "jobs_skipped": 0,
+      "stopped_early": false,
+      "wall_clock_s": 654.7,
+      "total_api_calls": 5
+    },
+    "require_real": true,
+    "no_mock_fallback": false,
+    "eval_version": null,
+    "prev_summary": null,
+    "reference_panel_config": null,
+    "equate_method": "linear"
+  }
+}

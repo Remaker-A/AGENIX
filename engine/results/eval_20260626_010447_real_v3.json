@@ -1,0 +1,2416 @@
+{
+  "models": [
+    "seed",
+    "deepseek-ref(mock)",
+    "kimi-ref(mock)",
+    "glm-ref(mock)"
+  ],
+  "k": 5,
+  "grounding": {
+    "rho": 0.0,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_and_real_coheadline",
+    "n_pairs": 4,
+    "real_trusted_models": [
+      "seed",
+      "deepseek-ref(mock)",
+      "kimi-ref(mock)",
+      "glm-ref(mock)"
+    ],
+    "per_model": {
+      "seed": {
+        "synthetic": 0.25,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "deepseek-ref(mock)": {
+        "synthetic": 0.9166666666666666,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "kimi-ref(mock)": {
+        "synthetic": 0.7083333333333334,
+        "real": 0.7896825396825397,
+        "real_diagnostic": 0.7896825396825397,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "glm-ref(mock)": {
+        "synthetic": 0.3333333333333333,
+        "real": 0.7896825396825397,
+        "real_diagnostic": 0.7896825396825397,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 0.96,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      }
+    }
+  },
+  "grounding_rho": 0.0,
+  "grounding_headline_rule": "synthetic_and_real_coheadline",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [
+      [
+        "seed",
+        "deepseek-ref(mock)"
+      ]
+    ],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U1": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ]
+      ],
+      "U2": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U3": [
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U4": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": null,
+  "pareto_frontier": [
+    "seed",
+    "deepseek-ref(mock)"
+  ],
+  "pareto_points": [
+    [
+      "seed",
+      0.7552083333333334,
+      2.3703703703703702
+    ],
+    [
+      "deepseek-ref(mock)",
+      0.8493055555555556,
+      2.5185185185185186
+    ],
+    [
+      "kimi-ref(mock)",
+      0.6854166666666667,
+      3.888888888888889
+    ],
+    [
+      "glm-ref(mock)",
+      0.440625,
+      5.185185185185185
+    ]
+  ],
+  "dimension_stats": {
+    "U1": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.4958333333333334,
+          "hi": 1.0,
+          "ci_width": 0.5041666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3291666666666667,
+          "hi": 1.0,
+          "ci_width": 0.6708333333333333,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.0,
+          "logit": -13.815509557963773,
+          "lo": 0.0,
+          "hi": 0.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.16666666666666674,
+          "delta_logit": 12.206071645500918,
+          "lo": 0.0,
+          "hi": 0.5,
+          "p": 0.9,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.25,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.75,
+          "significant": false
+        },
+        {
+          "delta": 1.0,
+          "delta_logit": 27.63101911589879,
+          "lo": 1.0,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.9162907318741547,
+          "lo": -0.33333333333333337,
+          "hi": 0.5041666666666677,
+          "p": 0.7,
+          "cliffs_delta": 0.5,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.8333333333333333,
+          "delta_logit": 15.424947470397873,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.6666666666666666,
+          "delta_logit": 14.508656738523719,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 2.3129646346357427e-18,
+        "sigma2_residual": 0.125,
+        "icc_template": 0.0,
+        "icc_instance": 1.850371707708594e-17,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 15.785557843413091,
+        "deff": 1.0,
+        "n_cluster_per_arm": 15.785557843413091,
+        "n_templates_per_arm": 2.6309263072355153
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.6094379124340998,
+            "marginal": 0.8333333333333333
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -13.815509557963773,
+            "marginal": 0.0
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.1851851851851852,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.125,
+          "icc_template": 0.5970149253731343,
+          "icc_instance": 0.0,
+          "n_runs": 24.0,
+          "n_templates": 4.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 6.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U2": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.5,
+          "hi": 1.0,
+          "ci_width": 0.5,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.16666666666666666,
+          "hi": 1.0,
+          "ci_width": 0.8333333333333334,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.16666666666666666,
+          "hi": 0.8333333333333333,
+          "ci_width": 0.6666666666666666,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.16666666666666674,
+          "delta_logit": 12.206071645500918,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.89,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.62,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.1,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.6000000000000001,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.9162907318741547,
+          "lo": -0.5041666666666665,
+          "hi": 0.8333333333333334,
+          "p": 0.73,
+          "cliffs_delta": 0.25,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333326,
+          "delta_logit": 1.6094379124340998,
+          "lo": -0.33333333333333337,
+          "hi": 0.8333333333333334,
+          "p": 0.37,
+          "cliffs_delta": 0.75,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.6931471805599452,
+          "lo": -0.6666666666666666,
+          "hi": 0.8333333333333334,
+          "p": 0.83,
+          "cliffs_delta": 0.25,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.041666666666666664,
+        "sigma2_residual": 0.16666666666666666,
+        "icc_template": 0.0,
+        "icc_instance": 0.2,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 26.291827969252946,
+        "deff": 1.0,
+        "n_cluster_per_arm": 26.291827969252946,
+        "n_templates_per_arm": 4.381971328208825
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.6094379124340998,
+            "marginal": 0.8333333333333333
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "glm-ref(mock)": {
+            "theta_logit": 0.0,
+            "marginal": 0.5
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.004629629629629632,
+          "sigma2_instance": 0.027777777777777773,
+          "sigma2_residual": 0.16666666666666669,
+          "icc_template": 0.023255813953488386,
+          "icc_instance": 0.1395348837209302,
+          "n_runs": 24.0,
+          "n_templates": 4.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 6.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U3": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.0,
+          "logit": -13.815509557963773,
+          "lo": 0.0,
+          "hi": 0.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.1625000000000001,
+          "hi": 0.8333333333333333,
+          "ci_width": 0.6708333333333332,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.1625000000000001,
+          "hi": 0.8333333333333333,
+          "ci_width": 0.6708333333333332,
+          "n_obs": 6,
+          "n_templates": 2,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -1.0,
+          "delta_logit": -27.63101911589879,
+          "lo": -1.0,
+          "hi": -1.0,
+          "p": 0.0,
+          "cliffs_delta": -1.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": -0.5,
+          "delta_logit": -13.815509557963773,
+          "lo": -0.8374999999999998,
+          "hi": -0.16249999999999903,
+          "p": 0.05,
+          "cliffs_delta": -1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.25,
+          "significant": false
+        },
+        {
+          "delta": -0.5,
+          "delta_logit": -13.815509557963773,
+          "lo": -0.8374999999999998,
+          "hi": -0.16249999999999903,
+          "p": 0.05,
+          "cliffs_delta": -1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.25,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.16250000000000017,
+          "hi": 0.837500000000001,
+          "p": 0.05,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.25,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.16250000000000017,
+          "hi": 0.837500000000001,
+          "p": 0.05,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.25,
+          "significant": false
+        },
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": -0.5,
+          "hi": 0.33750000000000097,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.027777777777777773,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.16666666666666666,
+        "icc_template": 0.14285714285714285,
+        "icc_instance": 0.0,
+        "n_runs": 24.0,
+        "n_templates": 8.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 3.0
+      },
+      "design_effect": {
+        "rho": 0.14285714285714285,
+        "avg_cluster_size": 3.0,
+        "deff": 1.2857142857142856,
+        "n_obs": 24,
+        "n_eff": 18.666666666666668
+      },
+      "sample_size": {
+        "n_iid_per_arm": 10.51739913845532,
+        "deff": 1.2857142857142856,
+        "n_cluster_per_arm": 13.522370320871124,
+        "n_templates_per_arm": 4.507456773623708
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": -13.815509557963773,
+            "marginal": 0.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.0,
+            "marginal": 0.5
+          },
+          "glm-ref(mock)": {
+            "theta_logit": 0.0,
+            "marginal": 0.5
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.15873015873015875,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.16666666666666669,
+          "icc_template": 0.4878048780487804,
+          "icc_instance": 0.0,
+          "n_runs": 24.0,
+          "n_templates": 8.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 3.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U4": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.16666666666666666,
+          "hi": 0.8375000000000009,
+          "ci_width": 0.6708333333333343,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.2,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.2,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.06,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.36,
+          "significant": false
+        },
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": -0.49999999999999994,
+          "hi": 0.49999999999999994,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.6931471805599452,
+          "lo": -0.33333333333333326,
+          "hi": 0.6666666666666666,
+          "p": 0.67,
+          "cliffs_delta": 0.5,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.6931471805599452,
+          "lo": -0.33333333333333326,
+          "hi": 0.6666666666666666,
+          "p": 0.67,
+          "cliffs_delta": 0.5,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.25,
+        "icc_template": 0.0,
+        "icc_instance": 0.0,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 33.68037193045739,
+        "deff": 1.0,
+        "n_cluster_per_arm": 33.68037193045739,
+        "n_templates_per_arm": 5.613395321742899
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.6931471805599452,
+            "marginal": 0.6666666666666666
+          },
+          "glm-ref(mock)": {
+            "theta_logit": 0.0,
+            "marginal": 0.5
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.03703703703703704,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.25000000000000006,
+          "icc_template": 0.12903225806451613,
+          "icc_instance": 0.0,
+          "n_runs": 24.0,
+          "n_templates": 4.0,
+          "n_instances": 8.0,
+          "avg_runs_per_instance": 3.0,
+          "avg_runs_per_template": 6.0
+        },
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    }
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.9375,
+              "lo": 0.8109375000000001,
+              "hi": 1.0,
+              "logit": 2.70805020110221,
+              "se_boot": 0.06857704375115803,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.08333333333333331,
+              "lo": 0.013888888888888888,
+              "hi": 0.15277777777777776,
+              "logit": -2.3978952727983707,
+              "se_boot": 0.04118321803517167,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6666666666666666,
+            "pass_at_k": 0.6666666666666666,
+            "pass_pow_k": 0.6666666666666666,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6851851851851851,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.3703703703703702,
+          "capability_scalar_unweighted": 0.7552083333333334,
+          "grounding": {
+            "synthetic": 0.25,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.8583333333333334,
+              "lo": 0.5714583333333334,
+              "hi": 1.0,
+              "logit": 1.8015156441734201,
+              "se_boot": 0.15235311710633176,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8583333333333334,
+              "lo": 0.575,
+              "hi": 1.0,
+              "logit": 1.8015156441734201,
+              "se_boot": 0.1301654661429613,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.9722222222222221,
+              "lo": 0.9302083333333333,
+              "hi": 1.0,
+              "logit": 3.555348061489409,
+              "se_boot": 0.021543138105421095,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7083333333333334,
+              "lo": 0.4166666666666667,
+              "hi": 1.0,
+              "logit": 0.8873031950009029,
+              "se_boot": 0.1574614538103508,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8518518518518517,
+            "pass_at_k": 0.9981710105166894,
+            "pass_pow_k": 0.6140832190214905,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9382716049382717,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.5185185185185186,
+          "capability_scalar_unweighted": 0.8493055555555556,
+          "grounding": {
+            "synthetic": 0.9166666666666666,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.7166666666666667,
+              "lo": 0.4297916666666667,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.160301131467811,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.7166666666666667,
+              "lo": 0.29166666666666663,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.217936937173554,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6,
+              "lo": 0.31944444444444436,
+              "hi": 0.8194444444444444,
+              "logit": 0.4054651081081642,
+              "se_boot": 0.1399731546585401,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7083333333333334,
+              "lo": 0.4166666666666667,
+              "hi": 1.0,
+              "logit": 0.8873031950009029,
+              "se_boot": 0.1574614538103508,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6666666666666666,
+            "pass_at_k": 0.9684499314128944,
+            "pass_pow_k": 0.2962962962962962,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.845679012345679,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.65,
+          "mean_cost": 3.888888888888889,
+          "capability_scalar_unweighted": 0.6854166666666667,
+          "grounding": {
+            "synthetic": 0.7083333333333334,
+            "real": 0.7896825396825397,
+            "real_diagnostic": 0.7896825396825397,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.15,
+              "lo": 0.15,
+              "hi": 0.15,
+              "logit": -1.7346010553881064,
+              "se_boot": 2.7825225852156384e-17,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.575,
+              "lo": 0.29166666666666663,
+              "hi": 0.8583333333333334,
+              "logit": 0.3022808718729335,
+              "se_boot": 0.17428700870760117,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.475,
+              "lo": 0.22215277777777773,
+              "hi": 0.7083333333333333,
+              "logit": -0.10008345855698265,
+              "se_boot": 0.13997756945331966,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5625,
+              "lo": 0.2708333333333333,
+              "hi": 0.8578125000000009,
+              "logit": 0.25131442828090617,
+              "se_boot": 0.1975030114744008,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.4074074074074074,
+            "pass_at_k": 0.7320530406950159,
+            "pass_pow_k": 0.0598994055784179,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7469135802469136,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.5670995670995671,
+          "mean_cost": 5.185185185185185,
+          "capability_scalar_unweighted": 0.440625,
+          "grounding": {
+            "synthetic": 0.3333333333333333,
+            "real": 0.7896825396825397,
+            "real_diagnostic": 0.7896825396825397,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.583,
+          "deepseek-ref(mock)": 0.417,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.417,
+          "('seed', 'kimi-ref(mock)')": 0.1574,
+          "('seed', 'glm-ref(mock)')": 0.0324,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [
+          [
+            "seed",
+            "deepseek-ref(mock)"
+          ]
+        ],
+        "mean_kendall_tau": 0.7977333333333484,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.9375,
+              "lo": 0.8109375000000001,
+              "hi": 1.0,
+              "logit": 2.70805020110221,
+              "se_boot": 0.06857704375115803,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.3333333333333333,
+              "lo": 0.3333333333333333,
+              "hi": 0.3333333333333333,
+              "logit": -0.6931471805599454,
+              "se_boot": 5.565045170431277e-17,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6666666666666666,
+            "pass_at_k": 0.6666666666666666,
+            "pass_pow_k": 0.6666666666666666,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6851851851851851,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.3703703703703702,
+          "capability_scalar_unweighted": 0.8177083333333334,
+          "grounding": {
+            "synthetic": 0.25,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.8583333333333334,
+              "lo": 0.5714583333333334,
+              "hi": 1.0,
+              "logit": 1.8015156441734201,
+              "se_boot": 0.15235311710633176,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8583333333333334,
+              "lo": 0.575,
+              "hi": 1.0,
+              "logit": 1.8015156441734201,
+              "se_boot": 0.1301654661429613,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7083333333333334,
+              "lo": 0.4166666666666667,
+              "hi": 1.0,
+              "logit": 0.8873031950009029,
+              "se_boot": 0.1574614538103508,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8518518518518517,
+            "pass_at_k": 0.9981710105166894,
+            "pass_pow_k": 0.6140832190214905,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9382716049382717,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.5185185185185186,
+          "capability_scalar_unweighted": 0.8562500000000001,
+          "grounding": {
+            "synthetic": 0.9166666666666666,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.7166666666666667,
+              "lo": 0.4297916666666667,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.160301131467811,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.7166666666666667,
+              "lo": 0.29166666666666663,
+              "hi": 1.0,
+              "logit": 0.9279867716373463,
+              "se_boot": 0.217936937173554,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6271164021164021,
+              "lo": 0.2797619047619047,
+              "hi": 0.8972222222222221,
+              "logit": 0.5198658717880056,
+              "se_boot": 0.17819624131570605,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7083333333333334,
+              "lo": 0.4166666666666667,
+              "hi": 1.0,
+              "logit": 0.8873031950009029,
+              "se_boot": 0.1574614538103508,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6666666666666666,
+            "pass_at_k": 0.9684499314128944,
+            "pass_pow_k": 0.2962962962962962,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.845679012345679,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.65,
+          "mean_cost": 3.888888888888889,
+          "capability_scalar_unweighted": 0.6921957671957673,
+          "grounding": {
+            "synthetic": 0.7083333333333334,
+            "real": 0.7896825396825397,
+            "real_diagnostic": 0.7896825396825397,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.15,
+              "lo": 0.15,
+              "hi": 0.15,
+              "logit": -1.7346010553881064,
+              "se_boot": 2.7825225852156384e-17,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.575,
+              "lo": 0.29166666666666663,
+              "hi": 0.8583333333333334,
+              "logit": 0.3022808718729335,
+              "se_boot": 0.17428700870760117,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6271164021164021,
+              "lo": 0.2797619047619047,
+              "hi": 0.8972222222222221,
+              "logit": 0.5198658717880056,
+              "se_boot": 0.17819624131570605,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5625,
+              "lo": 0.2708333333333333,
+              "hi": 0.8578125000000009,
+              "logit": 0.25131442828090617,
+              "se_boot": 0.1975030114744008,
+              "n_templates": 2,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.4074074074074074,
+            "pass_at_k": 0.7320530406950159,
+            "pass_pow_k": 0.0598994055784179,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7469135802469136,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.5670995670995671,
+          "mean_cost": 5.185185185185185,
+          "capability_scalar_unweighted": 0.4786541005291005,
+          "grounding": {
+            "synthetic": 0.3333333333333333,
+            "real": 0.7896825396825397,
+            "real_diagnostic": 0.7896825396825397,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 0.96,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.5808,
+          "deepseek-ref(mock)": 0.4192,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.4192,
+          "('seed', 'kimi-ref(mock)')": 0.106,
+          "('seed', 'glm-ref(mock)')": 0.033,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [
+          [
+            "seed",
+            "deepseek-ref(mock)"
+          ]
+        ],
+        "mean_kendall_tau": 0.8139333333333607,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "seed": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-evolving",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 48,
+      "n_parsed_ok": 48,
+      "n_empty": 0,
+      "n_errors": 0,
+      "parse_rate": 1.0,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 181.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.8,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-003\", \"INV-005\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 196.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 201.5,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 284.3,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.0,
+          "snippet": "{\"actions\": [{\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-003\", \"INV-005\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 375.3,
+          "snippet": "{   \"actions\": [     {\"tool\": \"read_invoices\", \"args\": {}},     {\"tool\": \"read_bank\", \"args\": {}}   ],   \"grounding_answers\": {},   \"confidences\": {},   \"abstain\": {},   \"done\": false }"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.6,
+          "snippet": "{   \"actions\": [     {\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}   ],   \"grounding_answers\": {},   \"confidences\": {},   \"abstain\": {},   \"done\": true }"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 223.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 18.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 237.4,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 87.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.4,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-487\", \"timeout\": 45, \"replicas\": 4, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": tru"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 185.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 586.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-003\", \"INV-005\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 287.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 267.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 162.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 144.0,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.1,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-487\", \"timeout\": 45, \"replicas\": 4, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": tru"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 200.0,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.2,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-487\", \"timeout\": 45, \"replicas\": 4, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": tru"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 156.1,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.3,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-912\", \"timeout\": 30, \"replicas\": 2, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": tru"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 141.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.7,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-912\", \"timeout\": 30, \"replicas\": 2, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": tru"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 248.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.6,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-912\", \"timeout\": 30, \"replicas\": 2, \"tls\": true}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": tru"
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 13.6,
+          "snippet": "{\"actions\": [{\"tool\": \"read_inbox\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 115.5,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": \"\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_inbox\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 142.8,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": \"\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 143.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": \"经阅读柱状图，最高季度为Q3，其Cloud ARR数值约为22.3 M USD（百万美元）。\"}}], \"grounding_answers\": {\"g_bar_value\": 22.3, \"g_top_quarter\": [3], \"g_bar_box\": \"<bbox>54"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 77.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": \"该柱状图展示各季度Cloud ARR（单位：百万美元），其中最高季度为Q3（第三季度），对应的ARR数值约为22 M USD。\"}}], \"grounding_answers\": {\"g_bar_value\": 22, \"g_top_quarter\": [3], \"g_bar_"
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 159.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": \"该柱状图展示各季度Cloud ARR（单位：百万美元），最高季度为Q3，其对应数值约为22.2 M USD。\"}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [\"Q3\"], \"g_bar_box\""
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 77.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": \"The receipt from GLOBEX SYSTEMS (invoice INV-72042, dated 2024-07-10) has a subtotal of 376.89, 8% tax of 30.15, for a correct TOTAL amount"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 300.3,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 352.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 202.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total_amount\": 407.04, \"invoice_id\": \"INV-72042\", \"vendor\": \"GLOBEX SYSTEMS\", \"date\": \"2024-07-10\", \"subtotal\": 376.89, \"tax\": 30.15, \"not"
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 184.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": \"Receipt TOTAL amount is 407.04, calculated as subtotal 376.89 plus 8% tax 30.15. The invoice ID is INV-72042, issued by GLOBEX SYSTEMS on 2"
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 19.1,
+          "snippet": "{\"actions\": [{\"tool\": \"read_inbox\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 481.2,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": \"\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 191.5,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 203.1,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 207.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 1,
+          "rounds": 3,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 299.3,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 381.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 242.7,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 246.8,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 94.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 195.3,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 586.3,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 296.7,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 429.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 150.1,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 206.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 164.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 148.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 255.3,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 129.1,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 155.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 143.5,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 77.4,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 159.6,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 77.9,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 653.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 202.6,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 184.3,
+          "round_status": [
+            "ok"
+          ]
+        },
+        {
+          "task_id": "u6_inbox_injection__medium__s0",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": false,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 500.3,
+          "round_status": [
+            "ok",
+            "ok"
+          ]
+        }
+      ]
+    },
+    "deepseek-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "strong",
+      "model": null,
+      "mock_profile": "strong",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "kimi-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "medium",
+      "model": null,
+      "mock_profile": "medium",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "glm-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "weak",
+      "model": null,
+      "mock_profile": "weak",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    }
+  },
+  "meta": {
+    "timestamp": "20260626_010447",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.json",
+    "n_runs": 3,
+    "k": 5,
+    "difficulty": "all",
+    "n_tasks": 9,
+    "tag": "real_v3",
+    "concurrency": 6,
+    "per_call_timeout": 300.0,
+    "wall_clock_s": 2700.0,
+    "max_calls": 120,
+    "run_meta": {
+      "jobs_total": 108,
+      "jobs_done": 108,
+      "jobs_skipped": 0,
+      "stopped_early": false,
+      "wall_clock_s": 1227.6,
+      "total_api_calls": 48
+    }
+  }
+}

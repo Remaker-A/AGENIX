@@ -1,0 +1,30 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets and private runtime configs
+.env
+.env.*
+engine/configs/models.json
+engine/configs/judges.json
+
+# Intermediate evaluation outputs
+engine/results/*.partial.jsonl
+engine/results/*.progress.txt
+engine/results/*.stdout.log
+engine/results/*.stderr.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

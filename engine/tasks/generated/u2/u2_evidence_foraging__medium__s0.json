@@ -1,0 +1,183 @@
+{
+  "task_id": "u2_evidence_foraging__medium__s0",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.3
+  },
+  "title": "证据觅食与结论综合（竞品定价）",
+  "instruction": "围绕 '竞品定价' 觅食证据：必须读取所有必需来源，并从主源或其镜像（任一）获取关键数据，最后提交经证据支持的结论集合。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "read_required_1",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "read_required_2",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "read_primary",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "read_mirror",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "submit_claims",
+      "writes": [
+        "out.claims"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.claims",
+        "value_from": "claims"
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "font_preview",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M_req1",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_required_1"
+      },
+      "epistemic_action": "read_required_1"
+    },
+    {
+      "id": "M_req2",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_required_2"
+      },
+      "epistemic_action": "read_required_2"
+    },
+    {
+      "id": "M_src_primary",
+      "type": "or_group",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_primary"
+      },
+      "epistemic_action": "read_primary",
+      "or_group": "evidence_src"
+    },
+    {
+      "id": "M_src_mirror",
+      "type": "or_group",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_mirror"
+      },
+      "epistemic_action": "read_mirror",
+      "or_group": "evidence_src"
+    },
+    {
+      "id": "M_claims",
+      "type": "required",
+      "weight": 3.0,
+      "predicate": {
+        "op": "set_eq",
+        "path": "out.claims",
+        "value": [
+          "CLM-013",
+          "CLM-019"
+        ]
+      },
+      "deps": [
+        "M_req1",
+        "M_req2"
+      ],
+      "provenance": [
+        "out.claims"
+      ]
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "set_eq",
+      "path": "out.claims",
+      "value": [
+        "CLM-013",
+        "CLM-019"
+      ]
+    }
+  ],
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "read_required_1",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "read_required_2",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "read_primary",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "submit_claims",
+      "args": {
+        "claims": [
+          "CLM-013",
+          "CLM-019"
+        ]
+      }
+    }
+  ],
+  "c_star": 4.0,
+  "difficulty_knobs": {
+    "difficulty": "medium",
+    "seed": 0,
+    "template": "u2_evidence_foraging",
+    "canary": true,
+    "noise_tools": [
+      "font_preview"
+    ],
+    "partial_observable": false
+  },
+  "canary": "AGENIX-CANARY-u2_evidence_foraging-medium-1a9e4162-DO-NOT-TRAIN",
+  "gold_milestone_count": 5,
+  "gold_claims": [
+    "CLM-013",
+    "CLM-019"
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "task_id": "ground_structured_reading",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {
+    "U3": 1.0
+  },
+  "title": "结构化读取探针（TEDS 表格结构 + OCR token bbox + 未标定真实轨示例）",
+  "instruction": "阅读**财务表图片**，报告指标 'Revenue' 在 'FY2022' 列的数值（来自财务表，不是收据）；调用 submit_finding，参数 finding={\"cell\": <数字>}。（本任务同时演示 table_teds/ocr_bbox 新验证器与未标定真实轨。）",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "assets": {
+    "table_png": "assets/generated/table_fin.png",
+    "doc": "assets/generated/doc_receipt.png"
+  },
+  "tools": [
+    {
+      "name": "read_table",
+      "writes": [],
+      "effect": null
+    },
+    {
+      "name": "read_doc",
+      "writes": [],
+      "effect": null
+    },
+    {
+      "name": "submit_finding",
+      "writes": [
+        "out.finding"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.finding",
+        "value_from": "finding"
+      }
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M1",
+      "type": "required",
+      "weight": 1.0,
+      "epistemic_action": "read_table",
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_table"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "required",
+      "weight": 1.0,
+      "deps": [
+        "M1"
+      ],
+      "provenance": [
+        "out.finding"
+      ],
+      "predicate": {
+        "op": "approx",
+        "path": "out.finding.cell",
+        "value": 160.4,
+        "tol": 0.005
+      }
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "approx",
+      "path": "out.finding.cell",
+      "value": 160.4,
+      "tol": 0.005
+    }
+  ],
+  "grounding": {
+    "items": [
+      {
+        "id": "g_table_teds",
+        "kind": "table_teds",
+        "track": "synthetic",
+        "gold": {
+          "grid": [
+            [
+              "Metric",
+              "FY2022",
+              "FY2023",
+              "FY2024"
+            ],
+            [
+              "Revenue",
+              "160.4",
+              "162.3",
+              "174.7"
+            ],
+            [
+              "COGS",
+              "73.5",
+              "84.5",
+              "88.9"
+            ],
+            [
+              "Gross Profit",
+              "217.8",
+              "245.8",
+              "259.5"
+            ],
+            [
+              "OpEx",
+              "209.8",
+              "242.7",
+              "239.9"
+            ]
+          ]
+        },
+        "weight": 1.0,
+        "note": "TEDS 式表格结构+内容相似（mock 不答->0；见 test_grounding 直测）"
+      },
+      {
+        "id": "g_ocr_tokens",
+        "kind": "ocr_bbox",
+        "track": "synthetic",
+        "gold": [
+          {
+            "text": "RECEIPT",
+            "bbox": [
+              24.0,
+              23.0,
+              100.0,
+              18.0
+            ]
+          },
+          {
+            "text": "Vendor:",
+            "bbox": [
+              24.0,
+              65.0,
+              69.0,
+              14.0
+            ]
+          },
+          {
+            "text": "GLOBEX SYSTEMS",
+            "bbox": [
+              230.0,
+              66.0,
+              161.0,
+              13.0
+            ]
+          },
+          {
+            "text": "Invoice:",
+            "bbox": [
+              24.0,
+              103.0,
+              70.0,
+              14.0
+            ]
+          },
+          {
+            "text": "INV-72042",
+            "bbox": [
+              230.0,
+              104.0,
+              92.0,
+              13.0
+            ]
+          },
+          {
+            "text": "Date:",
+            "bbox": [
+              24.0,
+              142.0,
+              49.0,
+              13.0
+            ]
+          },
+          {
+            "text": "2024-07-10",
+            "bbox": [
+              230.0,
+              142.0,
+              102.0,
+              13.0
+            ]
+          },
+          {
+            "text": "Subtotal:",
+            "bbox": [
+              24.0,
+              179.0,
+              80.0,
+              14.0
+            ]
+          },
+          {
+            "text": "376.89",
+            "bbox": [
+              230.0,
+              180.0,
+              61.0,
+              13.0
+            ]
+          },
+          {
+            "text": "Tax (8%):",
+            "bbox": [
+              23.0,
+              217.0,
+              88.0,
+              16.0
+            ]
+          },
+          {
+            "text": "30.15",
+            "bbox": [
+              230.0,
+              218.0,
+              50.0,
+              13.0
+            ]
+          },
+          {
+            "text": "TOTAL:",
+            "bbox": [
+              23.0,
+              256.0,
+              65.0,
+              13.0
+            ]
+          },
+          {
+            "text": "407.04",
+            "bbox": [
+              230.0,
+              256.0,
+              61.0,
+              13.0
+            ]
+          }
+        ],
+        "tol": 0.5,
+        "cer_tol": 0.3,
+        "weight": 1.0,
+        "note": "OCR token 必须文本(CER<=0.3)与 bbox(IoU>=0.5)同时对"
+      },
+      {
+        "id": "g_cell_value",
+        "kind": "numeric",
+        "track": "synthetic",
+        "gold": 160.4,
+        "tol": 0.005,
+        "weight": 1.0,
+        "note": "mock 可答，保证跑通"
+      },
+      {
+        "id": "g_real_untrusted",
+        "kind": "cer",
+        "track": "real",
+        "gold": "160.4",
+        "weight": 1.0,
+        "calibration": {
+          "verifier": "ocr_extractor_lo",
+          "metric": "ocr_cer_acc",
+          "threshold": 0.95,
+          "samples": [
+            {
+              "gold": "160.4"
+            },
+            {
+              "gold": "FY2022"
+            },
+            {
+              "gold": "73.5"
+            }
+          ]
+        },
+        "note": "真实轨用低保真 ML 抽取器(ocr_extractor_lo)->未达 0.95->untrusted 仅诊断"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "read_table",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "read_doc",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "submit_finding",
+      "args": {
+        "finding": {
+          "cell": 160.4
+        }
+      }
+    }
+  ],
+  "c_star": 3,
+  "difficulty_knobs": {
+    "modalities": 2,
+    "structured_reading": true
+  },
+  "canary": "AGENIX-CANARY-ground-struct-7g8h-DO-NOT-TRAIN"
+}

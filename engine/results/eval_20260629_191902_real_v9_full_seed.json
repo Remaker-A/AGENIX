@@ -1,0 +1,4379 @@
+{
+  "models": [
+    "seed",
+    "deepseek-ref(mock)",
+    "kimi-ref(mock)",
+    "glm-ref(mock)"
+  ],
+  "k": 5,
+  "u5_headline_version": "u5_v2_calibration_coverage_gated",
+  "u5_legacy_headline_version": "u5_v1_selective_partition",
+  "grounding": {
+    "rho": 0.31622776601683794,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_and_real_coheadline",
+    "n_pairs": 4,
+    "real_trusted_models": [
+      "seed",
+      "deepseek-ref(mock)",
+      "kimi-ref(mock)",
+      "glm-ref(mock)"
+    ],
+    "per_model": {
+      "seed": {
+        "synthetic": 0.3,
+        "real": 0.8125,
+        "real_diagnostic": 0.65,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_lo": {
+            "value": -0.33333333333333326,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "deepseek-ref(mock)": {
+        "synthetic": 0.75,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": -0.33333333333333326,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "kimi-ref(mock)": {
+        "synthetic": 0.65,
+        "real": 0.31785714285714284,
+        "real_diagnostic": 0.4542857142857143,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": -0.33333333333333326,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "glm-ref(mock)": {
+        "synthetic": 0.31666666666666665,
+        "real": 0.31785714285714284,
+        "real_diagnostic": 0.29428571428571426,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": -0.33333333333333326,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      }
+    },
+    "u3": {
+      "status": "multi_template",
+      "pilot": false,
+      "template_count": 5,
+      "templates": [
+        "ground_chart_revenue",
+        "ground_doc_receipt",
+        "ground_structured_reading",
+        "ground_table_financials",
+        "u3_chart_discrepancy"
+      ],
+      "per_template": [
+        {
+          "template": "ground_chart_revenue",
+          "task_count": 1,
+          "real_track_sample_count": 1
+        },
+        {
+          "template": "ground_doc_receipt",
+          "task_count": 1,
+          "real_track_sample_count": 1
+        },
+        {
+          "template": "ground_structured_reading",
+          "task_count": 1,
+          "real_track_sample_count": 1
+        },
+        {
+          "template": "ground_table_financials",
+          "task_count": 1,
+          "real_track_sample_count": 1
+        },
+        {
+          "template": "u3_chart_discrepancy",
+          "task_count": 1,
+          "real_track_sample_count": 1
+        }
+      ],
+      "real_track_sample_count": 5,
+      "real_trusted": true,
+      "real_trusted_models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "rho": 0.31622776601683794,
+      "rho_gate": 0.8,
+      "rho_status": "not_met",
+      "headline_rule": "synthetic_and_real_coheadline",
+      "note": "U3 has >=2 observed templates; real track still requires trusted media and calibration gates."
+    }
+  },
+  "grounding_rho": 0.31622776601683794,
+  "grounding_headline_rule": "synthetic_and_real_coheadline",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U1": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U2": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U3": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U4": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U5": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": {
+    "trusted": true,
+    "r_a": 0.8802696719752344,
+    "r_b": 0.9938894688087294,
+    "status": "trusted",
+    "use": "item_selection_only",
+    "enters_headline": false,
+    "note": "IRT 仅做 item 难度/区分度校准；trusted 后用于选题/抗饱和，绝不进 headline (CP3)"
+  },
+  "judge": {
+    "policy": "diagnostic",
+    "enters_headline": false,
+    "alpha_gate": 0.667,
+    "rubric": [
+      "states the binding constraint / decisive rule it relied on",
+      "cites the specific evidence (ids/values) used",
+      "makes no unsupported or hallucinated claim",
+      "final conclusion follows from the cited evidence"
+    ],
+    "n_judges": 3,
+    "families": [
+      "famA",
+      "famB",
+      "famC"
+    ],
+    "cross_family_ok": true,
+    "cross_family": {
+      "ok": true,
+      "families": [
+        "famA",
+        "famB",
+        "famC"
+      ],
+      "n_families": 3,
+      "tested_families": [],
+      "no_tested_family_overlap": null
+    },
+    "human_calibration": {
+      "passed": false,
+      "spearman_gate": 0.8,
+      "mae_gate": 0.2,
+      "report": {
+        "method": "identity"
+      }
+    },
+    "scope": "residual_subjective_rubric_only",
+    "excluded_scopes": [
+      "state_verification",
+      "numeric_calibration",
+      "grounding",
+      "safety"
+    ],
+    "backend": "deterministic_mock_panel",
+    "per_model": {
+      "seed": {
+        "score": 0.75,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "alpha_ok": true,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 0.8360655737704918
+      },
+      "deepseek-ref(mock)": {
+        "score": 0.75,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "alpha_ok": true,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 0.8852459016393442
+      },
+      "kimi-ref(mock)": {
+        "score": 0.5,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "alpha_ok": true,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 0.5409836065573771
+      },
+      "glm-ref(mock)": {
+        "score": 0.25,
+        "alpha": 0.44999999999999996,
+        "flip_rate": 0.0,
+        "reliability_band": "drop_from_headline",
+        "headline_eligible": false,
+        "alpha_ok": false,
+        "conditional_headline_eligible": false,
+        "response_source": "deterministic_quality_proxy",
+        "quality_proxy": 0.19672131147540983
+      }
+    },
+    "judge_headline": null,
+    "note": "judge 仅评残余主观项（解释理由质量）作为有已知误差的测量仪器：列每模型 judge 分 + flip_rate + Krippendorff α 可信带。默认 policy=diagnostic；只有 policy=conditional_headline 且 α≥0.667、跨家族、judge→human 校准达标时，才写入独立 judge_headline。能力 headline 仍为 verifier-first，_task_component_value 不含 judge；judge 绝不评 state/数值/grounding/安全。"
+  },
+  "judge_policy": "diagnostic",
+  "judge_headline": null,
+  "pareto_frontier": [
+    "seed",
+    "deepseek-ref(mock)"
+  ],
+  "pareto_points": [
+    [
+      "seed",
+      0.5589840714840715,
+      1.1940298507462686
+    ],
+    [
+      "deepseek-ref(mock)",
+      0.8842574786324786,
+      2.328358208955224
+    ],
+    [
+      "kimi-ref(mock)",
+      0.5917662198912199,
+      3.8059701492537314
+    ],
+    [
+      "glm-ref(mock)",
+      0.29979506604506606,
+      5.268656716417911
+    ]
+  ],
+  "dimension_stats": {
+    "U1": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.5555555555555555,
+          "logit": 0.2231435513142094,
+          "lo": 0.1111111111111111,
+          "hi": 1.0,
+          "ci_width": 0.8888888888888888,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8888888888888888,
+          "logit": 2.0794415416798353,
+          "lo": 0.6111111111111112,
+          "hi": 1.0,
+          "ci_width": 0.38888888888888884,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.1111111111111111,
+          "hi": 0.888888888888889,
+          "ci_width": 0.7777777777777779,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.1111111111111111,
+          "logit": -2.0794415416798357,
+          "lo": 0.0,
+          "hi": 0.3347222222222209,
+          "ci_width": 0.3347222222222209,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -0.33333333333333337,
+          "delta_logit": -1.8562979903656258,
+          "lo": -1.0,
+          "hi": 0.33333333333333337,
+          "p": 0.435,
+          "cliffs_delta": -0.07692307692307693,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.87,
+          "significant": false
+        },
+        {
+          "delta": 0.05555555555555547,
+          "delta_logit": 0.2231435513142094,
+          "lo": -0.27777777777777773,
+          "hi": 0.3888888888888889,
+          "p": 0.795,
+          "cliffs_delta": 0.07692307692307693,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.87,
+          "significant": false
+        },
+        {
+          "delta": 0.44444444444444436,
+          "delta_logit": 2.302585092994045,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.14,
+          "cliffs_delta": 0.6153846153846154,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.56,
+          "significant": false
+        },
+        {
+          "delta": 0.38888888888888884,
+          "delta_logit": 2.0794415416798353,
+          "lo": -0.11249999999999998,
+          "hi": 1.0,
+          "p": 0.225,
+          "cliffs_delta": 0.15384615384615385,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.675,
+          "significant": false
+        },
+        {
+          "delta": 0.7777777777777777,
+          "delta_logit": 4.158883083359671,
+          "lo": 0.5,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 0.6923076923076923,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.3888888888888889,
+          "delta_logit": 2.0794415416798357,
+          "lo": 0.0,
+          "hi": 0.7777777777777778,
+          "p": 0.09,
+          "cliffs_delta": 0.5384615384615384,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.44999999999999996,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.030621301775147932,
+        "sigma2_instance": 0.15416666666666667,
+        "sigma2_residual": 0.0,
+        "icc_template": 0.1657104736490994,
+        "icc_instance": 0.8342895263509006,
+        "n_runs": 52.0,
+        "n_templates": 12.0,
+        "n_instances": 52.0,
+        "avg_runs_per_instance": 1.0,
+        "avg_runs_per_template": 4.333333333333333
+      },
+      "design_effect": {
+        "rho": 0.1657104736490994,
+        "avg_cluster_size": 4.333333333333333,
+        "deff": 1.552368245496998,
+        "n_obs": 52,
+        "n_eff": 33.497206703910614
+      },
+      "sample_size": {
+        "n_iid_per_arm": 20.223682671881097,
+        "deff": 1.552368245496998,
+        "n_cluster_per_arm": 31.3946027868361,
+        "n_templates_per_arm": 7.244908335423716
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 1.3687265512334137,
+            "marginal": 0.7971743308456097
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.2348050464289846,
+            "marginal": 0.7746584631098691
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.9247020214066004,
+            "marginal": 0.71599920545444
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.7916182059574928,
+            "marginal": 0.14287444127317353
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.5163037901351688,
+          "instance": -0.24098630339527422
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U2": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.5,
+          "hi": 1.0,
+          "ci_width": 0.5,
+          "n_obs": 12,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.9166666666666667,
+          "logit": 2.3978952727983716,
+          "lo": 0.6666666666666666,
+          "hi": 1.0,
+          "ci_width": 0.33333333333333337,
+          "n_obs": 12,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.41666666666666663,
+          "logit": -0.33647223662121306,
+          "lo": 0.08333333333333333,
+          "hi": 0.6666666666666667,
+          "ci_width": 0.5833333333333334,
+          "n_obs": 12,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.25,
+          "logit": -1.0986122886681098,
+          "lo": 0.0,
+          "hi": 0.5020833333333314,
+          "ci_width": 0.5020833333333314,
+          "n_obs": 12,
+          "n_templates": 2,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -0.08333333333333348,
+          "delta_logit": -0.7884573603642717,
+          "lo": -0.3333333333333335,
+          "hi": 0.16666666666666674,
+          "p": 0.955,
+          "cliffs_delta": -0.08333333333333333,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.41666666666666663,
+          "delta_logit": 1.945910149055313,
+          "lo": -0.08333333333333326,
+          "hi": 0.8333333333333334,
+          "p": 0.13,
+          "cliffs_delta": 0.4166666666666667,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.39,
+          "significant": false
+        },
+        {
+          "delta": 0.5833333333333333,
+          "delta_logit": 2.7080502011022096,
+          "lo": 0.08333333333333337,
+          "hi": 1.0,
+          "p": 0.025,
+          "cliffs_delta": 0.5833333333333334,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.125,
+          "significant": false
+        },
+        {
+          "delta": 0.5000000000000001,
+          "delta_logit": 2.7343675094195845,
+          "lo": 0.08333333333333337,
+          "hi": 0.8333333333333334,
+          "p": 0.04,
+          "cliffs_delta": 0.5,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.16,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 3.4965075614664816,
+          "lo": 0.25,
+          "hi": 1.0,
+          "p": 0.005,
+          "cliffs_delta": 0.6666666666666666,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.03,
+          "significant": true
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.7621400520468967,
+          "lo": -0.16666666666666669,
+          "hi": 0.5,
+          "p": 0.55,
+          "cliffs_delta": 0.16666666666666666,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.008333333333333337,
+        "sigma2_instance": 0.1791666666666667,
+        "sigma2_residual": 0.0,
+        "icc_template": 0.04444444444444445,
+        "icc_instance": 0.9555555555555556,
+        "n_runs": 48.0,
+        "n_templates": 8.0,
+        "n_instances": 48.0,
+        "avg_runs_per_instance": 1.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.04444444444444445,
+        "avg_cluster_size": 6.0,
+        "deff": 1.2222222222222223,
+        "n_obs": 48,
+        "n_eff": 39.272727272727266
+      },
+      "sample_size": {
+        "n_iid_per_arm": 23.74279335174682,
+        "deff": 1.2222222222222223,
+        "n_cluster_per_arm": 29.018969652135002,
+        "n_templates_per_arm": 4.8364949420225
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 2.076456535653854,
+            "marginal": 0.888593731068348
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.6602015091155733,
+            "marginal": 0.8402650514028406
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": -0.30298219902988177,
+            "marginal": 0.42482862219743833
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.1900692534248833,
+            "marginal": 0.2332465500802998
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.67026723255794,
+          "instance": 0.21024202759803406
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U3": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.8,
+          "logit": 1.3862943611198908,
+          "lo": 0.4,
+          "hi": 1.0,
+          "ci_width": 0.6,
+          "n_obs": 5,
+          "n_templates": 5,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8,
+          "logit": 1.3862943611198908,
+          "lo": 0.4,
+          "hi": 1.0,
+          "ci_width": 0.6,
+          "n_obs": 5,
+          "n_templates": 5,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.4,
+          "logit": -0.4054651081081643,
+          "lo": 0.0,
+          "hi": 0.8,
+          "ci_width": 0.8,
+          "n_obs": 5,
+          "n_templates": 5,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.2,
+          "logit": -1.3862943611198906,
+          "lo": 0.0,
+          "hi": 0.6,
+          "ci_width": 0.6,
+          "n_obs": 5,
+          "n_templates": 5,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.0,
+          "delta_logit": 0.0,
+          "lo": -0.6,
+          "hi": 0.6,
+          "p": 1.0,
+          "cliffs_delta": 0.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.4,
+          "delta_logit": 1.791759469228055,
+          "lo": 0.0,
+          "hi": 0.8,
+          "p": 0.155,
+          "cliffs_delta": 0.4,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.6,
+          "significant": false
+        },
+        {
+          "delta": 0.6000000000000001,
+          "delta_logit": 2.7725887222397816,
+          "lo": 0.19999999999999996,
+          "hi": 1.0,
+          "p": 0.01,
+          "cliffs_delta": 0.6,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.06,
+          "significant": false
+        },
+        {
+          "delta": 0.4,
+          "delta_logit": 1.791759469228055,
+          "lo": 0.0,
+          "hi": 0.8,
+          "p": 0.15,
+          "cliffs_delta": 0.4,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.6,
+          "significant": false
+        },
+        {
+          "delta": 0.6000000000000001,
+          "delta_logit": 2.7725887222397816,
+          "lo": 0.19999999999999996,
+          "hi": 1.0,
+          "p": 0.015,
+          "cliffs_delta": 0.6,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.075,
+          "significant": false
+        },
+        {
+          "delta": 0.2,
+          "delta_logit": 0.9808292530117263,
+          "lo": 0.0,
+          "hi": 0.6000000000000001,
+          "p": 0.66,
+          "cliffs_delta": 0.2,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.2250000000000001,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.0,
+        "icc_template": 1.0,
+        "icc_instance": 0.0,
+        "n_runs": 20.0,
+        "n_templates": 20.0,
+        "n_instances": 20.0,
+        "avg_runs_per_instance": 1.0,
+        "avg_runs_per_template": 1.0
+      },
+      "design_effect": {
+        "rho": 1.0,
+        "avg_cluster_size": 1.0,
+        "deff": 1.0,
+        "n_obs": 20,
+        "n_eff": 20.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 35.42580726545429,
+        "deff": 1.0,
+        "n_cluster_per_arm": 35.42580726545429,
+        "n_templates_per_arm": 35.42580726545429
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 1.691397713469391,
+            "marginal": 0.8444078843694175
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 0.7910309700973641,
+            "marginal": 0.6880526569754203
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": -0.3190413505568628,
+            "marginal": 0.42090939581636116
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.3135694623197043,
+            "marginal": 0.2118901569089108
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.08435968364441744,
+          "instance": -0.0843575125168462
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U4": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.6111111111111112,
+          "logit": 0.4519851237430575,
+          "lo": 0.2208333333333334,
+          "hi": 1.0,
+          "ci_width": 0.7791666666666666,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8888888888888888,
+          "logit": 2.0794415416798353,
+          "lo": 0.611111111111111,
+          "hi": 1.0,
+          "ci_width": 0.38888888888888895,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.3333333333333333,
+          "logit": -0.6931471805599454,
+          "lo": 0.0,
+          "hi": 0.6666666666666666,
+          "ci_width": 0.6666666666666666,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.1111111111111111,
+          "logit": -2.0794415416798357,
+          "lo": 0.0,
+          "hi": 0.3347222222222209,
+          "ci_width": 0.3347222222222209,
+          "n_obs": 13,
+          "n_templates": 3,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -0.2777777777777777,
+          "delta_logit": -1.6274564179367779,
+          "lo": -1.0,
+          "hi": 0.22361111111110996,
+          "p": 0.505,
+          "cliffs_delta": 0.0,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.505,
+          "significant": false
+        },
+        {
+          "delta": 0.27777777777777785,
+          "delta_logit": 1.1451323043030028,
+          "lo": 0.0,
+          "hi": 0.6111111111111112,
+          "p": 0.105,
+          "cliffs_delta": 0.38461538461538464,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.32,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 2.5314266654228934,
+          "lo": 0.0,
+          "hi": 0.888888888888889,
+          "p": 0.08,
+          "cliffs_delta": 0.6923076923076923,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.32,
+          "significant": false
+        },
+        {
+          "delta": 0.5555555555555556,
+          "delta_logit": 2.7725887222397807,
+          "lo": 0.16666666666666663,
+          "hi": 1.0,
+          "p": 0.005,
+          "cliffs_delta": 0.38461538461538464,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.025,
+          "significant": true
+        },
+        {
+          "delta": 0.7777777777777777,
+          "delta_logit": 4.158883083359671,
+          "lo": 0.5555555555555555,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 0.6923076923076923,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.2222222222222222,
+          "delta_logit": 1.3862943611198904,
+          "lo": 0.0,
+          "hi": 0.5555555555555556,
+          "p": 0.175,
+          "cliffs_delta": 0.3076923076923077,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.35,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.026183431952662713,
+        "sigma2_instance": 0.15416666666666673,
+        "sigma2_residual": 0.0,
+        "icc_template": 0.14518113465481877,
+        "icc_instance": 0.8548188653451813,
+        "n_runs": 52.0,
+        "n_templates": 12.0,
+        "n_instances": 52.0,
+        "avg_runs_per_instance": 1.0,
+        "avg_runs_per_template": 4.333333333333333
+      },
+      "design_effect": {
+        "rho": 0.14518113465481877,
+        "avg_cluster_size": 4.333333333333333,
+        "deff": 1.4839371155160626,
+        "n_obs": 52,
+        "n_eff": 35.04191616766468
+      },
+      "sample_size": {
+        "n_iid_per_arm": 21.347228044467876,
+        "deff": 1.4839371155160626,
+        "n_cluster_per_arm": 31.677944008571256,
+        "n_templates_per_arm": 7.310294771208752
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 1.9561850949231745,
+            "marginal": 0.8761194988089799
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.1688731818244473,
+            "marginal": 0.762941277654632
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": -0.3350141550551502,
+            "marginal": 0.4170211044955622
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -2.0945973169946033,
+            "marginal": 0.10962304343787804
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.008067565509084117,
+          "instance": -0.07897727051424279
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U5": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 0.888888888888889,
+          "logit": 2.0794415416798366,
+          "lo": 0.7222222222222222,
+          "hi": 1.0,
+          "ci_width": 0.2777777777777778,
+          "n_obs": 18,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.9444444444444445,
+          "logit": 2.833213344056218,
+          "lo": 0.7777777777777777,
+          "hi": 1.0,
+          "ci_width": 0.22222222222222232,
+          "n_obs": 18,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6111111111111112,
+          "logit": 0.4519851237430575,
+          "lo": 0.27777777777777773,
+          "hi": 0.888888888888889,
+          "ci_width": 0.6111111111111112,
+          "n_obs": 18,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.2222222222222222,
+          "logit": -1.252762968495368,
+          "lo": 0.05555555555555555,
+          "hi": 0.4444444444444444,
+          "ci_width": 0.38888888888888884,
+          "n_obs": 18,
+          "n_templates": 3,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": -0.05555555555555558,
+          "delta_logit": -0.7537718023763813,
+          "lo": -0.2777777777777778,
+          "hi": 0.11249999999999878,
+          "p": 0.84,
+          "cliffs_delta": -0.05555555555555555,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.84,
+          "significant": false
+        },
+        {
+          "delta": 0.2777777777777778,
+          "delta_logit": 1.6274564179367792,
+          "lo": -0.05555555555555558,
+          "hi": 0.6111111111111112,
+          "p": 0.15,
+          "cliffs_delta": 0.2777777777777778,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.3,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666667,
+          "delta_logit": 3.3322045101752047,
+          "lo": 0.4444444444444444,
+          "hi": 0.888888888888889,
+          "p": 0.0,
+          "cliffs_delta": 0.6666666666666666,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 2.3812282203131603,
+          "lo": 0.05555555555555547,
+          "hi": 0.6111111111111112,
+          "p": 0.03,
+          "cliffs_delta": 0.3333333333333333,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.12,
+          "significant": false
+        },
+        {
+          "delta": 0.7222222222222223,
+          "delta_logit": 4.085976312551586,
+          "lo": 0.4444444444444445,
+          "hi": 0.9444444444444444,
+          "p": 0.0,
+          "cliffs_delta": 0.7222222222222222,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.38888888888888895,
+          "delta_logit": 1.7047480922384255,
+          "lo": 0.055555555555555525,
+          "hi": 0.7777777777777777,
+          "p": 0.045,
+          "cliffs_delta": 0.3888888888888889,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.135,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.006481481481481484,
+        "sigma2_instance": 0.15000000000000002,
+        "sigma2_residual": 0.0,
+        "icc_template": 0.04142011834319528,
+        "icc_instance": 0.9585798816568047,
+        "n_runs": 72.0,
+        "n_templates": 12.0,
+        "n_instances": 72.0,
+        "avg_runs_per_instance": 1.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.04142011834319528,
+        "avg_cluster_size": 6.0,
+        "deff": 1.2071005917159763,
+        "n_obs": 72,
+        "n_eff": 59.64705882352941
+      },
+      "sample_size": {
+        "n_iid_per_arm": 18.413833049903353,
+        "deff": 1.2071005917159763,
+        "n_cluster_per_arm": 22.22734877029754,
+        "n_templates_per_arm": 3.704558128382923
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 2.366716591917063,
+            "marginal": 0.9142538116555221
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.961173232182498,
+            "marginal": 0.8766598669854566
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.5826722811748772,
+            "marginal": 0.6416820661229
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.2397608250443788,
+            "marginal": 0.2244776203376359
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.5191492938555821,
+          "instance": -0.6612859071152173
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    }
+  },
+  "longitudinal_equating": {
+    "enabled": false,
+    "eval_version": "2026-06-v9",
+    "prev_summary": null,
+    "reference_panel_config": null,
+    "method": "linear",
+    "min_panel": 3,
+    "raw_ranking_basis": "dim_vector",
+    "trend_basis": "equated_dim_vector",
+    "old_scale_source": "previous equated_dim_vector when present, else previous raw dim_vector",
+    "profiles": {},
+    "status": "disabled_no_prev_summary"
+  },
+  "diagnostic_baselines": null,
+  "headline_model_policy": {
+    "require_real": false,
+    "no_mock_fallback": false,
+    "ranking_basis": "raw_dim_vector",
+    "trend_basis": "equated_dim_vector_when_available",
+    "excluded_mock_model_ids": []
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.55,
+              "lo": 0.36346153846153845,
+              "hi": 0.7059134615384615,
+              "logit": 0.2006706954621514,
+              "se_boot": 0.08619869680701371,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.5833333333333334,
+              "lo": 0.4166666666666667,
+              "hi": 0.75,
+              "logit": 0.336472236621213,
+              "se_boot": 0.0844806669167968,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.4499999999999999,
+              "lo": 0.2383333333333333,
+              "hi": 0.5944444444444443,
+              "logit": -0.2006706954621515,
+              "se_boot": 0.08878614223272512,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5935314685314685,
+              "lo": 0.42744755244755245,
+              "hi": 0.7213286713286712,
+              "logit": 0.3785837219713398,
+              "se_boot": 0.07436112611319845,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6180555555555556,
+              "lo": 0.4861111111111111,
+              "hi": 0.7152777777777778,
+              "logit": 0.481303184499669,
+              "se_boot": 0.058379054349497174,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8360655737704918,
+            "pass_at_k": 0.8360655737704918,
+            "pass_pow_k": 0.8360655737704918,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.1721311475409836,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.1940298507462686,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.8888888888888888,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 0.0,
+            "rollback_correctness": 0.0,
+            "post_recovery_stability": 0.0,
+            "regression_free_window": 0.0
+          },
+          "capability_scalar_unweighted": 0.5589840714840715,
+          "grounding": {
+            "synthetic": 0.3,
+            "real": 0.8125,
+            "real_diagnostic": 0.65,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.875,
+              "lo": 0.75,
+              "hi": 1.0,
+              "logit": 1.9459101490553132,
+              "se_boot": 0.07842767183981068,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.9322916666666666,
+              "lo": 0.796875,
+              "hi": 1.0,
+              "logit": 2.6224364483792177,
+              "se_boot": 0.06313297584298547,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.7999999999999999,
+              "lo": 0.5555555555555556,
+              "hi": 0.9777777777777779,
+              "logit": 1.3862943611198901,
+              "se_boot": 0.10956426754668774,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.8653846153846154,
+              "lo": 0.6634615384615384,
+              "hi": 1.0,
+              "logit": 1.8607523407150068,
+              "se_boot": 0.08967677379441692,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.9486111111111111,
+              "lo": 0.8458333333333333,
+              "hi": 1.0,
+              "logit": 2.915576946926565,
+              "se_boot": 0.051065240224309486,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8852459016393442,
+            "pass_at_k": 0.8852459016393442,
+            "pass_pow_k": 0.8852459016393442,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.948087431693989,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.328358208955224,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.9444444444444444,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 1.0,
+            "rollback_correctness": 1.0,
+            "post_recovery_stability": 1.0,
+            "regression_free_window": 1.0
+          },
+          "capability_scalar_unweighted": 0.8842574786324786,
+          "grounding": {
+            "synthetic": 0.75,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.7384615384615386,
+              "lo": 0.5393509615384615,
+              "hi": 0.9375,
+              "logit": 1.0379876668516756,
+              "se_boot": 0.10386704507383561,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.5052083333333334,
+              "lo": 0.2864583333333333,
+              "hi": 0.7864583333333334,
+              "logit": 0.020834086902842053,
+              "se_boot": 0.12254969740484324,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.5416666666666667,
+              "lo": 0.27499999999999997,
+              "hi": 0.8254861111111106,
+              "logit": 0.16705408466316643,
+              "se_boot": 0.14639505006171016,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5332167832167832,
+              "lo": 0.272618006993007,
+              "hi": 0.7395104895104895,
+              "logit": 0.1330631182071622,
+              "se_boot": 0.12411800629237982,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6402777777777777,
+              "lo": 0.43472222222222223,
+              "hi": 0.8458333333333334,
+              "logit": 0.5765699812971106,
+              "se_boot": 0.10610282758842284,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.5409836065573771,
+            "pass_at_k": 0.5409836065573771,
+            "pass_pow_k": 0.5409836065573771,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7677595628415301,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.6378787878787879,
+          "mean_cost": 3.8059701492537314,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.6111111111111112,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 0.0,
+            "rollback_correctness": 0.0,
+            "post_recovery_stability": 0.0,
+            "regression_free_window": 0.0
+          },
+          "capability_scalar_unweighted": 0.5917662198912199,
+          "grounding": {
+            "synthetic": 0.65,
+            "real": 0.31785714285714284,
+            "real_diagnostic": 0.4542857142857143,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.275,
+              "lo": 0.14134615384615382,
+              "hi": 0.47411057692307684,
+              "logit": -0.9694005571881034,
+              "se_boot": 0.08423567342273056,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.3645833333333333,
+              "lo": 0.20833333333333334,
+              "hi": 0.5782552083333332,
+              "logit": -0.5555258026838978,
+              "se_boot": 0.10477471651725666,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.31388888888888883,
+              "lo": 0.1333333333333333,
+              "hi": 0.5945138888888888,
+              "logit": -0.7820005179156367,
+              "se_boot": 0.12075324472739465,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.26494755244755247,
+              "lo": 0.12552447552447552,
+              "hi": 0.4577884615384615,
+              "logit": -1.0204099627750947,
+              "se_boot": 0.08581409120844431,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.2805555555555556,
+              "lo": 0.1263888888888889,
+              "hi": 0.486111111111111,
+              "logit": -0.9417075448582779,
+              "se_boot": 0.08963762362267969,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.19672131147540983,
+            "pass_at_k": 0.19672131147540983,
+            "pass_pow_k": 0.19672131147540983,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.5819672131147543,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.46230158730158727,
+          "mean_cost": 5.268656716417911,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.2222222222222222,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 0.0,
+            "rollback_correctness": 0.0,
+            "post_recovery_stability": 0.0,
+            "regression_free_window": 0.0
+          },
+          "capability_scalar_unweighted": 0.29979506604506606,
+          "grounding": {
+            "synthetic": 0.31666666666666665,
+            "real": 0.31785714285714284,
+            "real_diagnostic": 0.29428571428571426,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0,
+          "deepseek-ref(mock)": 1.0,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0,
+          "('seed', 'kimi-ref(mock)')": 0.2171,
+          "('seed', 'glm-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 0.9276333333333392,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.55,
+              "lo": 0.36346153846153845,
+              "hi": 0.7059134615384615,
+              "logit": 0.2006706954621514,
+              "se_boot": 0.08619869680701371,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.5833333333333334,
+              "lo": 0.4166666666666667,
+              "hi": 0.75,
+              "logit": 0.336472236621213,
+              "se_boot": 0.0844806669167968,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6111111111111109,
+              "lo": 0.37777777777777777,
+              "hi": 0.7499999999999999,
+              "logit": 0.4519851237430565,
+              "se_boot": 0.10243519092117472,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5935314685314685,
+              "lo": 0.42744755244755245,
+              "hi": 0.7213286713286712,
+              "logit": 0.3785837219713398,
+              "se_boot": 0.07436112611319845,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6180555555555556,
+              "lo": 0.4861111111111111,
+              "hi": 0.7152777777777778,
+              "logit": 0.481303184499669,
+              "se_boot": 0.058379054349497174,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8360655737704918,
+            "pass_at_k": 0.8360655737704918,
+            "pass_pow_k": 0.8360655737704918,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.1721311475409836,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.1940298507462686,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.8888888888888888,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 0.0,
+            "rollback_correctness": 0.0,
+            "post_recovery_stability": 0.0,
+            "regression_free_window": 0.0
+          },
+          "capability_scalar_unweighted": 0.5912062937062936,
+          "grounding": {
+            "synthetic": 0.3,
+            "real": 0.8125,
+            "real_diagnostic": 0.65,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.875,
+              "lo": 0.75,
+              "hi": 1.0,
+              "logit": 1.9459101490553132,
+              "se_boot": 0.07842767183981068,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.9322916666666666,
+              "lo": 0.796875,
+              "hi": 1.0,
+              "logit": 2.6224364483792177,
+              "se_boot": 0.06313297584298547,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.8388888888888889,
+              "lo": 0.6326388888888888,
+              "hi": 1.0,
+              "logit": 1.6499840068284504,
+              "se_boot": 0.09945474569733508,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.8653846153846154,
+              "lo": 0.6634615384615384,
+              "hi": 1.0,
+              "logit": 1.8607523407150068,
+              "se_boot": 0.08967677379441692,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.9486111111111111,
+              "lo": 0.8458333333333333,
+              "hi": 1.0,
+              "logit": 2.915576946926565,
+              "se_boot": 0.051065240224309486,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8852459016393442,
+            "pass_at_k": 0.8852459016393442,
+            "pass_pow_k": 0.8852459016393442,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.948087431693989,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.328358208955224,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.9444444444444444,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 1.0,
+            "rollback_correctness": 1.0,
+            "post_recovery_stability": 1.0,
+            "regression_free_window": 1.0
+          },
+          "capability_scalar_unweighted": 0.8920352564102565,
+          "grounding": {
+            "synthetic": 0.75,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.7384615384615386,
+              "lo": 0.5393509615384615,
+              "hi": 0.9375,
+              "logit": 1.0379876668516756,
+              "se_boot": 0.10386704507383561,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.5052083333333334,
+              "lo": 0.2864583333333333,
+              "hi": 0.7864583333333334,
+              "logit": 0.020834086902842053,
+              "se_boot": 0.12254969740484324,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.431984126984127,
+              "lo": 0.21111111111111108,
+              "hi": 0.6528571428571428,
+              "logit": -0.2737605193043973,
+              "se_boot": 0.11399206845615724,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5332167832167832,
+              "lo": 0.272618006993007,
+              "hi": 0.7395104895104895,
+              "logit": 0.1330631182071622,
+              "se_boot": 0.12411800629237982,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6402777777777777,
+              "lo": 0.43472222222222223,
+              "hi": 0.8458333333333334,
+              "logit": 0.5765699812971106,
+              "se_boot": 0.10610282758842284,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.5409836065573771,
+            "pass_at_k": 0.5409836065573771,
+            "pass_pow_k": 0.5409836065573771,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7677595628415301,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.6378787878787879,
+          "mean_cost": 3.8059701492537314,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.6111111111111112,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 0.0,
+            "rollback_correctness": 0.0,
+            "post_recovery_stability": 0.0,
+            "regression_free_window": 0.0
+          },
+          "capability_scalar_unweighted": 0.5698297119547121,
+          "grounding": {
+            "synthetic": 0.65,
+            "real": 0.31785714285714284,
+            "real_diagnostic": 0.4542857142857143,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.275,
+              "lo": 0.14134615384615382,
+              "hi": 0.47411057692307684,
+              "logit": -0.9694005571881034,
+              "se_boot": 0.08423567342273056,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.3645833333333333,
+              "lo": 0.20833333333333334,
+              "hi": 0.5782552083333332,
+              "logit": -0.5555258026838978,
+              "se_boot": 0.10477471651725666,
+              "n_templates": 12,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.31531746031746033,
+              "lo": 0.13666666666666663,
+              "hi": 0.5088690476190475,
+              "logit": -0.7753753432619798,
+              "se_boot": 0.09615976724882315,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.26494755244755247,
+              "lo": 0.12552447552447552,
+              "hi": 0.4577884615384615,
+              "logit": -1.0204099627750947,
+              "se_boot": 0.08581409120844431,
+              "n_templates": 13,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.2805555555555556,
+              "lo": 0.1263888888888889,
+              "hi": 0.486111111111111,
+              "logit": -0.9417075448582779,
+              "se_boot": 0.08963762362267969,
+              "n_templates": 18,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.19672131147540983,
+            "pass_at_k": 0.19672131147540983,
+            "pass_pow_k": 0.19672131147540983,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.5819672131147543,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.46230158730158727,
+          "mean_cost": 5.268656716417911,
+          "u5_headline_version": "u5_v1_selective_partition",
+          "selective_partition_success": 0.2222222222222222,
+          "u5_calibration": {
+            "enters_headline": false,
+            "n_tasks": 0,
+            "n_tasks_coverage_ok": 0,
+            "n_probes": 0,
+            "n_confidences": 0,
+            "coverage": null,
+            "coverage_gate": null,
+            "brier": null,
+            "ece": null,
+            "aurc": null,
+            "abstain_precision": null,
+            "abstain_recall": null,
+            "abstain_f1": null,
+            "score": null,
+            "diagnostic_only_tasks": 0,
+            "fallback_headline_version": "u5_v1_selective_partition"
+          },
+          "u4_recovery_quality": {
+            "recovery_latency": 0.0,
+            "rollback_correctness": 0.0,
+            "post_recovery_stability": 0.0,
+            "regression_free_window": 0.0
+          },
+          "capability_scalar_unweighted": 0.3000807803307804,
+          "grounding": {
+            "synthetic": 0.31666666666666665,
+            "real": 0.31785714285714284,
+            "real_diagnostic": 0.29428571428571426,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": -0.33333333333333326,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0,
+          "deepseek-ref(mock)": 1.0,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0,
+          "('seed', 'kimi-ref(mock)')": 0.2777,
+          "('seed', 'glm-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 0.9074333333333486,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "seed": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-evolving",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 87,
+      "n_parsed_ok": 74,
+      "n_empty": 4,
+      "n_errors": 9,
+      "parse_rate": 0.8505747126436781,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "ground_structured_reading",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 54.5,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"submit_finding\",       \"args\": {         \"finding\": {           \"cell\": 160.4         }       }     }   ],   \"grounding_answers\": {     \"g_table_teds\": [       [\"",
+          "raw_response": "{\n  \"actions\": [\n    {\n      \"tool\": \"submit_finding\",\n      \"args\": {\n        \"finding\": {\n          \"cell\": 160.4\n        }\n      }\n    }\n  ],\n  \"grounding_answers\": {\n    \"g_table_teds\": [\n      [\"Metric\", \"FY2022\", \"FY2023\", \"FY2024\"],\n      [\"Revenue\", \"160.4\", \"162.3\", \"174.7\"],\n      [\"COGS\", \"73.5\", \"84.5\", \"88.9\"],\n      [\"Gross Profit\", \"217.8\", \"245.8\", \"259.5\"],\n      [\"OpEx\", \"209.8\", \"242.7\", \"239.9\"]\n    ],\n    \"g_ocr_tokens\": [\n      {\"text\": \"Financial Summary (M USD)\", \"bbox\": [20, 40, 412, 132]},\n      {\"text\": \"Metric\", \"bbox\": [42, 238, 131, 317]},\n      {\"text\": \"FY2022\", \"bbox\": [284, 238, 391, 317]},\n      {\"text\": \"FY2023\", \"bbox\": [522, 238, 629, 317]},\n      {\"text\": \"FY2024\", \"bbox\": [764, 238, 871, 317]},\n      {\"text\": \"Revenue\", \"bbox\": [44, 388, 169, 467]},\n      {\"text\": \"160.4\", \"bbox\": [286, 388, 369, 467]},\n      {\"text\": \"162.3\", \"bbox\": [524, 388, 608, 467]},\n      {\"text\": \"174.7\", \"bbox\": [766, 388, 849, 467]},\n      {\"text\": \"COGS\", \"bbox\": [46, 538, 128, 617]},\n      {\"text\": \"73.5\", \"bbox\": [286, 538, 346, 617]},\n      {\"text\": \"84.5\", \"bbox\": [524, 538, 588, 617]},\n      {\"text\": \"88.9\", \"bbox\": [766, 538, 829, 617]},\n      {\"text\": \"Gross Profit\", \"bbox\": [46, 688, 206, 767]},\n      {\"text\": \"217.8\", \"bbox\": [286, 688, 366, 767]},\n      {\"text\": \"245.8\", \"bbox\": [524, 688, 608, 767]},\n      {\"text\": \"259.5\", \"bbox\": [766, 688, 849, 767]},\n      {\"text\": \"OpEx\", \"bbox\": [46, 833, 121, 912]},\n      {\"text\": \"209.8\", \"bbox\": [286, 833, 366, 912]},\n      {\"text\": \"242.7\", \"bbox\": [524, 833, 608, 912]},\n      {\"text\": \"239.9\", \"bbox\": [766, 833, 849, 912]}\n    ],\n    \"g_cell_value\": 160.4,\n    \"g_real_untrusted\": \"Revenue FY2022 is 160.4 million USD from the financial summary table\"\n  },\n  \"confidences\": {\n    \"g_table_teds\": 0.99,\n    \"g_ocr_tokens\": 0.92,\n    \"g_cell_value\": 1.0,\n    \"g_real_untrusted\": 0.97\n  },\n  \"abstain\": {\n    \"g_table_teds\": false,\n    \"g_ocr_tokens\": false,\n    \"g_cell_value\": false,\n    \"g_real_untrusted\": false\n  },\n  \"done\": true\n}",
+          "rationale": ""
+        },
+        {
+          "task_id": "ground_table_financials",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 65.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 160.4}}}], \"grounding_answers\": {\"g_headers\": [0, 1, 2, 3], \"g_cell_value\": 160.4, \"g_cell_box\": [261, 351, 497, 498], \"g_real_cell",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"cell\": 160.4}}}], \"grounding_answers\": {\"g_headers\": [0, 1, 2, 3], \"g_cell_value\": 160.4, \"g_cell_box\": [261, 351, 497, 498], \"g_real_cell_ocr\": \"160.4\"}, \"confidences\": {\"g_headers\": 1.0, \"g_cell_value\": 1.0, \"g_cell_box\": 0.98, \"g_real_cell_ocr\": 1.0}, \"abstain\": {\"g_headers\": false, \"g_cell_value\": false, \"g_cell_box\": false, \"g_real_cell_ocr\": false}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u1_invoice_reconcile",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 24.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u1_invoice_reconcile",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 53.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u1_invoice_reconcile",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 67.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": []}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": []}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 156.2,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"TOTAL\", \"value\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.49, 0.84, 0.",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"TOTAL\", \"value\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.49, 0.84, 0.64, 0.92], \"g_minimal_pair\": {\"real_total\": \"407.04\", \"counterfactual_total\": \"507.04\", \"minimal_edit\": \"single character replacement: first digit '4' → '5' in TOTAL value\"}, \"g_real_total_ocr\": \"407.04\"}, \"confidences\": {\"g_total\": 1.0, \"g_invoice_id\": 1.0, \"g_total_box\": 0.95, \"g_minimal_pair\": 1.0, \"g_real_total_ocr\": 1.0}, \"abstain\": {\"g_total\": false, \"g_invoice_id\": false, \"g_total_box\": false, \"g_minimal_pair\": false, \"g_real_total_ocr\": false}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 15.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.49, 0.84, 0.64, 0.92], \"g_mi",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"total\": 407.04}}}], \"grounding_answers\": {\"g_total\": 407.04, \"g_invoice_id\": [\"INV-72042\"], \"g_total_box\": [0.49, 0.84, 0.64, 0.92], \"g_minimal_pair\": {\"real_total\": \"407.04\", \"counterfactual_total\": \"507.04\", \"minimal_edit\": \"first digit of total changed from 4 to 5\"}, \"g_real_total_ocr\": \"407.04\"}, \"confidences\": {\"g_total\": 1.0, \"g_invoice_id\": 1.0, \"g_total_box\": 0.95, \"g_minimal_pair\": 1.0, \"g_real_total_ocr\": 1.0}, \"abstain\": {\"g_total\": false, \"g_invoice_id\": false, \"g_total_box\": false, \"g_minimal_pair\": false, \"g_real_total_ocr\": false}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 217.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u4_config_migration",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 124.6,
+          "snippet": "{\"actions\": [{\"tool\": \"migrate\", \"args\": {\"version\": \"v2.1\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"migrate\", \"args\": {\"version\": \"v2.1\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u4_config_migration",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 120.7,
+          "snippet": "{\"actions\": [{\"tool\": \"set_region\", \"args\": {\"region\": \"default\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"set_region\", \"args\": {\"region\": \"default\"}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u4_config_migration",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.3,
+          "snippet": "{\"actions\": [{\"tool\": \"restart\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"restart\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 25.3,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 220.8,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-005\", \"INV-006\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-005\", \"INV-006\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u3_chart_discrepancy",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 69.8,
+          "snippet": "{   \"actions\": [     {\"tool\": \"read_chart\", \"args\": {}},     {\"tool\": \"read_pdf\", \"args\": {}}   ],   \"grounding_answers\": {     \"g_chart_q3\": null,     \"g_pdf_q3\": null,     \"g_chart_box\": null,     \"",
+          "raw_response": "{\n  \"actions\": [\n    {\"tool\": \"read_chart\", \"args\": {}},\n    {\"tool\": \"read_pdf\", \"args\": {}}\n  ],\n  \"grounding_answers\": {\n    \"g_chart_q3\": null,\n    \"g_pdf_q3\": null,\n    \"g_chart_box\": null,\n    \"g_minimal_pair\": null,\n    \"g_real_ocr\": null\n  },\n  \"confidences\": {\n    \"g_chart_q3\": 0.0,\n    \"g_pdf_q3\": 0.0,\n    \"g_chart_box\": 0.0,\n    \"g_minimal_pair\": 0.0,\n    \"g_real_ocr\": 0.0\n  },\n  \"abstain\": {\n    \"g_chart_q3\": true,\n    \"g_pdf_q3\": true,\n    \"g_chart_box\": true,\n    \"g_minimal_pair\": true,\n    \"g_real_ocr\": true\n  },\n  \"done\": false\n}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u3_chart_discrepancy",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 250.3,
+          "snippet": "{   \"actions\": [     {\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"conflict\": [\"bar_chart\", \"pdf_table\"], \"delta\": 3.0}}}   ],   \"grounding_answers\": {     \"g_chart_q3\": 25.0,     \"g_pdf_q3\": 22.0,",
+          "raw_response": "{\n  \"actions\": [\n    {\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"conflict\": [\"bar_chart\", \"pdf_table\"], \"delta\": 3.0}}}\n  ],\n  \"grounding_answers\": {\n    \"g_chart_q3\": 25.0,\n    \"g_pdf_q3\": 22.0,\n    \"g_chart_box\": [0.52, 0.20, 0.64, 0.78],\n    \"g_minimal_pair\": [1],\n    \"g_real_ocr\": \"Q3 净利润\"\n  },\n  \"confidences\": {\n    \"g_chart_q3\": 0.5,\n    \"g_pdf_q3\": 0.5,\n    \"g_chart_box\": 0.3,\n    \"g_minimal_pair\": 0.3,\n    \"g_real_ocr\": 0.3\n  },\n  \"abstain\": {\n    \"g_chart_q3\": false,\n    \"g_pdf_q3\": false,\n    \"g_chart_box\": false,\n    \"g_minimal_pair\": false,\n    \"g_real_ocr\": false\n  },\n  \"done\": false\n}",
+          "rationale": ""
+        },
+        {
+          "task_id": "u3_chart_discrepancy",
+          "round": 2,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 103.9,
+          "snippet": "{   \"actions\": [     {\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"conflict\": [\"bar_chart\"], \"delta\": 3.0, \"corrected\": 22.0}}})   ],   \"grounding_answers\": {     \"g_chart_q3\": 25.0,     \"g_pdf_q3\"",
+          "raw_response": "{\n  \"actions\": [\n    {\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"conflict\": [\"bar_chart\"], \"delta\": 3.0, \"corrected\": 22.0}}})\n  ],\n  \"grounding_answers\": {\n    \"g_chart_q3\": 25.0,\n    \"g_pdf_q3\": 22.0,\n    \"g_chart_box\": [0.51, 0.22, 0.63, 0.79],\n    \"g_minimal_pair\": [0],\n    \"g_real_ocr\": \"Q3 净利润 22.0\"\n  },\n  \"confidences\": {\n    \"g_chart_q3\": 0.6,\n    \"g_pdf_q3\": 0.7,\n    \"g_chart_box\": 0.4,\n    \"g_minimal_pair\": 0.4,\n    \"g_real_ocr\": 0.4\n  },\n  \"abstain\": {\n    \"g_chart_q3\": false,\n    \"g_pdf_q3\": false,\n    \"g_chart_box\": false,\n    \"g_minimal_pair\": false,\n    \"g_real_ocr\": false\n  },\n  \"done\": false\n}",
+          "rationale": ""
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 477.2,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [3], \"g_bar_box\": [0.55, 0.27, 0.67, 0.89], \"g_",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_finding\", \"args\": {\"finding\": {\"top\": \"Q3\", \"value\": 22.2}}}], \"grounding_answers\": {\"g_bar_value\": 22.2, \"g_top_quarter\": [3], \"g_bar_box\": [0.55, 0.27, 0.67, 0.89], \"g_minimal_pair\": [3, 4], \"g_real_title_ocr\": \"Cloud ARR by Quarter (M USD)\"}, \"confidences\": {\"g_bar_value\": 0.9, \"g_top_quarter\": 0.99, \"g_bar_box\": 0.8, \"g_minimal_pair\": 0.7, \"g_real_title_ocr\": 0.99}, \"abstain\": {\"g_bar_value\": false, \"g_top_quarter\": false, \"g_bar_box\": false, \"g_minimal_pair\": false, \"g_real_title_ocr\": false}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 244.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 387.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-005\", \"INV-006\", \"INV-009\", \"INV-011\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-005\", \"INV-006\", \"INV-009\", \"INV-011\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_items\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_items\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 14.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1205, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1205, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 279.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-003\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__s1",
+          "round": 0,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 74.4,
+          "snippet": "",
+          "raw_response": "",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__s1",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 13.2,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1343, \"flagged\": 4}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1343, \"flagged\": 4}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 364.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 317, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 317, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_route__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 159.6,
+          "snippet": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-01\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-01\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__hard__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 366.4,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 426.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1724, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1724, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_route__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.6,
+          "snippet": "{\"actions\": [{\"tool\": \"read_options\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_options\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_route__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.8,
+          "snippet": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u1_tally__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 345.1,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "solv_u2_route__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 315.4,
+          "snippet": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_route__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 275.8,
+          "snippet": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_route__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 296.4,
+          "snippet": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-03\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 233.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 17.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 31.2,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S4\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S4\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_route__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 317.5,
+          "snippet": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-05\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"select_route\", \"args\": {\"plan\": {\"selected\": \"RT-05\"}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 290.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S4\", \"S8\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S4\", \"S8\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_drift__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 56.7,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"replicas\", \"timeout\"], \"config\": {\"timeout\": 15, \"cache\": \"on\", \"replicas\": 2}}}}], \"grounding_answers\": {}, \"confidences\": ",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"replicas\", \"timeout\"], \"config\": {\"timeout\": 15, \"cache\": \"on\", \"replicas\": 2}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 260.1,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\", \"log_level\"], \"config\": {\"cache\": \"on\", \"log_level\": \"warn\", \"tls\": true, \"db_host\": \"db-b\"}}}}], \"grounding_answers",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\", \"log_level\"], \"config\": {\"cache\": \"on\", \"log_level\": \"warn\", \"tls\": true, \"db_host\": \"db-b\"}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_drift__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 15.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_current\", \"args\": {}}, {\"tool\": \"read_desired\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_current\", \"args\": {}}, {\"tool\": \"read_desired\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_drift__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 14.7,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"db_host\", \"max_conn\"], \"config\": {\"db_host\": \"db-b\", \"max_conn\": 100}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abst",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"db_host\", \"max_conn\"], \"config\": {\"db_host\": \"db-b\", \"max_conn\": 100}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_drift__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 291.2,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"db_host\", \"max_conn\"], \"config\": {\"max_conn\": 100, \"db_host\": \"db-b\"}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abst",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"db_host\", \"max_conn\"], \"config\": {\"max_conn\": 100, \"db_host\": \"db-b\"}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 621.7,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "solv_u4_migration__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.6,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-796\", \"tls\": true, \"region\": \"eu-6\", \"log_level\": \"debug\", \"timeout\": 45, \"replicas\": 4, \"max_conn\": 100}}}], \"grounding_an",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-796\", \"tls\": true, \"region\": \"eu-6\", \"log_level\": \"debug\", \"timeout\": 45, \"replicas\": 4, \"max_conn\": 100}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__expert__s0",
+          "round": 0,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 70.3,
+          "snippet": "",
+          "raw_response": "",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__expert__s0",
+          "round": 1,
+          "status": "empty",
+          "n_actions": 0,
+          "latency_s": 462.4,
+          "snippet": "",
+          "raw_response": "",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__expert__s0",
+          "round": 2,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 352.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S1\", \"S9\", \"S10\", \"S12\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S1\", \"S9\", \"S10\", \"S12\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_migration__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 194.8,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-721\", \"timeout\": 45, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\":",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-721\", \"timeout\": 45, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 778.8,
+          "snippet": "RemoteDisconnected: Remote end closed connection without response"
+        },
+        {
+          "task_id": "solv_u4_drift__easy__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 685.7,
+          "snippet": "RemoteDisconnected: Remote end closed connection without response"
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 23.6,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.9,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-849\", \"tls\": true, \"timeout\": 45, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\":",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-849\", \"tls\": true, \"timeout\": 45, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_migration__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 129.0,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-590\", \"tls\": true, \"region\": \"eu-6\", \"timeout\": 30, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidenc",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-590\", \"tls\": true, \"region\": \"eu-6\", \"timeout\": 30, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_conflict__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 113.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-03\"], \"deferred\": [\"R-01\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-03\"], \"deferred\": [\"R-01\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 199.8,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-849\", \"tls\": true, \"timeout\": 45, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\":",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-849\", \"tls\": true, \"timeout\": 45, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_conflict__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 11.1,
+          "snippet": "{\"actions\": [{\"tool\": \"read_reports\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_reports\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_conflict__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-03\", \"R-05\"], \"deferred\": [\"R-01\", \"R-04\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"d",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-03\", \"R-05\"], \"deferred\": [\"R-01\", \"R-04\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_conflict__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 17.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-03\", \"R-05\"], \"deferred\": [\"R-01\", \"R-04\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"d",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-03\", \"R-05\"], \"deferred\": [\"R-01\", \"R-04\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_drift__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 608.0,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\"], \"config\": {\"cache\": \"on\", \"tls\": true}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\"], \"config\": {\"cache\": \"on\", \"tls\": true}}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 297.9,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-587\", \"tls\": true, \"timeout\": 15, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\"",
+          "raw_response": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-587\", \"tls\": true, \"timeout\": 15, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_conflict__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 363.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-05\", \"R-06\", \"R-07\", \"R-08\"], \"deferred\": [\"R-01\", \"R-03\", \"R-04\"]}}}], \"grounding_answers\": {}, \"confidences",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-02\", \"R-05\", \"R-06\", \"R-07\", \"R-08\"], \"deferred\": [\"R-01\", \"R-03\", \"R-04\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_conflict__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 341.6,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 456.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-01\", \"R-03\", \"R-04\", \"R-05\", \"R-06\", \"R-07\", \"R-11\", \"R-12\"], \"deferred\": [\"R-02\", \"R-08\", \"R-09\", \"R-10\"]}}}], \"grou",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-01\", \"R-03\", \"R-04\", \"R-05\", \"R-06\", \"R-07\", \"R-11\", \"R-12\"], \"deferred\": [\"R-02\", \"R-08\", \"R-09\", \"R-10\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 17.4,
+          "snippet": "{\"actions\": [{\"tool\": \"read_claims\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_claims\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C4\"], \"deferred\": [\"C3\", \"C5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C4\"], \"deferred\": [\"C3\", \"C5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 306.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\"], \"deferred\": [\"C3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\"], \"deferred\": [\"C3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_riskcov__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 13.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q2\", \"Q4\", \"Q6\", \"Q7\", \"Q8\", \"Q9\", \"Q10\", \"Q12\"], \"deferred\": [\"Q1\", \"Q3\", \"Q5\", \"Q11\"]}}}], \"grounding_answers\": {}, \"confide",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q2\", \"Q4\", \"Q6\", \"Q7\", \"Q8\", \"Q9\", \"Q10\", \"Q12\"], \"deferred\": [\"Q1\", \"Q3\", \"Q5\", \"Q11\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 286.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C4\"], \"deferred\": [\"C3\", \"C5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C4\"], \"deferred\": [\"C3\", \"C5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 475.8,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C3\", \"C4\", \"C7\", \"C9\", \"C10\", \"C11\", \"C12\"], \"deferred\": [\"C2\", \"C5\", \"C6\", \"C8\"]}}}], \"grounding_answers\": {}, \"confi",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C3\", \"C4\", \"C7\", \"C9\", \"C10\", \"C11\", \"C12\"], \"deferred\": [\"C2\", \"C5\", \"C6\", \"C8\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 15.2,
+          "snippet": "{\"actions\": [{\"tool\": \"read_questions\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_questions\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.8,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q3\", \"Q4\", \"Q5\"], \"deferred\": [\"Q1\", \"Q2\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q3\", \"Q4\", \"Q5\"], \"deferred\": [\"Q1\", \"Q2\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 481.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C3\", \"C6\", \"C8\"], \"deferred\": [\"C4\", \"C5\", \"C7\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {},",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C3\", \"C6\", \"C8\"], \"deferred\": [\"C4\", \"C5\", \"C7\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_diligence__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 362.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C4\"], \"deferred\": [\"C3\", \"C5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_diligence\", \"args\": {\"report\": {\"verified\": [\"C1\", \"C2\", \"C4\"], \"deferred\": [\"C3\", \"C5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_riskcov__easy__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 406.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\"], \"deferred\": [\"Q3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\"], \"deferred\": [\"Q3\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 273.6,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q3\", \"Q4\", \"Q5\"], \"deferred\": [\"Q1\", \"Q2\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q3\", \"Q4\", \"Q5\"], \"deferred\": [\"Q1\", \"Q2\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u5_riskcov__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 353.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\", \"Q4\"], \"deferred\": [\"Q3\", \"Q5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\", \"Q4\"], \"deferred\": [\"Q3\", \"Q5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u6_inbox__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 11.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_inbox\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"read_inbox\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u6_inbox__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.7,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 276.8,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u6_inbox__hard__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 500.6,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\", \"MSG-05\", \"MSG-06\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "raw_response": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\", \"MSG-05\", \"MSG-06\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u6_inbox__s1",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 257.9,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-01\", \"MSG-02\", \"MSG-03\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "raw_response": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-01\", \"MSG-02\", \"MSG-03\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}",
+          "rationale": ""
+        },
+        {
+          "task_id": "solv_u6_inbox__expert__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 640.5,
+          "snippet": "timeout: The read operation timed out"
+        },
+        {
+          "task_id": "solv_u6_inbox__easy__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 765.6,
+          "snippet": "RemoteDisconnected: Remote end closed connection without response"
+        },
+        {
+          "task_id": "solv_u5_riskcov__hard__s0",
+          "round": 0,
+          "status": "error",
+          "n_actions": 0,
+          "latency_s": 1039.6,
+          "snippet": "RemoteDisconnected: Remote end closed connection without response"
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "ground_structured_reading",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 4,
+          "images": 2,
+          "total_latency_s": 54.5,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "ground_table_financials",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 4,
+          "images": 1,
+          "total_latency_s": 65.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "u1_invoice_reconcile",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 4,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 146.3,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "ground_doc_receipt",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 171.5,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_reconcile__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 217.5,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "u4_config_migration",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 252.6,
+          "round_status": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": true,
+          "max_rounds": 3,
+          "horizon": 4
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 34.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u1_reconcile__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 220.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "u3_chart_discrepancy",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": false,
+          "n_actions": 3,
+          "n_grounding": 5,
+          "images": 0,
+          "total_latency_s": 424.0,
+          "round_status": [
+            "ok",
+            "ok",
+            "empty"
+          ],
+          "stopped_no_progress": true,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "ground_chart_revenue",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 5,
+          "images": 2,
+          "total_latency_s": 477.2,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 244.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u1_reconcile__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 387.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u1_tally__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 21.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_reconcile__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 279.7,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u1_tally__s1",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 87.6,
+          "round_status": [
+            "empty",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_tally__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 364.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_route__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 159.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_tally__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 366.4,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 426.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_route__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 20.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u1_tally__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 345.1,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_route__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 315.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_route__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 275.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_route__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 296.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_sourcing__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 233.5,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 49.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u2_route__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 317.5,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u2_sourcing__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 290.9,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_drift__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 56.7,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 260.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_drift__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 30.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_drift__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 291.2,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u2_sourcing__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 621.7,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_migration__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 12.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u2_sourcing__expert__s0",
+          "run_index": 0,
+          "rounds": 3,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 885.6,
+          "round_status": [
+            "empty",
+            "empty",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_migration__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 194.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 778.8,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_drift__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 685.7,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 33.5,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_migration__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 129.0,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u5_conflict__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 113.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 199.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u5_conflict__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 21.5,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_conflict__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 17.0,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u4_drift__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 608.0,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u4_migration__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 297.9,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 3
+        },
+        {
+          "task_id": "solv_u5_conflict__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 363.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_conflict__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 341.6,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 456.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_diligence__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 27.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_diligence__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 306.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_riskcov__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 13.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_diligence__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 286.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_diligence__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 475.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 28.0,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_diligence__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 481.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_diligence__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 362.0,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_riskcov__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 406.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 273.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_riskcov__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 353.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u6_inbox__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 22.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 276.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u6_inbox__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 500.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u6_inbox__s1",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 257.9,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u6_inbox__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 640.5,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u6_inbox__easy__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 765.6,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        },
+        {
+          "task_id": "solv_u5_riskcov__hard__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": false,
+          "n_actions": 0,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 1039.6,
+          "round_status": [
+            "error"
+          ],
+          "stopped_no_progress": false,
+          "max_rounds": 3,
+          "horizon": 2
+        }
+      ]
+    },
+    "deepseek-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "strong",
+      "model": null,
+      "mock_profile": "strong",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "kimi-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "medium",
+      "model": null,
+      "mock_profile": "medium",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "glm-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "weak",
+      "model": null,
+      "mock_profile": "weak",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    }
+  },
+  "contamination": {
+    "probe_profile": "medium",
+    "difficulty": "medium",
+    "n_pairs": 6,
+    "n_runs_probe": 3,
+    "n_boot": 600,
+    "templates": [
+      "u1_reconcile",
+      "u2_supplier_sourcing",
+      "u4_migration",
+      "u5_due_diligence"
+    ],
+    "per_template": [
+      {
+        "gap": -0.05555555555555558,
+        "delta": -0.05555555555555556,
+        "lo": -0.3888888888888889,
+        "hi": 0.27777777777777785,
+        "p": 0.8766666666666667,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u1_reconcile",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.7222222222222222,
+        "acc_bridge_mean": 0.7777777777777778
+      },
+      {
+        "gap": 0.11111111111111116,
+        "delta": 0.11111111111111112,
+        "lo": -0.1111111111111111,
+        "hi": 0.33472222222222103,
+        "p": 0.25666666666666665,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u2_supplier_sourcing",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.6666666666666666,
+        "acc_bridge_mean": 0.5555555555555555
+      },
+      {
+        "gap": 0.16666666666666663,
+        "delta": 0.16666666666666666,
+        "lo": -0.16666666666666666,
+        "hi": 0.5555555555555556,
+        "p": 0.44666666666666666,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u4_migration",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.611111111111111,
+        "acc_bridge_mean": 0.4444444444444444
+      },
+      {
+        "gap": 0.33333333333333354,
+        "delta": 0.3333333333333333,
+        "lo": -0.05555555555555553,
+        "hi": 0.6680555555555545,
+        "p": 0.06,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u5_due_diligence",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.8333333333333335,
+        "acc_bridge_mean": 0.49999999999999994
+      }
+    ],
+    "any_flag_retire": false,
+    "equating_demo": {
+      "method": "linear",
+      "slope": 0.9286591745133748,
+      "intercept": 0.1795135256243282,
+      "n_panel": 24,
+      "note": "common-person equating：同一探针面板在 原题 vs 新种子同构桥梁 两版分数拟合 旧↔新 量纲映射（§6.3，无需字面 anchor item）"
+    },
+    "note": "isomorph-gap（§6.5）：ContamGap=Acc_orig−Acc_isomorph + 配对 bootstrap 95%CI（复用 stats.paired_bootstrap_diff）；CI 排除 0 且为正(lo>0) → 原题显著比同构题更易 → 疑似训练污染 → flag_retire（该模板族打污染折扣并退役）。本块用**确定性离线探针**（mock stub，非真实 seed，0 API 调用）在 _bridge 同构集上证明该度量已 operationalized（非占位）。"
+  },
+  "meta": {
+    "timestamp": "20260629_191902",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.seed_v9.json",
+    "run_id": "v9_full_seed",
+    "partial_path": "D:\\文档\\Cursor\\model test\\engine\\results\\v9_full_seed.partial.jsonl",
+    "progress_path": "D:\\文档\\Cursor\\model test\\engine\\results\\v9_full_seed.progress.txt",
+    "resume": true,
+    "n_runs": 1,
+    "k": 5,
+    "difficulty": "all",
+    "n_tasks": 67,
+    "tag": "real_v9_full_seed",
+    "concurrency": 6,
+    "per_call_timeout": 300.0,
+    "wall_clock_s": 10800.0,
+    "max_calls": null,
+    "run_meta": {
+      "jobs_total": 268,
+      "jobs_done": 268,
+      "jobs_new": 268,
+      "jobs_resumed": 0,
+      "jobs_skipped": 0,
+      "stopped_early": false,
+      "wall_clock_s": 3355.9,
+      "total_api_calls": 87
+    },
+    "require_real": false,
+    "no_mock_fallback": false,
+    "eval_version": "2026-06-v9",
+    "prev_summary": null,
+    "reference_panel_config": null,
+    "equate_method": "linear"
+  }
+}

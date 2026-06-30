@@ -1,0 +1,1902 @@
+{
+  "models": [
+    "seed",
+    "deepseek",
+    "kimi",
+    "glm"
+  ],
+  "k": 5,
+  "grounding": {
+    "rho": 1.0,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_only_real_audit",
+    "n_pairs": 4,
+    "real_trusted_models": [
+      "seed",
+      "deepseek",
+      "kimi",
+      "glm"
+    ],
+    "per_model": {
+      "seed": {
+        "synthetic": 0.8666666666666666,
+        "real": 1.0,
+        "real_diagnostic": 1.0,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "deepseek": {
+        "synthetic": 0.76,
+        "real": 0.96,
+        "real_diagnostic": 0.968,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "kimi": {
+        "synthetic": 0.5533333333333332,
+        "real": 0.8300000000000001,
+        "real_diagnostic": 0.8,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      },
+      "glm": {
+        "synthetic": 0.34333333333333327,
+        "real": 0.6602380952380953,
+        "real_diagnostic": 0.6001904761904763,
+        "real_headline_eligible": true,
+        "real_trusted": true,
+        "calibration": {
+          "ocr_extractor_hi": {
+            "value": 1.0,
+            "passed": true,
+            "metric": "ocr_cer_acc"
+          },
+          "ocr_extractor_lo": {
+            "value": 0.6666666666666667,
+            "passed": false,
+            "metric": "ocr_cer_acc"
+          }
+        }
+      }
+    }
+  },
+  "grounding_rho": 1.0,
+  "grounding_headline_rule": "synthetic_only_real_audit",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U1": [
+        [
+          "seed",
+          "deepseek"
+        ],
+        [
+          "deepseek",
+          "kimi"
+        ]
+      ],
+      "U2": [
+        [
+          "seed",
+          "deepseek"
+        ],
+        [
+          "seed",
+          "kimi"
+        ],
+        [
+          "deepseek",
+          "kimi"
+        ]
+      ],
+      "U3": [
+        [
+          "seed",
+          "deepseek"
+        ],
+        [
+          "deepseek",
+          "kimi"
+        ],
+        [
+          "kimi",
+          "glm"
+        ]
+      ],
+      "U4": [
+        [
+          "seed",
+          "deepseek"
+        ],
+        [
+          "deepseek",
+          "kimi"
+        ],
+        [
+          "kimi",
+          "glm"
+        ]
+      ],
+      "U5": [
+        [
+          "seed",
+          "deepseek"
+        ],
+        [
+          "deepseek",
+          "kimi"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": null,
+  "pareto_frontier": [
+    "seed",
+    "deepseek"
+  ],
+  "pareto_points": [
+    [
+      "seed",
+      0.9911111111111112,
+      3.27027027027027
+    ],
+    [
+      "deepseek",
+      0.9222805194805195,
+      3.1837837837837837
+    ],
+    [
+      "kimi",
+      0.7276899711399711,
+      4.627027027027027
+    ],
+    [
+      "glm",
+      0.4170780663780663,
+      5.940540540540541
+    ]
+  ],
+  "dimension_stats": {
+    "U1": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek",
+        "kimi",
+        "glm"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "deepseek": {
+          "marginal": 0.9,
+          "logit": 2.1972245773362196,
+          "lo": 0.75,
+          "hi": 1.0,
+          "ci_width": 0.25,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "kimi": {
+          "marginal": 0.575,
+          "logit": 0.3022808718729335,
+          "lo": 0.27437500000000004,
+          "hi": 0.825,
+          "ci_width": 0.5506249999999999,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "glm": {
+          "marginal": 0.22500000000000003,
+          "logit": -1.2367626271489267,
+          "lo": 0.024375000000000036,
+          "hi": 0.45,
+          "ci_width": 0.425625,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.09999999999999998,
+          "delta_logit": 11.618284980598798,
+          "lo": 0.0,
+          "hi": 0.22562499999999952,
+          "p": 0.18,
+          "cliffs_delta": 0.42857142857142855,
+          "a": "seed",
+          "b": "deepseek",
+          "p_adj": 0.18,
+          "significant": false
+        },
+        {
+          "delta": 0.42500000000000004,
+          "delta_logit": 13.513228686062085,
+          "lo": 0.125,
+          "hi": 0.7,
+          "p": 0.005,
+          "cliffs_delta": 0.8571428571428571,
+          "a": "seed",
+          "b": "kimi",
+          "p_adj": 0.02,
+          "significant": true
+        },
+        {
+          "delta": 0.7749999999999999,
+          "delta_logit": 15.052272185083945,
+          "lo": 0.55,
+          "hi": 0.95,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.32500000000000007,
+          "delta_logit": 1.894943705463286,
+          "lo": 0.074375,
+          "hi": 0.6,
+          "p": 0.035,
+          "cliffs_delta": 0.6122448979591837,
+          "a": "deepseek",
+          "b": "kimi",
+          "p_adj": 0.07,
+          "significant": false
+        },
+        {
+          "delta": 0.675,
+          "delta_logit": 3.4339872044851463,
+          "lo": 0.42500000000000004,
+          "hi": 0.875,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.3499999999999999,
+          "delta_logit": 1.5390434990218602,
+          "lo": 0.07500000000000001,
+          "hi": 0.575,
+          "p": 0.01,
+          "cliffs_delta": 0.6530612244897959,
+          "a": "kimi",
+          "b": "glm",
+          "p_adj": 0.03,
+          "significant": true
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0035374149659863977,
+        "sigma2_instance": 0.01809523809523809,
+        "sigma2_residual": 0.11428571428571431,
+        "icc_template": 0.026026026026026047,
+        "icc_instance": 0.13313313313313307,
+        "n_runs": 140.0,
+        "n_templates": 16.0,
+        "n_instances": 28.0,
+        "avg_runs_per_instance": 5.0,
+        "avg_runs_per_template": 8.75
+      },
+      "design_effect": {
+        "rho": 0.026026026026026047,
+        "avg_cluster_size": 8.75,
+        "deff": 1.201701701701702,
+        "n_obs": 140,
+        "n_eff": 116.50145772594749
+      },
+      "sample_size": {
+        "n_iid_per_arm": 19.02010167404066,
+        "deff": 1.201701701701702,
+        "n_cluster_per_arm": 22.85648854823405,
+        "n_templates_per_arm": 2.612170119798177
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek": {
+            "theta_logit": 2.1972245773362196,
+            "marginal": 0.9
+          },
+          "kimi": {
+            "theta_logit": 0.3022808718729335,
+            "marginal": 0.575
+          },
+          "glm": {
+            "theta_logit": -1.2367626271489267,
+            "marginal": 0.22500000000000003
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.08533333333333334,
+          "sigma2_instance": 0.017142857142857147,
+          "sigma2_residual": 0.1142857142857143,
+          "icc_template": 0.3936731107205624,
+          "icc_instance": 0.07908611599297014,
+          "n_runs": 140.0,
+          "n_templates": 16.0,
+          "n_instances": 28.0,
+          "avg_runs_per_instance": 5.0,
+          "avg_runs_per_template": 8.75
+        },
+        "models": [
+          "seed",
+          "deepseek",
+          "kimi",
+          "glm"
+        ]
+      }
+    },
+    "U2": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek",
+        "kimi",
+        "glm"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "deepseek": {
+          "marginal": 0.9666666666666667,
+          "logit": 3.367295829986474,
+          "lo": 0.8333333333333334,
+          "hi": 1.0,
+          "ci_width": 0.16666666666666663,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "kimi": {
+          "marginal": 0.8666666666666667,
+          "logit": 1.8718021769015918,
+          "lo": 0.6333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.3666666666666667,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "glm": {
+          "marginal": 0.43333333333333335,
+          "logit": -0.26826398659467926,
+          "lo": 0.19999999999999998,
+          "hi": 0.7008333333333326,
+          "ci_width": 0.5008333333333327,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.033333333333333326,
+          "delta_logit": 10.448213727948543,
+          "lo": 0.0,
+          "hi": 0.16666666666666663,
+          "p": 1.0,
+          "cliffs_delta": 0.16666666666666666,
+          "a": "seed",
+          "b": "deepseek",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.1333333333333333,
+          "delta_logit": 11.943707381033427,
+          "lo": 0.0,
+          "hi": 0.3666666666666666,
+          "p": 0.225,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "kimi",
+          "p_adj": 0.675,
+          "significant": false
+        },
+        {
+          "delta": 0.5666666666666667,
+          "delta_logit": 14.083773544529697,
+          "lo": 0.2666666666666666,
+          "hi": 0.8333333333333334,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.09999999999999998,
+          "delta_logit": 1.4954936530848824,
+          "lo": 0.0,
+          "hi": 0.29999999999999993,
+          "p": 0.39,
+          "cliffs_delta": 0.3611111111111111,
+          "a": "deepseek",
+          "b": "kimi",
+          "p_adj": 0.78,
+          "significant": false
+        },
+        {
+          "delta": 0.5333333333333333,
+          "delta_logit": 3.6355598165811536,
+          "lo": 0.2333333333333334,
+          "hi": 0.7999999999999999,
+          "p": 0.0,
+          "cliffs_delta": 0.9722222222222222,
+          "a": "deepseek",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.43333333333333335,
+          "delta_logit": 2.140066163496271,
+          "lo": 0.1666666666666668,
+          "hi": 0.7333333333333332,
+          "p": 0.005,
+          "cliffs_delta": 0.8611111111111112,
+          "a": "kimi",
+          "b": "glm",
+          "p_adj": 0.02,
+          "significant": true
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.014999999999999998,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.10000000000000003,
+        "icc_template": 0.1304347826086956,
+        "icc_instance": 0.0,
+        "n_runs": 120.0,
+        "n_templates": 12.0,
+        "n_instances": 24.0,
+        "avg_runs_per_instance": 5.0,
+        "avg_runs_per_template": 10.0
+      },
+      "design_effect": {
+        "rho": 0.1304347826086956,
+        "avg_cluster_size": 10.0,
+        "deff": 2.1739130434782603,
+        "n_obs": 120,
+        "n_eff": 55.20000000000002
+      },
+      "sample_size": {
+        "n_iid_per_arm": 37.748349493972086,
+        "deff": 2.1739130434782603,
+        "n_cluster_per_arm": 82.0616293347219,
+        "n_templates_per_arm": 8.20616293347219
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek": {
+            "theta_logit": 3.367295829986474,
+            "marginal": 0.9666666666666667
+          },
+          "kimi": {
+            "theta_logit": 1.8718021769015918,
+            "marginal": 0.8666666666666667
+          },
+          "glm": {
+            "theta_logit": -0.26826398659467926,
+            "marginal": 0.43333333333333335
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.06560606060606058,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.10000000000000002,
+          "icc_template": 0.3961573650503201,
+          "icc_instance": 0.0,
+          "n_runs": 120.0,
+          "n_templates": 12.0,
+          "n_instances": 24.0,
+          "avg_runs_per_instance": 5.0,
+          "avg_runs_per_template": 10.0
+        },
+        "models": [
+          "seed",
+          "deepseek",
+          "kimi",
+          "glm"
+        ]
+      }
+    },
+    "U3": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek",
+        "kimi",
+        "glm"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 25,
+          "n_templates": 5,
+          "single_cluster": false
+        },
+        "deepseek": {
+          "marginal": 0.8800000000000001,
+          "logit": 1.9924301646902072,
+          "lo": 0.6799999999999999,
+          "hi": 1.0,
+          "ci_width": 0.32000000000000006,
+          "n_obs": 25,
+          "n_templates": 5,
+          "single_cluster": false
+        },
+        "kimi": {
+          "marginal": 0.64,
+          "logit": 0.5753641449035619,
+          "lo": 0.36,
+          "hi": 0.9199999999999999,
+          "ci_width": 0.5599999999999999,
+          "n_obs": 25,
+          "n_templates": 5,
+          "single_cluster": false
+        },
+        "glm": {
+          "marginal": 0.28,
+          "logit": -0.9444616088408512,
+          "lo": 0.08,
+          "hi": 0.48,
+          "ci_width": 0.39999999999999997,
+          "n_obs": 25,
+          "n_templates": 5,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.11999999999999988,
+          "delta_logit": 11.82307939324481,
+          "lo": 0.0,
+          "hi": 0.32000000000000006,
+          "p": 0.345,
+          "cliffs_delta": 0.4,
+          "a": "seed",
+          "b": "deepseek",
+          "p_adj": 0.345,
+          "significant": false
+        },
+        {
+          "delta": 0.36,
+          "delta_logit": 13.240145413031456,
+          "lo": 0.08000000000000007,
+          "hi": 0.6,
+          "p": 0.01,
+          "cliffs_delta": 0.8,
+          "a": "seed",
+          "b": "kimi",
+          "p_adj": 0.04,
+          "significant": true
+        },
+        {
+          "delta": 0.72,
+          "delta_logit": 14.75997116677587,
+          "lo": 0.5199999999999999,
+          "hi": 0.8809999999999991,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.2400000000000001,
+          "delta_logit": 1.4170660197866454,
+          "lo": -0.039999999999999813,
+          "hi": 0.48,
+          "p": 0.12,
+          "cliffs_delta": 0.52,
+          "a": "deepseek",
+          "b": "kimi",
+          "p_adj": 0.24,
+          "significant": false
+        },
+        {
+          "delta": 0.6000000000000001,
+          "delta_logit": 2.9368917735310585,
+          "lo": 0.28,
+          "hi": 0.8409999999999992,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.36,
+          "delta_logit": 1.519825753744413,
+          "lo": 0.040000000000000036,
+          "hi": 0.6809999999999993,
+          "p": 0.035,
+          "cliffs_delta": 0.72,
+          "a": "kimi",
+          "b": "glm",
+          "p_adj": 0.10500000000000001,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.033,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.13500000000000004,
+        "icc_template": 0.1964285714285714,
+        "icc_instance": 0.0,
+        "n_runs": 100.0,
+        "n_templates": 20.0,
+        "n_instances": 20.0,
+        "avg_runs_per_instance": 5.0,
+        "avg_runs_per_template": 5.0
+      },
+      "design_effect": {
+        "rho": 0.1964285714285714,
+        "avg_cluster_size": 5.0,
+        "deff": 1.7857142857142856,
+        "n_obs": 100,
+        "n_eff": 56.00000000000001
+      },
+      "sample_size": {
+        "n_iid_per_arm": 21.04053637266355,
+        "deff": 1.7857142857142856,
+        "n_cluster_per_arm": 37.57238637975634,
+        "n_templates_per_arm": 7.5144772759512675
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek": {
+            "theta_logit": 1.9924301646902072,
+            "marginal": 0.8800000000000001
+          },
+          "kimi": {
+            "theta_logit": 0.5753641449035619,
+            "marginal": 0.64
+          },
+          "glm": {
+            "theta_logit": -0.9444616088408512,
+            "marginal": 0.28
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.10736842105263159,
+          "sigma2_instance": 0.0,
+          "sigma2_residual": 0.13500000000000006,
+          "icc_template": 0.4429967426710097,
+          "icc_instance": 0.0,
+          "n_runs": 100.0,
+          "n_templates": 20.0,
+          "n_instances": 20.0,
+          "avg_runs_per_instance": 5.0,
+          "avg_runs_per_template": 5.0
+        },
+        "models": [
+          "seed",
+          "deepseek",
+          "kimi",
+          "glm"
+        ]
+      }
+    },
+    "U4": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek",
+        "kimi",
+        "glm"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "deepseek": {
+          "marginal": 0.95,
+          "logit": 2.9444389791664394,
+          "lo": 0.85,
+          "hi": 1.0,
+          "ci_width": 0.15000000000000002,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "kimi": {
+          "marginal": 0.7000000000000001,
+          "logit": 0.8472978603872039,
+          "lo": 0.5,
+          "hi": 0.9006249999999995,
+          "ci_width": 0.40062499999999945,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        },
+        "glm": {
+          "marginal": 0.4,
+          "logit": -0.4054651081081643,
+          "lo": 0.225,
+          "hi": 0.6499999999999999,
+          "ci_width": 0.42499999999999993,
+          "n_obs": 35,
+          "n_templates": 4,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.050000000000000044,
+          "delta_logit": 10.871070578768578,
+          "lo": 0.0,
+          "hi": 0.17500000000000004,
+          "p": 0.495,
+          "cliffs_delta": 0.2857142857142857,
+          "a": "seed",
+          "b": "deepseek",
+          "p_adj": 0.495,
+          "significant": false
+        },
+        {
+          "delta": 0.29999999999999993,
+          "delta_logit": 12.968211697547813,
+          "lo": 0.12437500000000004,
+          "hi": 0.5,
+          "p": 0.005,
+          "cliffs_delta": 0.8571428571428571,
+          "a": "seed",
+          "b": "kimi",
+          "p_adj": 0.02,
+          "significant": true
+        },
+        {
+          "delta": 0.6,
+          "delta_logit": 14.220974666043182,
+          "lo": 0.3993749999999999,
+          "hi": 0.8,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.2499999999999999,
+          "delta_logit": 2.0971411187792355,
+          "lo": 0.04999999999999993,
+          "hi": 0.44999999999999996,
+          "p": 0.03,
+          "cliffs_delta": 0.6938775510204082,
+          "a": "deepseek",
+          "b": "kimi",
+          "p_adj": 0.09,
+          "significant": false
+        },
+        {
+          "delta": 0.5499999999999999,
+          "delta_logit": 3.3499040872746035,
+          "lo": 0.30000000000000004,
+          "hi": 0.7506249999999994,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.30000000000000004,
+          "delta_logit": 1.252762968495368,
+          "lo": -2.7755575615627336e-18,
+          "hi": 0.575,
+          "p": 0.08,
+          "cliffs_delta": 0.6530612244897959,
+          "a": "kimi",
+          "b": "glm",
+          "p_adj": 0.16,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.020238095238095225,
+        "sigma2_residual": 0.13214285714285717,
+        "icc_template": 0.0,
+        "icc_instance": 0.13281249999999992,
+        "n_runs": 140.0,
+        "n_templates": 16.0,
+        "n_instances": 28.0,
+        "avg_runs_per_instance": 5.0,
+        "avg_runs_per_template": 8.75
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 8.75,
+        "deff": 1.0,
+        "n_obs": 140,
+        "n_eff": 140.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 27.949904397833674,
+        "deff": 1.0,
+        "n_cluster_per_arm": 27.949904397833674,
+        "n_templates_per_arm": 3.1942747883238485
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek": {
+            "theta_logit": 2.9444389791664394,
+            "marginal": 0.95
+          },
+          "kimi": {
+            "theta_logit": 0.8472978603872039,
+            "marginal": 0.7000000000000001
+          },
+          "glm": {
+            "theta_logit": -0.4054651081081643,
+            "marginal": 0.4
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.03537414965986396,
+          "sigma2_instance": 0.020238095238095232,
+          "sigma2_residual": 0.13214285714285715,
+          "icc_template": 0.18840579710144936,
+          "icc_instance": 0.10778985507246373,
+          "n_runs": 140.0,
+          "n_templates": 16.0,
+          "n_instances": 28.0,
+          "avg_runs_per_instance": 5.0,
+          "avg_runs_per_template": 8.75
+        },
+        "models": [
+          "seed",
+          "deepseek",
+          "kimi",
+          "glm"
+        ]
+      }
+    },
+    "U5": {
+      "backend": "bootstrap-mixed-effects",
+      "models": [
+        "seed",
+        "deepseek",
+        "kimi",
+        "glm"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "deepseek": {
+          "marginal": 0.9,
+          "logit": 2.1972245773362196,
+          "lo": 0.7333333333333334,
+          "hi": 1.0,
+          "ci_width": 0.2666666666666666,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "kimi": {
+          "marginal": 0.6333333333333334,
+          "logit": 0.5465437063680703,
+          "lo": 0.36583333333333334,
+          "hi": 0.9,
+          "ci_width": 0.5341666666666667,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        },
+        "glm": {
+          "marginal": 0.20000000000000004,
+          "logit": -1.3862943611198904,
+          "lo": 0.03250000000000005,
+          "hi": 0.43333333333333335,
+          "ci_width": 0.4008333333333333,
+          "n_obs": 30,
+          "n_templates": 3,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.09999999999999998,
+          "delta_logit": 11.618284980598798,
+          "lo": 0.0,
+          "hi": 0.29999999999999993,
+          "p": 0.4,
+          "cliffs_delta": 0.3333333333333333,
+          "a": "seed",
+          "b": "deepseek",
+          "p_adj": 0.41,
+          "significant": false
+        },
+        {
+          "delta": 0.3666666666666666,
+          "delta_logit": 13.268965851566948,
+          "lo": 0.09999999999999998,
+          "hi": 0.6341666666666659,
+          "p": 0.0,
+          "cliffs_delta": 0.8333333333333334,
+          "a": "seed",
+          "b": "kimi",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.7999999999999999,
+          "delta_logit": 15.201803919054909,
+          "lo": 0.5666666666666667,
+          "hi": 0.9666666666666667,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.2666666666666666,
+          "delta_logit": 1.6506808709681493,
+          "lo": -0.09999999999999998,
+          "hi": 0.6341666666666659,
+          "p": 0.205,
+          "cliffs_delta": 0.6388888888888888,
+          "a": "deepseek",
+          "b": "kimi",
+          "p_adj": 0.41,
+          "significant": false
+        },
+        {
+          "delta": 0.7,
+          "delta_logit": 3.58351893845611,
+          "lo": 0.3991666666666666,
+          "hi": 0.9666666666666667,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "deepseek",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.43333333333333335,
+          "delta_logit": 1.9328380674879606,
+          "lo": 0.16583333333333336,
+          "hi": 0.7000000000000001,
+          "p": 0.0,
+          "cliffs_delta": 0.8888888888888888,
+          "a": "kimi",
+          "b": "glm",
+          "p_adj": 0.0,
+          "significant": true
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.006666666666666665,
+        "sigma2_instance": 0.005833333333333331,
+        "sigma2_residual": 0.12083333333333338,
+        "icc_template": 0.04999999999999998,
+        "icc_instance": 0.043749999999999976,
+        "n_runs": 120.0,
+        "n_templates": 12.0,
+        "n_instances": 24.0,
+        "avg_runs_per_instance": 5.0,
+        "avg_runs_per_template": 10.0
+      },
+      "design_effect": {
+        "rho": 0.04999999999999998,
+        "avg_cluster_size": 10.0,
+        "deff": 1.4499999999999997,
+        "n_obs": 120,
+        "n_eff": 82.75862068965519
+      },
+      "sample_size": {
+        "n_iid_per_arm": 19.658202959420972,
+        "deff": 1.4499999999999997,
+        "n_cluster_per_arm": 28.504394291160406,
+        "n_templates_per_arm": 2.8504394291160406
+      },
+      "glmm_fit": {
+        "backend": "bootstrap-mixed-effects",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 13.815509557935018,
+            "marginal": 1.0
+          },
+          "deepseek": {
+            "theta_logit": 2.1972245773362196,
+            "marginal": 0.9
+          },
+          "kimi": {
+            "theta_logit": 0.5465437063680703,
+            "marginal": 0.6333333333333334
+          },
+          "glm": {
+            "theta_logit": -1.3862943611198904,
+            "marginal": 0.20000000000000004
+          }
+        },
+        "variance_components": {
+          "sigma2_template": 0.10272727272727275,
+          "sigma2_instance": 0.0025000000000000022,
+          "sigma2_residual": 0.12083333333333335,
+          "icc_template": 0.4544235924932976,
+          "icc_instance": 0.011058981233243975,
+          "n_runs": 120.0,
+          "n_templates": 12.0,
+          "n_instances": 24.0,
+          "avg_runs_per_instance": 5.0,
+          "avg_runs_per_template": 10.0
+        },
+        "models": [
+          "seed",
+          "deepseek",
+          "kimi",
+          "glm"
+        ]
+      }
+    }
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.9555555555555555,
+              "lo": 0.8666666666666666,
+              "hi": 1.0,
+              "logit": 3.0680529351336157,
+              "se_boot": 0.04084551475221754,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9891891891891892,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 3.27027027027027,
+          "capability_scalar_unweighted": 0.9911111111111112,
+          "grounding": {
+            "synthetic": 0.8666666666666666,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.9282142857142858,
+              "lo": 0.8089017857142858,
+              "hi": 1.0,
+              "logit": 2.559577126582415,
+              "se_boot": 0.050784375654308496,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.9738095238095239,
+              "lo": 0.8952380952380952,
+              "hi": 1.0,
+              "logit": 3.6158198832444346,
+              "se_boot": 0.03432921275286822,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.8473333333333333,
+              "lo": 0.6998333333333333,
+              "hi": 0.9523055555555554,
+              "logit": 1.7138372676352138,
+              "se_boot": 0.0663530906141852,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.9545454545454545,
+              "lo": 0.8636363636363635,
+              "hi": 1.0,
+              "logit": 3.0445224377234212,
+              "se_boot": 0.04001888962416077,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.9075000000000001,
+              "lo": 0.7533333333333334,
+              "hi": 1.0,
+              "logit": 2.2834849216206274,
+              "se_boot": 0.06711205635700346,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.9135135135135136,
+            "pass_at_k": 0.9993427027027029,
+            "pass_pow_k": 0.7320994594594598,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9493693693693693,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 3.1837837837837837,
+          "capability_scalar_unweighted": 0.9222805194805195,
+          "grounding": {
+            "synthetic": 0.76,
+            "real": 0.96,
+            "real_diagnostic": 0.968,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.6921428571428573,
+              "lo": 0.4939107142857143,
+              "hi": 0.8842857142857143,
+              "logit": 0.8101565217870191,
+              "se_boot": 0.10376369156786447,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8943452380952381,
+              "lo": 0.7610193452380952,
+              "hi": 1.0,
+              "logit": 2.1359150574938925,
+              "se_boot": 0.06346185905226787,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.6417777777777778,
+              "lo": 0.47813333333333335,
+              "hi": 0.8163444444444444,
+              "logit": 0.5830885769461432,
+              "se_boot": 0.08938782037496557,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7493506493506493,
+              "lo": 0.5890746753246753,
+              "hi": 0.9090909090909091,
+              "logit": 1.0951520776032138,
+              "se_boot": 0.08557039593402922,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6608333333333333,
+              "lo": 0.445,
+              "hi": 0.8466041666666659,
+              "logit": 0.6670100361922527,
+              "se_boot": 0.10464451766136791,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6810810810810811,
+            "pass_at_k": 0.9600518918918916,
+            "pass_pow_k": 0.31788972972972973,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.853063063063063,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.6760770975056689,
+          "mean_cost": 4.627027027027027,
+          "capability_scalar_unweighted": 0.7276899711399711,
+          "grounding": {
+            "synthetic": 0.5533333333333332,
+            "real": 0.8300000000000001,
+            "real_diagnostic": 0.8,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.39499999999999996,
+              "lo": 0.2492589285714286,
+              "hi": 0.5450892857142857,
+              "logit": -0.4263426931297197,
+              "se_boot": 0.07980597122418148,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.5458333333333333,
+              "lo": 0.36424107142857143,
+              "hi": 0.7580580357142859,
+              "logit": 0.1838494409720076,
+              "se_boot": 0.09631772844746433,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.3637777777777778,
+              "lo": 0.257225,
+              "hi": 0.4784055555555555,
+              "logit": -0.5590047277269801,
+              "se_boot": 0.058477587207596715,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5207792207792209,
+              "lo": 0.3635714285714286,
+              "hi": 0.6823214285714281,
+              "logit": 0.08316478326604243,
+              "se_boot": 0.0854476734112925,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.26,
+              "lo": 0.10583333333333333,
+              "hi": 0.41416666666666674,
+              "logit": -1.0459685551826876,
+              "se_boot": 0.08019222328963566,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.3189189189189189,
+            "pass_at_k": 0.7228454054054051,
+            "pass_pow_k": 0.024899459459459455,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7022522522522524,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.5423728813559321,
+          "mean_cost": 5.940540540540541,
+          "capability_scalar_unweighted": 0.4170780663780663,
+          "grounding": {
+            "synthetic": 0.34333333333333327,
+            "real": 0.6602380952380953,
+            "real_diagnostic": 0.6001904761904763,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 1.0,
+          "deepseek": 0.0,
+          "kimi": 0.0,
+          "glm": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek')": 0.0,
+          "('seed', 'kimi')": 0.0,
+          "('seed', 'glm')": 0.0,
+          "('deepseek', 'kimi')": 0.0,
+          "('deepseek', 'glm')": 0.0,
+          "('kimi', 'glm')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.9555555555555555,
+              "lo": 0.8666666666666666,
+              "hi": 1.0,
+              "logit": 3.0680529351336157,
+              "se_boot": 0.04084551475221754,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 1.0,
+              "lo": 1.0,
+              "hi": 1.0,
+              "logit": 13.815509557935018,
+              "se_boot": 0.0,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9891891891891892,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 3.27027027027027,
+          "capability_scalar_unweighted": 0.9911111111111112,
+          "grounding": {
+            "synthetic": 0.8666666666666666,
+            "real": 1.0,
+            "real_diagnostic": 1.0,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "deepseek": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.9282142857142858,
+              "lo": 0.8089017857142858,
+              "hi": 1.0,
+              "logit": 2.559577126582415,
+              "se_boot": 0.050784375654308496,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.9738095238095239,
+              "lo": 0.8952380952380952,
+              "hi": 1.0,
+              "logit": 3.6158198832444346,
+              "se_boot": 0.03432921275286822,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.8722222222222221,
+              "lo": 0.7558222222222223,
+              "hi": 0.9575166666666666,
+              "logit": 1.9207515894191576,
+              "se_boot": 0.0533220242813552,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.9545454545454545,
+              "lo": 0.8636363636363635,
+              "hi": 1.0,
+              "logit": 3.0445224377234212,
+              "se_boot": 0.04001888962416077,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.9075000000000001,
+              "lo": 0.7533333333333334,
+              "hi": 1.0,
+              "logit": 2.2834849216206274,
+              "se_boot": 0.06711205635700346,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.9135135135135136,
+            "pass_at_k": 0.9993427027027029,
+            "pass_pow_k": 0.7320994594594598,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9493693693693693,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 3.1837837837837837,
+          "capability_scalar_unweighted": 0.9272582972582972,
+          "grounding": {
+            "synthetic": 0.76,
+            "real": 0.96,
+            "real_diagnostic": 0.968,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "kimi": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.6921428571428573,
+              "lo": 0.4939107142857143,
+              "hi": 0.8842857142857143,
+              "logit": 0.8101565217870191,
+              "se_boot": 0.10376369156786447,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8943452380952381,
+              "lo": 0.7610193452380952,
+              "hi": 1.0,
+              "logit": 2.1359150574938925,
+              "se_boot": 0.06346185905226787,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.692,
+              "lo": 0.5361444444444444,
+              "hi": 0.8593999999999999,
+              "logit": 0.8094861726440948,
+              "se_boot": 0.08413630058804716,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.7493506493506493,
+              "lo": 0.5890746753246753,
+              "hi": 0.9090909090909091,
+              "logit": 1.0951520776032138,
+              "se_boot": 0.08557039593402922,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6608333333333333,
+              "lo": 0.445,
+              "hi": 0.8466041666666659,
+              "logit": 0.6670100361922527,
+              "se_boot": 0.10464451766136791,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.6810810810810811,
+            "pass_at_k": 0.9600518918918916,
+            "pass_pow_k": 0.31788972972972973,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.853063063063063,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.6760770975056689,
+          "mean_cost": 4.627027027027027,
+          "capability_scalar_unweighted": 0.7377344155844155,
+          "grounding": {
+            "synthetic": 0.5533333333333332,
+            "real": 0.8300000000000001,
+            "real_diagnostic": 0.8,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        },
+        "glm": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.39499999999999996,
+              "lo": 0.2492589285714286,
+              "hi": 0.5450892857142857,
+              "logit": -0.4263426931297197,
+              "se_boot": 0.07980597122418148,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.5458333333333333,
+              "lo": 0.36424107142857143,
+              "hi": 0.7580580357142859,
+              "logit": 0.1838494409720076,
+              "se_boot": 0.09631772844746433,
+              "n_templates": 6,
+              "single_cluster": false
+            },
+            "U3": {
+              "point": 0.4298412698412698,
+              "lo": 0.29011428571428566,
+              "hi": 0.5803246031746031,
+              "logit": -0.28249879538992473,
+              "se_boot": 0.07306982714883703,
+              "n_templates": 5,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.5207792207792209,
+              "lo": 0.3635714285714286,
+              "hi": 0.6823214285714281,
+              "logit": 0.08316478326604243,
+              "se_boot": 0.0854476734112925,
+              "n_templates": 7,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.26,
+              "lo": 0.10583333333333333,
+              "hi": 0.41416666666666674,
+              "logit": -1.0459685551826876,
+              "se_boot": 0.08019222328963566,
+              "n_templates": 6,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.3189189189189189,
+            "pass_at_k": 0.7228454054054051,
+            "pass_pow_k": 0.024899459459459455,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7022522522522524,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.5423728813559321,
+          "mean_cost": 5.940540540540541,
+          "capability_scalar_unweighted": 0.43029076479076467,
+          "grounding": {
+            "synthetic": 0.34333333333333327,
+            "real": 0.6602380952380953,
+            "real_diagnostic": 0.6001904761904763,
+            "real_headline_eligible": true,
+            "real_trusted": true,
+            "calibration": {
+              "ocr_extractor_hi": {
+                "value": 1.0,
+                "passed": true,
+                "metric": "ocr_cer_acc"
+              },
+              "ocr_extractor_lo": {
+                "value": 0.6666666666666667,
+                "passed": false,
+                "metric": "ocr_cer_acc"
+              }
+            }
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 1.0,
+          "deepseek": 0.0,
+          "kimi": 0.0,
+          "glm": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek')": 0.0,
+          "('seed', 'kimi')": 0.0,
+          "('seed', 'glm')": 0.0,
+          "('deepseek', 'kimi')": 0.0,
+          "('deepseek', 'glm')": 0.0,
+          "('kimi', 'glm')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "seed": {
+      "is_mock": true,
+      "provider": "oracle",
+      "model": null,
+      "mock_profile": "oracle",
+      "fallback_reason": "forced_mock",
+      "n_calls": 0,
+      "n_errors": 0
+    },
+    "deepseek": {
+      "is_mock": true,
+      "provider": "strong",
+      "model": null,
+      "mock_profile": "strong",
+      "fallback_reason": "forced_mock",
+      "n_calls": 0,
+      "n_errors": 0
+    },
+    "kimi": {
+      "is_mock": true,
+      "provider": "medium",
+      "model": null,
+      "mock_profile": "medium",
+      "fallback_reason": "forced_mock",
+      "n_calls": 0,
+      "n_errors": 0
+    },
+    "glm": {
+      "is_mock": true,
+      "provider": "weak",
+      "model": null,
+      "mock_profile": "weak",
+      "fallback_reason": "forced_mock",
+      "n_calls": 0,
+      "n_errors": 0
+    }
+  },
+  "meta": {
+    "timestamp": "20260625_224803",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.example.json",
+    "n_runs": 5,
+    "k": 5,
+    "difficulty": "medium",
+    "n_tasks": 37,
+    "tag": "mock"
+  }
+}

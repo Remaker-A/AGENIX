@@ -1,0 +1,16 @@
+# AGENIX 双轨 grounding —— 真实像素级 ML 验证器（scoring/grounding.py + assets/pixel_ocr.py）依赖
+# 本阶段不做真实模型 API 调用：grounding 验证器是“读 PNG 资产”的本地像素读取。
+#
+# 必需（真实读图 / 渲染资产）：
+numpy>=1.21          # 像素数组、连通域、模板匹配
+pillow>=9.0          # 渲染字形/框为像素 + 读取 PNG（真实读图核心）
+#
+# 可选（有则更快/更强，缺失自动降级，不影响正确性）：
+scipy>=1.7           # 连通域标注 / 形态学腐蚀（缺失走纯 numpy/BFS 实现）
+matplotlib>=3.4      # 提供 DejaVuSans.ttf 字体 + 图表资产栅格化（缺失回退 PIL 位图字体）
+#
+# 可选 OCR 后端（**优先**，仅当系统装有 tesseract 二进制时生效；否则用纯 PIL 模板匹配像素读取）：
+#   - pytesseract 仅是 Python 包装；真正需要操作系统级 `tesseract` 可执行文件（Windows 上不可 pip 安装）。
+#   - 本机实测：pytesseract 模块在位但 tesseract 二进制缺失 → 自动采用确定性 PIL 像素读取（可复现）。
+# pytesseract>=0.3.10
+# easyocr>=1.7         # 备选 ML OCR（需 torch；体量大，未默认启用）

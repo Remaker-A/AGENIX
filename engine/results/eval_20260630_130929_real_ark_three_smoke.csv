@@ -1,0 +1,7 @@
+profile,model,dimension,point,lo,hi,n_obs,k,equated_point,equated_lo,equated_hi,per_run,pass_at_k,pass_pow_k,asr,mean_cost,g_synthetic,g_real,real_trusted,calibration_coverage,calibration_brier,calibration_ece,calibration_aurc,abstain_precision,abstain_recall,abstain_f1,u5_headline_version,selective_partition_success
+R,doubao_seed_evolving,U3,0.4999999999999999,0.4999999999999999,0.4999999999999999,1,5,,,,1.0,1.0,1.0,0.0,1.0,0.25,1.0,True,,,,,,,,,
+R,doubao_seed_2_1_pro,U3,0.0,0.0,0.0,1,5,,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,,,,,,,,,
+R,doubao_seed_2_1_turbo,U3,0.7499999999999999,0.7499999999999999,0.7499999999999999,1,5,,,,1.0,1.0,1.0,0.0,2.0,0.25,1.0,True,,,,,,,,,
+D,doubao_seed_evolving,U3,0.7499999999999999,0.7499999999999999,0.7499999999999999,1,5,,,,1.0,1.0,1.0,0.0,1.0,0.25,1.0,True,,,,,,,,,
+D,doubao_seed_2_1_pro,U3,0.0,0.0,0.0,1,5,,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,,,,,,,,,
+D,doubao_seed_2_1_turbo,U3,1.0,1.0,1.0,1,5,,,,1.0,1.0,1.0,0.0,2.0,0.25,1.0,True,,,,,,,,,

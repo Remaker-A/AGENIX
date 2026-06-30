@@ -1,0 +1,23 @@
+# AGENIX-Engine 统计主干额外依赖（stats.py / irt.py / judge/panel.py / tests/test_stats.py）
+# 安装：pip install -r requirements_stats.txt
+# 说明：不修改 requirements.txt；本文件为统计主干的增量依赖。
+
+# 必需（GLMM bootstrap 混合效应、IRT MML-EM、Krippendorff α、权重敏感性均基于 numpy）
+numpy>=1.21
+
+# 必需（IRT 可选 GPCM 多级计分校准用 scipy.optimize.minimize 做 M 步数值优化）
+# stats.py 的正态分位用自带 Acklam 近似，未强依赖 scipy；2PL/1PL 校准纯 numpy。
+scipy>=1.7
+
+# 真实 GLMM 主估计器：装上后 stats.fit_glmm 自动改用
+#   statsmodels.genmod.bayes_mixed_glm.BinomialBayesMixedGLM（变分贝叶斯，确定性）
+#   估计固定效应 logit θ_m（headline 主估计器）与随机效应 log-SD；formula 接口需要 pandas。
+#   CI 始终由两级聚类 bootstrap 给出（spec §5.1），与后端无关。
+# 未安装时回退到"可辩护的两级聚类 bootstrap 混合效应近似"（CI 仍非退化），backend 字段标注。
+#
+# 安装记录：本机为 Python 3.8 + 代理损坏（pip 直连默认走系统代理会 ProxyError）。
+#   绕过方式：设 NO_PROXY=* 且 pip --proxy="" 后可正常下载，已装 statsmodels 0.14.1(cp38)
+#   + patsy 1.0.2（pandas 2.0.3 / scipy 1.10.1 / numpy 1.24.4 本机已具备）。
+#   即：  $env:NO_PROXY="*"; python -m pip install --proxy="" statsmodels
+statsmodels>=0.13
+pandas>=1.3

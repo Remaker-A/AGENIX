@@ -1,0 +1,18 @@
+# AGENIX-Engine LLM-as-judge 面板依赖（judge/panel.py / tests/test_judge.py，spec §7）
+# 安装：pip install -r requirements_judge.txt
+# 说明：不修改 requirements.txt；本文件为 judge 面板的增量依赖。
+
+# 必需（Krippendorff α、中位数聚合、isotonic(PAVA)/Platt 校准、相关/MAE 均基于 numpy）
+numpy>=1.21
+
+# 测试（也可直接 `python -m pytest tests/test_judge.py -q`）
+pytest>=7.0
+
+# ---- 无新增第三方依赖 ----
+# 位置翻转 / 长度对照 / 盲化 / 注入清洗 / JSON 解析均为纯 Python 标准库（re / json / math）。
+#
+# ---- 真实跨家族评委（待 API key）----
+# LLMJudgeAdapter.from_openai_adapter 复用 engine/adapters/ 的 OpenAI 兼容适配器，
+# 其 HTTP 客户端用 Python 标准库 urllib 实现（**无需 openai/requests**）。
+# 本阶段交付"面板机制"，judge 后端注入确定性 mock，不联网；
+# 真正的"≥3 跨家族评委"需要 ≥3 个不同家族模型的 API key（当前仅 seed），故跨家族真评委待 key。

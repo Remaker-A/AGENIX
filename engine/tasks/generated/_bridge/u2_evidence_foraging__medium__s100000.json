@@ -1,0 +1,221 @@
+{
+  "task_id": "u2_evidence_foraging__medium__s100000",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.3
+  },
+  "title": "证据觅食与结论综合（供应风险）",
+  "instruction": "围绕 '供应风险' 觅食证据：必须读取所有必需来源，并从主源或其镜像（任一）获取关键数据，最后提交经证据支持的结论集合。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "read_required_1",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "read_required_2",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "read_primary",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "read_mirror",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "submit_claims",
+      "writes": [
+        "out.claims"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.claims",
+        "value_from": "claims",
+        "value": null
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "crm_lookup",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "env_events": [],
+  "fault_injection": [],
+  "milestones": [
+    {
+      "id": "M_req1",
+      "weight": 1.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "read_required_1",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "read_required_1",
+      "is_recovery": false
+    },
+    {
+      "id": "M_req2",
+      "weight": 1.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "read_required_2",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "read_required_2",
+      "is_recovery": false
+    },
+    {
+      "id": "M_src_primary",
+      "weight": 1.0,
+      "type": "or_group",
+      "or_group": "evidence_src",
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "read_primary",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "read_primary",
+      "is_recovery": false
+    },
+    {
+      "id": "M_src_mirror",
+      "weight": 1.0,
+      "type": "or_group",
+      "or_group": "evidence_src",
+      "deps": [],
+      "gradable": false,
+      "predicate": {
+        "op": "tool_called",
+        "path": null,
+        "value": "read_mirror",
+        "tol": 0.0
+      },
+      "provenance": [],
+      "epistemic_action": "read_mirror",
+      "is_recovery": false
+    },
+    {
+      "id": "M_claims",
+      "weight": 3.0,
+      "type": "required",
+      "or_group": null,
+      "deps": [
+        "M_req1",
+        "M_req2"
+      ],
+      "gradable": false,
+      "predicate": {
+        "op": "set_eq",
+        "path": "out.claims",
+        "value": [
+          "CLM-006",
+          "CLM-024"
+        ],
+        "tol": 0.0
+      },
+      "provenance": [
+        "out.claims"
+      ],
+      "epistemic_action": null,
+      "is_recovery": false
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "set_eq",
+      "path": "out.claims",
+      "value": [
+        "CLM-006",
+        "CLM-024"
+      ],
+      "tol": 0.0
+    }
+  ],
+  "critical_violations": [],
+  "grounding": null,
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "read_required_1",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "read_required_2",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "read_primary",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "submit_claims",
+      "args": {
+        "claims": [
+          "CLM-006",
+          "CLM-024"
+        ]
+      }
+    }
+  ],
+  "c_star": 4.0,
+  "budget_max_actions": 200,
+  "difficulty_knobs": {
+    "difficulty": "medium",
+    "seed": 100000,
+    "template": "u2_evidence_foraging",
+    "canary": true,
+    "noise_tools": [
+      "crm_lookup"
+    ],
+    "partial_observable": false
+  },
+  "canary": "AGENIX-CANARY-u2_evidence_foraging-medium-3e3aafcb-DO-NOT-TRAIN",
+  "gold_milestone_count": 5,
+  "gold_claims": [
+    "CLM-006",
+    "CLM-024"
+  ]
+}

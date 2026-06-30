@@ -1,0 +1,2577 @@
+{
+  "models": [
+    "seed",
+    "deepseek-ref(mock)",
+    "kimi-ref(mock)",
+    "glm-ref(mock)"
+  ],
+  "k": 5,
+  "grounding": {
+    "rho": null,
+    "rho_gate": 0.8,
+    "headline_rule": "synthetic_and_real_coheadline",
+    "n_pairs": 0,
+    "real_trusted_models": [],
+    "per_model": {
+      "seed": {
+        "synthetic": null,
+        "real": null,
+        "real_diagnostic": null,
+        "real_headline_eligible": false,
+        "real_trusted": false,
+        "calibration": {}
+      },
+      "deepseek-ref(mock)": {
+        "synthetic": null,
+        "real": null,
+        "real_diagnostic": null,
+        "real_headline_eligible": false,
+        "real_trusted": false,
+        "calibration": {}
+      },
+      "kimi-ref(mock)": {
+        "synthetic": null,
+        "real": null,
+        "real_diagnostic": null,
+        "real_headline_eligible": false,
+        "real_trusted": false,
+        "calibration": {}
+      },
+      "glm-ref(mock)": {
+        "synthetic": null,
+        "real": null,
+        "real_diagnostic": null,
+        "real_headline_eligible": false,
+        "real_trusted": false,
+        "calibration": {}
+      }
+    }
+  },
+  "grounding_rho": null,
+  "grounding_headline_rule": "synthetic_and_real_coheadline",
+  "statistical_indistinguishability": {
+    "weight_flip_pairs": [],
+    "weight_flip_threshold": 0.3,
+    "glmm_nonsignificant_by_dim": {
+      "U1": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U2": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U4": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ],
+      "U5": [
+        [
+          "seed",
+          "deepseek-ref(mock)"
+        ],
+        [
+          "seed",
+          "kimi-ref(mock)"
+        ],
+        [
+          "seed",
+          "glm-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)"
+        ],
+        [
+          "deepseek-ref(mock)",
+          "glm-ref(mock)"
+        ],
+        [
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      ]
+    }
+  },
+  "irt_item_calibration": null,
+  "judge": {
+    "enters_headline": false,
+    "alpha_gate": 0.667,
+    "rubric": [
+      "states the binding constraint / decisive rule it relied on",
+      "cites the specific evidence (ids/values) used",
+      "makes no unsupported or hallucinated claim",
+      "final conclusion follows from the cited evidence"
+    ],
+    "n_judges": 3,
+    "families": [
+      "famA",
+      "famB",
+      "famC"
+    ],
+    "cross_family_ok": true,
+    "backend": "deterministic_mock_panel",
+    "per_model": {
+      "seed": {
+        "score": 0.75,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "quality_proxy": 1.0
+      },
+      "deepseek-ref(mock)": {
+        "score": 0.75,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "quality_proxy": 0.8181818181818182
+      },
+      "kimi-ref(mock)": {
+        "score": 0.5,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "quality_proxy": 0.5454545454545454
+      },
+      "glm-ref(mock)": {
+        "score": 0.25,
+        "alpha": 1.0,
+        "flip_rate": 0.0,
+        "reliability_band": "reliable",
+        "headline_eligible": true,
+        "quality_proxy": 0.30303030303030304
+      }
+    },
+    "note": "judge 仅评残余主观项（解释理由质量）作为有已知误差的测量仪器：列每模型 judge 分 + flip_rate + Krippendorff α 可信带（α<0.667 剔出 headline 仅诊断）。**headline 不含 judge**（_task_component_value 仍为 verifier-first）。真实≥3跨家族评委待 key （judge.panel.LLMJudgeAdapter.from_openai_adapter）。"
+  },
+  "pareto_frontier": [
+    "seed",
+    "deepseek-ref(mock)"
+  ],
+  "pareto_points": [
+    [
+      "seed",
+      0.765625,
+      1.5833333333333333
+    ],
+    [
+      "deepseek-ref(mock)",
+      0.8467013888888889,
+      2.4166666666666665
+    ],
+    [
+      "kimi-ref(mock)",
+      0.6177083333333334,
+      4.138888888888889
+    ],
+    [
+      "glm-ref(mock)",
+      0.3935763888888889,
+      5.861111111111111
+    ]
+  ],
+  "dimension_stats": {
+    "U1": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.41666666666666663,
+          "hi": 1.0,
+          "ci_width": 0.5833333333333334,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.5,
+          "logit": 0.0,
+          "lo": 0.16666666666666666,
+          "hi": 1.0,
+          "ci_width": 0.8333333333333334,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.25,
+          "logit": -1.0986122886681098,
+          "lo": 0.0,
+          "hi": 0.6666666666666666,
+          "ci_width": 0.6666666666666666,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.16666666666666674,
+          "delta_logit": 12.206071645500918,
+          "lo": 0.0,
+          "hi": 0.5833333333333334,
+          "p": 0.86,
+          "cliffs_delta": 0.3333333333333333,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.86,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 13.815509557935018,
+          "lo": 0.0,
+          "hi": 0.8333333333333334,
+          "p": 0.08666666666666667,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.3466666666666667,
+          "significant": false
+        },
+        {
+          "delta": 0.75,
+          "delta_logit": 14.914121846603127,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.33333333333333326,
+          "delta_logit": 1.6094379124340998,
+          "lo": -0.08333333333333326,
+          "hi": 0.7104166666666648,
+          "p": 0.21333333333333335,
+          "cliffs_delta": 0.5555555555555556,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.64,
+          "significant": false
+        },
+        {
+          "delta": 0.5833333333333333,
+          "delta_logit": 2.7080502011022096,
+          "lo": 0.12291666666666672,
+          "hi": 1.0,
+          "p": 0.02,
+          "cliffs_delta": 0.7777777777777778,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.1,
+          "significant": false
+        },
+        {
+          "delta": 0.25,
+          "delta_logit": 1.0986122886681098,
+          "lo": -0.16666666666666669,
+          "hi": 0.75,
+          "p": 0.37333333333333335,
+          "cliffs_delta": 0.5555555555555556,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.7466666666666667,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.012345679012345678,
+        "sigma2_instance": 0.0462962962962963,
+        "sigma2_residual": 0.16666666666666666,
+        "icc_template": 0.0547945205479452,
+        "icc_instance": 0.20547945205479454,
+        "n_runs": 36.0,
+        "n_templates": 8.0,
+        "n_instances": 12.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 4.5
+      },
+      "design_effect": {
+        "rho": 0.0547945205479452,
+        "avg_cluster_size": 4.5,
+        "deff": 1.191780821917808,
+        "n_obs": 36,
+        "n_eff": 30.206896551724142
+      },
+      "sample_size": {
+        "n_iid_per_arm": 17.022654133587757,
+        "deff": 1.191780821917808,
+        "n_cluster_per_arm": 20.28727273454979,
+        "n_templates_per_arm": 4.5082828298999535
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 3.4398301813201764,
+            "marginal": 0.9689264033418564
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.077513338246876,
+            "marginal": 0.7460231173132478
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": -0.09606405612844027,
+            "marginal": 0.47600243786106566
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.126876121786562,
+            "marginal": 0.24473806220760547
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.4571137657989238,
+          "instance": -0.5750509793136072
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U2": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.8333333333333333,
+          "logit": 1.6094379124340998,
+          "lo": 0.5,
+          "hi": 1.0,
+          "ci_width": 0.5,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.16666666666666666,
+          "logit": -1.6094379124341005,
+          "lo": 0.0,
+          "hi": 0.6666666666666666,
+          "ci_width": 0.6666666666666666,
+          "n_obs": 6,
+          "n_templates": 1,
+          "single_cluster": true
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.16666666666666674,
+          "delta_logit": 12.206071645500918,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.8866666666666667,
+          "cliffs_delta": 0.5,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.17333333333333334,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.52,
+          "significant": false
+        },
+        {
+          "delta": 0.8333333333333334,
+          "delta_logit": 15.42494747036912,
+          "lo": 0.4125000000000001,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.9162907318741547,
+          "lo": -0.3333333333333333,
+          "hi": 0.6666666666666667,
+          "p": 0.72,
+          "cliffs_delta": 0.5,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.6666666666666666,
+          "delta_logit": 3.2188758248682,
+          "lo": 0.16666666666666663,
+          "hi": 1.0,
+          "p": 0.03333333333333333,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.16666666666666666,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 2.302585092994046,
+          "lo": 0.0,
+          "hi": 1.0,
+          "p": 0.12,
+          "cliffs_delta": 1.0,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.48,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 2.3129646346357427e-18,
+        "sigma2_residual": 0.16666666666666666,
+        "icc_template": 0.0,
+        "icc_instance": 1.3877787807814457e-17,
+        "n_runs": 24.0,
+        "n_templates": 4.0,
+        "n_instances": 8.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 6.0
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 6.0,
+        "deff": 1.0,
+        "n_obs": 24,
+        "n_eff": 24.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 18.41383304990334,
+        "deff": 1.0,
+        "n_cluster_per_arm": 18.41383304990334,
+        "n_templates_per_arm": 3.0689721749838896
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 3.126189404779499,
+            "marginal": 0.9579601984366367
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.1529500538986996,
+            "marginal": 0.7600493437471507
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.865386178827171,
+            "marginal": 0.7037847517205417
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.3637932373319905,
+            "marginal": 0.20362449343640712
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.3789976610313125,
+          "instance": -0.38485708759253423
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U4": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.75,
+          "logit": 1.0986122886681098,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.41666666666666663,
+          "logit": -0.33647223662121306,
+          "lo": 0.0,
+          "hi": 0.75,
+          "ci_width": 0.75,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.25,
+          "logit": -1.0986122886681098,
+          "lo": 0.0,
+          "hi": 0.6666666666666666,
+          "ci_width": 0.6666666666666666,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.25,
+          "delta_logit": 12.716897269266909,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.2733333333333333,
+          "cliffs_delta": 0.6666666666666666,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 0.82,
+          "significant": false
+        },
+        {
+          "delta": 0.5833333333333334,
+          "delta_logit": 14.151981794556232,
+          "lo": 0.25,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.75,
+          "delta_logit": 14.914121846603127,
+          "lo": 0.33333333333333337,
+          "hi": 1.0,
+          "p": 0.0,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.0,
+          "significant": true
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 1.435084525289323,
+          "lo": -0.16666666666666663,
+          "hi": 0.8333333333333333,
+          "p": 0.28,
+          "cliffs_delta": 0.7777777777777778,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.82,
+          "significant": false
+        },
+        {
+          "delta": 0.5,
+          "delta_logit": 2.1972245773362196,
+          "lo": -0.16666666666666663,
+          "hi": 1.0,
+          "p": 0.12666666666666668,
+          "cliffs_delta": 1.0,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.5066666666666667,
+          "significant": false
+        },
+        {
+          "delta": 0.16666666666666663,
+          "delta_logit": 0.7621400520468967,
+          "lo": -0.33333333333333337,
+          "hi": 0.6666666666666666,
+          "p": 0.7133333333333334,
+          "cliffs_delta": 0.5555555555555556,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.82,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.0,
+        "sigma2_residual": 0.19444444444444445,
+        "icc_template": 0.0,
+        "icc_instance": 0.0,
+        "n_runs": 36.0,
+        "n_templates": 8.0,
+        "n_instances": 12.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 4.5
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 4.5,
+        "deff": 1.0,
+        "n_obs": 36,
+        "n_eff": 36.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 17.182644498626,
+        "deff": 1.0,
+        "n_cluster_per_arm": 17.182644498626,
+        "n_templates_per_arm": 3.8183654441391113
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 3.338026658627313,
+            "marginal": 0.9657105577380305
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.0001325542428845,
+            "marginal": 0.7310846395777303
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": -0.15883602921102136,
+            "marginal": 0.46037426710700624
+          },
+          "glm-ref(mock)": {
+            "theta_logit": -1.1675731363410053,
+            "marginal": 0.2372939313911485
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.6153021960940422,
+          "instance": -0.6876523988497676
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    },
+    "U5": {
+      "backend": "statsmodels-BinomialBayesMixedGLM",
+      "models": [
+        "seed",
+        "deepseek-ref(mock)",
+        "kimi-ref(mock)",
+        "glm-ref(mock)"
+      ],
+      "per_model": {
+        "seed": {
+          "marginal": 1.0,
+          "logit": 13.815509557935018,
+          "lo": 1.0,
+          "hi": 1.0,
+          "ci_width": 0.0,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "deepseek-ref(mock)": {
+          "marginal": 0.9166666666666666,
+          "logit": 2.3978952727983702,
+          "lo": 0.6229166666666667,
+          "hi": 1.0,
+          "ci_width": 0.3770833333333333,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "kimi-ref(mock)": {
+          "marginal": 0.6666666666666666,
+          "logit": 0.6931471805599452,
+          "lo": 0.3333333333333333,
+          "hi": 1.0,
+          "ci_width": 0.6666666666666667,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        },
+        "glm-ref(mock)": {
+          "marginal": 0.5833333333333333,
+          "logit": 0.33647223662121256,
+          "lo": 0.28958333333333336,
+          "hi": 0.9604166666666647,
+          "ci_width": 0.6708333333333314,
+          "n_obs": 9,
+          "n_templates": 2,
+          "single_cluster": false
+        }
+      },
+      "contrasts": [
+        {
+          "delta": 0.08333333333333337,
+          "delta_logit": 11.417614285136647,
+          "lo": 0.0,
+          "hi": 0.3770833333333315,
+          "p": 1.0,
+          "cliffs_delta": 0.3333333333333333,
+          "a": "seed",
+          "b": "deepseek-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 13.122362377375072,
+          "lo": 0.0,
+          "hi": 0.6666666666666667,
+          "p": 0.06,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.3,
+          "significant": false
+        },
+        {
+          "delta": 0.41666666666666674,
+          "delta_logit": 13.479037321313806,
+          "lo": 0.12291666666666676,
+          "hi": 0.8333333333333334,
+          "p": 0.03333333333333333,
+          "cliffs_delta": 1.0,
+          "a": "seed",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.2,
+          "significant": false
+        },
+        {
+          "delta": 0.25,
+          "delta_logit": 1.704748092238425,
+          "lo": -0.08333333333333337,
+          "hi": 0.6666666666666667,
+          "p": 0.24666666666666667,
+          "cliffs_delta": 0.6666666666666666,
+          "a": "deepseek-ref(mock)",
+          "b": "kimi-ref(mock)",
+          "p_adj": 0.74,
+          "significant": false
+        },
+        {
+          "delta": 0.33333333333333337,
+          "delta_logit": 2.0614230361771577,
+          "lo": 0.0,
+          "hi": 0.75,
+          "p": 0.12,
+          "cliffs_delta": 0.7777777777777778,
+          "a": "deepseek-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 0.48,
+          "significant": false
+        },
+        {
+          "delta": 0.08333333333333337,
+          "delta_logit": 0.3566749439387326,
+          "lo": -0.49999999999999994,
+          "hi": 0.5,
+          "p": 0.92,
+          "cliffs_delta": 0.3333333333333333,
+          "a": "kimi-ref(mock)",
+          "b": "glm-ref(mock)",
+          "p_adj": 1.0,
+          "significant": false
+        }
+      ],
+      "correction": "holm",
+      "variance_components": {
+        "sigma2_template": 0.0,
+        "sigma2_instance": 0.004629629629629633,
+        "sigma2_residual": 0.19444444444444445,
+        "icc_template": 0.0,
+        "icc_instance": 0.02325581395348839,
+        "n_runs": 36.0,
+        "n_templates": 8.0,
+        "n_instances": 12.0,
+        "avg_runs_per_instance": 3.0,
+        "avg_runs_per_template": 4.5
+      },
+      "design_effect": {
+        "rho": 0.0,
+        "avg_cluster_size": 4.5,
+        "deff": 1.0,
+        "n_obs": 36,
+        "n_eff": 36.0
+      },
+      "sample_size": {
+        "n_iid_per_arm": 32.59255601574855,
+        "deff": 1.0,
+        "n_cluster_per_arm": 32.59255601574855,
+        "n_templates_per_arm": 7.2427902257219
+      },
+      "glmm_fit": {
+        "backend": "statsmodels-BinomialBayesMixedGLM",
+        "link": "logit",
+        "fixed_effects": {
+          "seed": {
+            "theta_logit": 3.655795194476488,
+            "marginal": 0.9748099927470028
+          },
+          "deepseek-ref(mock)": {
+            "theta_logit": 1.730339594128149,
+            "marginal": 0.849455852911225
+          },
+          "kimi-ref(mock)": {
+            "theta_logit": 0.9196948373961361,
+            "marginal": 0.7149799226368904
+          },
+          "glm-ref(mock)": {
+            "theta_logit": 0.40672827117028243,
+            "marginal": 0.6003031208055034
+          }
+        },
+        "variance_components_logit": {
+          "template": -0.5692251807867004,
+          "instance": -0.6608518972008263
+        },
+        "reference_model": "deepseek-ref(mock)",
+        "models": [
+          "seed",
+          "deepseek-ref(mock)",
+          "kimi-ref(mock)",
+          "glm-ref(mock)"
+        ]
+      }
+    }
+  },
+  "profiles": {
+    "R": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U4",
+        "U5"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.75,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.0986122886681098,
+              "se_boot": 0.09961254370246879,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8125,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.466337068793427,
+              "se_boot": 0.12758254017245538,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.75,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.0986122886681098,
+              "se_boot": 0.09961254370246879,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.75,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.0986122886681098,
+              "se_boot": 0.09961254370246879,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.36363636363636365,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.5833333333333333,
+          "capability_scalar_unweighted": 0.765625,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.8194444444444443,
+              "lo": 0.5012152777777777,
+              "hi": 1.0,
+              "logit": 1.5125880864441816,
+              "se_boot": 0.15818088120598459,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8645833333333333,
+              "lo": 0.59375,
+              "hi": 1.0,
+              "logit": 1.8538912503350606,
+              "se_boot": 0.14094903622301952,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.8055555555555557,
+              "lo": 0.513888888888889,
+              "hi": 1.0,
+              "logit": 1.4213856809311616,
+              "se_boot": 0.1373687715770935,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.8972222222222223,
+              "lo": 0.6916666666666668,
+              "hi": 1.0,
+              "logit": 2.1667344105784325,
+              "se_boot": 0.1117285412301471,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8181818181818182,
+            "pass_at_k": 0.9865319865319865,
+            "pass_pow_k": 0.5937149270482605,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9191919191919193,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.4166666666666665,
+          "capability_scalar_unweighted": 0.8467013888888889,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.5361111111111111,
+              "lo": 0.25277777777777777,
+              "hi": 0.8194444444444443,
+              "logit": 0.14469637648813036,
+              "se_boot": 0.14952398393853247,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.7291666666666666,
+              "lo": 0.4583333333333333,
+              "hi": 1.0,
+              "logit": 0.9903987040278767,
+              "se_boot": 0.14940165147065076,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.513888888888889,
+              "lo": 0.2222222222222222,
+              "hi": 0.8055555555555557,
+              "logit": 0.055569851154810994,
+              "se_boot": 0.1630449268416319,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6916666666666668,
+              "lo": 0.4861111111111111,
+              "hi": 1.0,
+              "logit": 0.8079226951523739,
+              "se_boot": 0.13998440728032754,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.5454545454545454,
+            "pass_at_k": 0.9494949494949495,
+            "pass_pow_k": 0.08529741863075192,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7828282828282828,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.6111111111111112,
+          "mean_cost": 4.138888888888889,
+          "capability_scalar_unweighted": 0.6177083333333334,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "R",
+          "dim_vector": {
+            "U1": {
+              "point": 0.3430555555555555,
+              "lo": 0.15,
+              "hi": 0.6079513888888887,
+              "logit": -0.6497070518639562,
+              "se_boot": 0.12359257928620511,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.32291666666666663,
+              "lo": 0.18749999999999997,
+              "hi": 0.7291666666666666,
+              "logit": -0.7404000654104911,
+              "se_boot": 0.14426907568384673,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.3194444444444444,
+              "lo": 0.12499999999999999,
+              "hi": 0.6111111111111112,
+              "logit": -0.756326082181477,
+              "se_boot": 0.14072411768955295,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.588888888888889,
+              "lo": 0.2805555555555555,
+              "hi": 0.8972222222222223,
+              "logit": 0.3593740009078979,
+              "se_boot": 0.1578450878500787,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.30303030303030304,
+            "pass_at_k": 0.6546950991395435,
+            "pass_pow_k": 0.026187803965581735,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6717171717171716,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.42142857142857143,
+          "mean_cost": 5.861111111111111,
+          "capability_scalar_unweighted": 0.3935763888888889,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0,
+          "deepseek-ref(mock)": 1.0,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0,
+          "('seed', 'kimi-ref(mock)')": 0.0,
+          "('seed', 'glm-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    },
+    "D": {
+      "dims_present": [
+        "U1",
+        "U2",
+        "U4",
+        "U5"
+      ],
+      "per_model": {
+        "seed": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.75,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.0986122886681098,
+              "se_boot": 0.09961254370246879,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8125,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.466337068793427,
+              "se_boot": 0.12758254017245538,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.75,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.0986122886681098,
+              "se_boot": 0.09961254370246879,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.75,
+              "lo": 0.625,
+              "hi": 1.0,
+              "logit": 1.0986122886681098,
+              "se_boot": 0.09961254370246879,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 1.0,
+            "pass_at_k": 1.0,
+            "pass_pow_k": 1.0,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.36363636363636365,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 1.5833333333333333,
+          "capability_scalar_unweighted": 0.765625,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        },
+        "deepseek-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.8194444444444443,
+              "lo": 0.5012152777777777,
+              "hi": 1.0,
+              "logit": 1.5125880864441816,
+              "se_boot": 0.15818088120598459,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.8645833333333333,
+              "lo": 0.59375,
+              "hi": 1.0,
+              "logit": 1.8538912503350606,
+              "se_boot": 0.14094903622301952,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.8055555555555557,
+              "lo": 0.513888888888889,
+              "hi": 1.0,
+              "logit": 1.4213856809311616,
+              "se_boot": 0.1373687715770935,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.8972222222222223,
+              "lo": 0.6916666666666668,
+              "hi": 1.0,
+              "logit": 2.1667344105784325,
+              "se_boot": 0.1117285412301471,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.8181818181818182,
+            "pass_at_k": 0.9865319865319865,
+            "pass_pow_k": 0.5937149270482605,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.9191919191919193,
+          "asr": 0.0,
+          "efficiency_success_subset": 1.0,
+          "mean_cost": 2.4166666666666665,
+          "capability_scalar_unweighted": 0.8467013888888889,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        },
+        "kimi-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.5361111111111111,
+              "lo": 0.25277777777777777,
+              "hi": 0.8194444444444443,
+              "logit": 0.14469637648813036,
+              "se_boot": 0.14952398393853247,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.7291666666666666,
+              "lo": 0.4583333333333333,
+              "hi": 1.0,
+              "logit": 0.9903987040278767,
+              "se_boot": 0.14940165147065076,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.513888888888889,
+              "lo": 0.2222222222222222,
+              "hi": 0.8055555555555557,
+              "logit": 0.055569851154810994,
+              "se_boot": 0.1630449268416319,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.6916666666666668,
+              "lo": 0.4861111111111111,
+              "hi": 1.0,
+              "logit": 0.8079226951523739,
+              "se_boot": 0.13998440728032754,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.5454545454545454,
+            "pass_at_k": 0.9494949494949495,
+            "pass_pow_k": 0.08529741863075192,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.7828282828282828,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.6111111111111112,
+          "mean_cost": 4.138888888888889,
+          "capability_scalar_unweighted": 0.6177083333333334,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        },
+        "glm-ref(mock)": {
+          "profile": "D",
+          "dim_vector": {
+            "U1": {
+              "point": 0.3430555555555555,
+              "lo": 0.15,
+              "hi": 0.6079513888888887,
+              "logit": -0.6497070518639562,
+              "se_boot": 0.12359257928620511,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U2": {
+              "point": 0.32291666666666663,
+              "lo": 0.18749999999999997,
+              "hi": 0.7291666666666666,
+              "logit": -0.7404000654104911,
+              "se_boot": 0.14426907568384673,
+              "n_templates": 2,
+              "single_cluster": false
+            },
+            "U4": {
+              "point": 0.3194444444444444,
+              "lo": 0.12499999999999999,
+              "hi": 0.6111111111111112,
+              "logit": -0.756326082181477,
+              "se_boot": 0.14072411768955295,
+              "n_templates": 3,
+              "single_cluster": false
+            },
+            "U5": {
+              "point": 0.588888888888889,
+              "lo": 0.2805555555555555,
+              "hi": 0.8972222222222223,
+              "logit": 0.3593740009078979,
+              "se_boot": 0.1578450878500787,
+              "n_templates": 3,
+              "single_cluster": false
+            }
+          },
+          "reliability": {
+            "per_run": 0.30303030303030304,
+            "pass_at_k": 0.6546950991395435,
+            "pass_pow_k": 0.026187803965581735,
+            "k": 5
+          },
+          "expected_milestone_completion": 0.6717171717171716,
+          "asr": 0.0,
+          "efficiency_success_subset": 0.42142857142857143,
+          "mean_cost": 5.861111111111111,
+          "capability_scalar_unweighted": 0.3935763888888889,
+          "grounding": {
+            "synthetic": null,
+            "real": null,
+            "real_diagnostic": null,
+            "real_headline_eligible": false,
+            "real_trusted": false,
+            "calibration": {}
+          }
+        }
+      },
+      "weight_sensitivity": {
+        "top1_prob": {
+          "seed": 0.0,
+          "deepseek-ref(mock)": 1.0,
+          "kimi-ref(mock)": 0.0,
+          "glm-ref(mock)": 0.0
+        },
+        "flip_prob": {
+          "('seed', 'deepseek-ref(mock)')": 0.0,
+          "('seed', 'kimi-ref(mock)')": 0.0,
+          "('seed', 'glm-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'kimi-ref(mock)')": 0.0,
+          "('deepseek-ref(mock)', 'glm-ref(mock)')": 0.0,
+          "('kimi-ref(mock)', 'glm-ref(mock)')": 0.0
+        },
+        "indistinguishable_pairs": [],
+        "mean_kendall_tau": 1.0,
+        "flip_threshold": 0.3
+      }
+    }
+  },
+  "adapters": {
+    "seed": {
+      "is_mock": false,
+      "kind": "real",
+      "provider": "seed",
+      "model": "doubao-seed-evolving",
+      "mock_profile": null,
+      "fallback_reason": "",
+      "n_calls": 48,
+      "n_parsed_ok": 48,
+      "n_empty": 0,
+      "n_errors": 0,
+      "parse_rate": 1.0,
+      "max_rounds": 3,
+      "call_log": [
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 202.8,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-004\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 26.4,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-005\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 239.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-004\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 17.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 7.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-005\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 22.0,
+          "snippet": "{\"actions\": [{\"tool\": \"read_invoices\", \"args\": {}}, {\"tool\": \"read_bank\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 16.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-002\", \"INV-005\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 217.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S3\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 349.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S3\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 13.8,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 27.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 16.5,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.4,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 36.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_suppliers\", \"args\": {}}, {\"tool\": \"read_constraints\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 10.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S2\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 329.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_shortlist\", \"args\": {\"shortlist\": {\"selected\": [\"S3\", \"S5\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 140.0,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-609\", \"tls\": true, \"timeout\": 15, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\":"
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 89.3,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-609\", \"tls\": true, \"timeout\": 15, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\":"
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 961.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_report\", \"args\": {\"report\": {\"inconsistent\": [\"INV-001\", \"INV-004\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 16.5,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.7,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-108\", \"tls\": true, \"timeout\": 30, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\""
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 20.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.0,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-108\", \"tls\": true, \"timeout\": 30, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\""
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 2,
+          "latency_s": 17.4,
+          "snippet": "{\"actions\": [{\"tool\": \"read_config\", \"args\": {}}, {\"tool\": \"read_rules\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 8.8,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-108\", \"tls\": true, \"timeout\": 30, \"replicas\": 3, \"max_conn\": 200}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\""
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 211.6,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_config\", \"args\": {\"config\": {\"db_host\": \"db-new-609\", \"tls\": true, \"timeout\": 15, \"replicas\": 4, \"max_conn\": 50}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\":"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 268.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q2\", \"Q3\", \"Q5\"], \"deferred\": [\"Q1\", \"Q4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 254.3,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q2\", \"Q3\", \"Q5\"], \"deferred\": [\"Q1\", \"Q4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.7,
+          "snippet": "{\"actions\": [{\"tool\": \"read_questions\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 9.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\", \"Q5\"], \"deferred\": [\"Q3\", \"Q4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.3,
+          "snippet": "{\"actions\": [{\"tool\": \"read_questions\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.9,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\", \"Q5\"], \"deferred\": [\"Q3\", \"Q4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 6.9,
+          "snippet": "{\"actions\": [{\"tool\": \"read_questions\", \"args\": {}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "round": 1,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 12.0,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q1\", \"Q2\", \"Q5\"], \"deferred\": [\"Q3\", \"Q4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 328.1,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_answers\", \"args\": {\"report\": {\"answered\": [\"Q2\", \"Q3\", \"Q5\"], \"deferred\": [\"Q1\", \"Q4\"]}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 223.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1724, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 330.2,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1724, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 40.3,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\", \"log_level\"], \"config\": {\"cache\": \"on\", \"log_level\": \"warn\", \"tls\": true, \"db_host\": \"db-b\"}}}}], \"grounding_answers"
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 356.7,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_summary\", \"args\": {\"summary\": {\"total\": 1724, \"flagged\": 0}}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 68.8,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\", \"log_level\"], \"config\": {\"cache\": \"on\", \"log_level\": \"warn\", \"tls\": true, \"db_host\": \"db-b\"}}}}], \"grounding_answers"
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 17.3,
+          "snippet": "{   \"actions\": [     {       \"tool\": \"submit_reconciliation\",       \"args\": {         \"report\": {           \"answered\": [\"R-01\", \"R-03\", \"R-04\", \"R-05\", \"R-06\", \"R-07\", \"R-11\", \"R-12\"],           \"def"
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 325.2,
+          "snippet": "{\"actions\": [{\"tool\": \"apply_remediation\", \"args\": {\"result\": {\"changed\": [\"cache\", \"log_level\"], \"config\": {\"cache\": \"on\", \"log_level\": \"warn\", \"tls\": true, \"db_host\": \"db-b\"}}}}], \"grounding_answers"
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 310.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-01\", \"R-03\", \"R-04\", \"R-05\", \"R-06\", \"R-07\", \"R-11\", \"R-12\"], \"deferred\": [\"R-02\", \"R-08\", \"R-09\", \"R-10\"]}}}], \"grou"
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 308.5,
+          "snippet": "{\"actions\": [{\"tool\": \"submit_reconciliation\", \"args\": {\"report\": {\"answered\": [\"R-01\", \"R-03\", \"R-04\", \"R-05\", \"R-06\", \"R-07\", \"R-11\", \"R-12\"], \"deferred\": [\"R-02\", \"R-08\", \"R-09\", \"R-10\"]}}}], \"grou"
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 389.9,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": true}"
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 259.4,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "round": 0,
+          "status": "ok",
+          "n_actions": 1,
+          "latency_s": 277.8,
+          "snippet": "{\"actions\": [{\"tool\": \"write_todo\", \"args\": {\"todo\": [\"MSG-02\", \"MSG-04\"]}}], \"grounding_answers\": {}, \"confidences\": {}, \"abstain\": {}, \"done\": false}"
+        }
+      ],
+      "task_log": [
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 202.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 33.8,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 239.0,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 25.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0__forage",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 38.4,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 217.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 349.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 40.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 26.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0__forage",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 46.7,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u2_sourcing__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 329.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 140.0,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 89.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_reconcile__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 961.7,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 25.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 29.7,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_migration__s0__forage",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 3,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 26.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_migration__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 211.6,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 268.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 254.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "run_index": 1,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 16.6,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "run_index": 0,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 25.2,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0__forage",
+          "run_index": 2,
+          "rounds": 2,
+          "success_met": true,
+          "n_actions": 2,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 18.9,
+          "round_status": [
+            "ok",
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_riskcov__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 328.1,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 223.7,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 330.2,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 40.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u1_tally__expert__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 356.7,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 68.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 17.3,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u4_drift__expert__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 325.2,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 310.5,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u5_conflict__expert__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 308.5,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "run_index": 0,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 389.9,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "run_index": 2,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 259.4,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        },
+        {
+          "task_id": "solv_u6_inbox__s0",
+          "run_index": 1,
+          "rounds": 1,
+          "success_met": true,
+          "n_actions": 1,
+          "n_grounding": 0,
+          "images": 0,
+          "total_latency_s": 277.8,
+          "round_status": [
+            "ok"
+          ],
+          "stopped_no_progress": false
+        }
+      ]
+    },
+    "deepseek-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "strong",
+      "model": null,
+      "mock_profile": "strong",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "kimi-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "medium",
+      "model": null,
+      "mock_profile": "medium",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    },
+    "glm-ref(mock)": {
+      "is_mock": true,
+      "kind": "mock",
+      "provider": "weak",
+      "model": null,
+      "mock_profile": "weak",
+      "fallback_reason": "no_api_key",
+      "n_calls": 0,
+      "n_parsed_ok": null,
+      "n_empty": null,
+      "n_errors": 0,
+      "parse_rate": null,
+      "max_rounds": null,
+      "call_log": [],
+      "task_log": []
+    }
+  },
+  "contamination": {
+    "probe_profile": "medium",
+    "difficulty": "medium",
+    "n_pairs": 6,
+    "n_runs_probe": 3,
+    "n_boot": 600,
+    "templates": [
+      "u1_reconcile",
+      "u2_supplier_sourcing",
+      "u4_migration",
+      "u5_due_diligence"
+    ],
+    "per_template": [
+      {
+        "gap": 0.11111111111111116,
+        "delta": 0.1111111111111111,
+        "lo": -0.3333333333333333,
+        "hi": 0.5555555555555557,
+        "p": 0.6933333333333334,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u1_reconcile",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.7222222222222222,
+        "acc_bridge_mean": 0.611111111111111
+      },
+      {
+        "gap": 0.2222222222222222,
+        "delta": 0.22222222222222224,
+        "lo": 0.11111111111111112,
+        "hi": 0.3333333333333334,
+        "p": 0.0,
+        "flag_retire": true,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u2_supplier_sourcing",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.8888888888888888,
+        "acc_bridge_mean": 0.6666666666666666
+      },
+      {
+        "gap": 0.11111111111111105,
+        "delta": 0.11111111111111112,
+        "lo": 0.0,
+        "hi": 0.22222222222222224,
+        "p": 0.15333333333333332,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u4_migration",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.7777777777777777,
+        "acc_bridge_mean": 0.6666666666666666
+      },
+      {
+        "gap": 0.33333333333333326,
+        "delta": 0.3333333333333333,
+        "lo": -0.05555555555555556,
+        "hi": 0.7222222222222223,
+        "p": 0.13,
+        "flag_retire": false,
+        "n_pairs": 6,
+        "method": "paired_bootstrap(stats)",
+        "template_id": "u5_due_diligence",
+        "difficulty": "medium",
+        "n_bridge": 6,
+        "acc_orig_mean": 0.8888888888888888,
+        "acc_bridge_mean": 0.5555555555555556
+      }
+    ],
+    "any_flag_retire": true,
+    "equating_demo": {
+      "method": "linear",
+      "slope": 0.6634360026785492,
+      "intercept": 0.40479694277035105,
+      "n_panel": 24,
+      "note": "common-person equating：同一探针面板在 原题 vs 新种子同构桥梁 两版分数拟合 旧↔新 量纲映射（§6.3，无需字面 anchor item）"
+    },
+    "note": "isomorph-gap（§6.5）：ContamGap=Acc_orig−Acc_isomorph + 配对 bootstrap 95%CI（复用 stats.paired_bootstrap_diff）；CI 排除 0 且为正(lo>0) → 原题显著比同构题更易 → 疑似训练污染 → flag_retire（该模板族打污染折扣并退役）。本块用**确定性离线探针**（mock stub，非真实 seed，0 API 调用）在 _bridge 同构集上证明该度量已 operationalized（非占位）。"
+  },
+  "meta": {
+    "timestamp": "20260629_124343",
+    "config": "D:\\文档\\Cursor\\model test\\engine\\configs\\models.json",
+    "n_runs": 3,
+    "k": 5,
+    "difficulty": "all",
+    "n_tasks": 12,
+    "tag": "real_v8_integ",
+    "concurrency": 3,
+    "per_call_timeout": 300.0,
+    "wall_clock_s": 5400.0,
+    "max_calls": 130,
+    "run_meta": {
+      "jobs_total": 144,
+      "jobs_done": 144,
+      "jobs_skipped": 0,
+      "stopped_early": false,
+      "wall_clock_s": 2312.3,
+      "total_api_calls": 48
+    }
+  }
+}

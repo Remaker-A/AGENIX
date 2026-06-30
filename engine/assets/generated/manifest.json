@@ -1,0 +1,43 @@
+{
+  "seed": 20240625,
+  "backends": {
+    "matplotlib": true,
+    "pillow": true
+  },
+  "rendered": {
+    "chart_bar": true,
+    "chart_line": true,
+    "chart_bar_cf": true,
+    "table_fin": true,
+    "doc_receipt": true,
+    "doc_receipt_cf": true
+  },
+  "assets": {
+    "chart_bar": {
+      "png": "chart_bar.png",
+      "gt": "chart_bar.gt.json"
+    },
+    "chart_line": {
+      "png": "chart_line.png",
+      "gt": "chart_line.gt.json"
+    },
+    "chart_bar_cf": {
+      "png": "chart_bar_cf.png",
+      "gt": "chart_bar_cf.gt.json"
+    },
+    "table_fin": {
+      "png": "table_fin.png",
+      "html": "table_fin.html",
+      "gt": "table_fin.gt.json"
+    },
+    "doc_receipt": {
+      "png": "doc_receipt.png",
+      "gt": "doc_receipt.gt.json"
+    },
+    "doc_receipt_cf": {
+      "png": "doc_receipt_cf.png",
+      "gt": "doc_receipt_cf.gt.json"
+    },
+    "minimal_pairs": "minimal_pairs.json"
+  }
+}

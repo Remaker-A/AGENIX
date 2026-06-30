@@ -1,0 +1,12 @@
+# AGENIX 任务生成器 / 任务银行 额外依赖（与 requirements.txt 分离，勿动 requirements.txt）
+#
+# 现状：生成器（含 solvable_ext 扩充模板 / foraging / U6 可解版 / 抗污染 operationalize）与
+#       tests/test_dataset.py、tests/test_solvable.py **未引入任何新的第三方依赖**，
+#       仅复用引擎已声明的运行/测试依赖（已由 requirements.txt 提供）。
+# 下列为本工具链实际 import 的依赖，列出以备独立安装（版本与 requirements.txt 对齐）：
+numpy>=1.21          # contamination 等百分位等值化；isomorph_gap 的配对 bootstrap 复用 stats.paired_bootstrap_diff（其内部用 numpy）
+pydantic>=2.0        # schema.Task 校验（生成结果落盘前的双保险；新增 data_in_context / forage_sources 字段）
+pytest>=7.0          # 运行 tests/test_dataset.py、tests/test_solvable.py
+#
+# 说明：generators/contamination.py 的 isomorph-gap **只读调用** stats.paired_bootstrap_diff（不改 stats.py）；
+#       共同被试等值化（linear / equipercentile）为纯 Python + numpy，无额外依赖。

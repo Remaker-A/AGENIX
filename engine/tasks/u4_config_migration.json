@@ -1,0 +1,54 @@
+{
+  "task_id": "u4_config_migration",
+  "version": "1.0.0",
+  "dimension": "U4",
+  "capability_load": {"U4": 1.0, "U1": 0.6, "U2": 0.5},
+  "title": "长程配置迁移 + 中途 schema 漂移 + 注入故障恢复",
+  "instruction": "把服务迁移到 v2.1：设置版本、回填 region、重启使其健康。运行中途平台会发布 schema 漂移；首次重启会瞬时失败，需重试恢复。",
+  "modalities": ["text"],
+  "tools": [
+    {"name": "migrate", "writes": ["services.version"],
+     "effect": {"type": "set", "target": "services.version", "value_from": "version"}},
+    {"name": "set_region", "writes": ["services.region"],
+     "effect": {"type": "set", "target": "services.region", "value_from": "region"}},
+    {"name": "restart", "writes": ["services.restarted"],
+     "effect": {"type": "set", "target": "services.restarted", "value": true}},
+    {"name": "health_check", "writes": [], "effect": null}
+  ],
+  "initial_state": {
+    "services": {"version": "v2.0", "region": null, "restarted": false, "schema": "v2.0"}
+  },
+  "env_events": [
+    {"id": "schema_drift", "after_action_index": 2,
+     "effect": {"type": "set", "target": "services.schema", "value": "v2.1"}}
+  ],
+  "fault_injection": [
+    {"id": "restart_fail", "at_action_index": 2, "kind": "transient_fail",
+     "recover_milestone": "M3"}
+  ],
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 2.0, "provenance": ["services.version"],
+     "predicate": {"op": "eq", "path": "services.version", "value": "v2.1"}},
+    {"id": "M2", "type": "required", "weight": 2.0, "provenance": ["services.region"],
+     "predicate": {"op": "eq", "path": "services.region", "value": "east"}},
+    {"id": "M3", "type": "required", "weight": 2.0, "deps": ["M1", "M2"],
+     "is_recovery": true, "provenance": ["services.restarted"],
+     "predicate": {"op": "eq", "path": "services.restarted", "value": true}},
+    {"id": "M0_envfreebie", "type": "optional", "weight": 1.0,
+     "provenance": ["services.schema"],
+     "predicate": {"op": "eq", "path": "services.schema", "value": "v2.1"}}
+  ],
+  "success_predicates": [
+    {"op": "eq", "path": "services.version", "value": "v2.1"},
+    {"op": "eq", "path": "services.region", "value": "east"},
+    {"op": "eq", "path": "services.restarted", "value": true}
+  ],
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "migrate", "args": {"version": "v2.1"}},
+    {"action_id": "a1", "tool": "set_region", "args": {"region": "east"}},
+    {"action_id": "a2", "tool": "restart", "args": {}},
+    {"action_id": "a3", "tool": "restart", "args": {}}
+  ],
+  "c_star": 4,
+  "canary": "AGENIX-CANARY-u4-91bd-DO-NOT-TRAIN"
+}

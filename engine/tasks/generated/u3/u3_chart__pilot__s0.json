@@ -1,0 +1,51 @@
+{
+  "task_id": "u3_chart__pilot__s0",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {"U3": 1.0},
+  "title": "U3 pilot chart grounding fixture",
+  "instruction": "Read the chart image and submit the top quarter and value.",
+  "modalities": ["image", "text"],
+  "assets": {"real_manifest_id": "real_chart_quarterly_arr_sample"},
+  "tools": [
+    {"name": "read_chart", "writes": [], "effect": null},
+    {"name": "submit_finding", "writes": ["out.finding"],
+     "effect": {"type": "set", "target": "out.finding", "value_from": "finding"}}
+  ],
+  "initial_state": {},
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_chart",
+     "predicate": {"op": "tool_called", "value": "read_chart"}},
+    {"id": "M2", "type": "required", "weight": 2.0, "deps": ["M1"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "eq", "path": "out.finding.top", "value": "Q3"}}
+  ],
+  "success_predicates": [
+    {"op": "eq", "path": "out.finding.top", "value": "Q3"},
+    {"op": "approx", "path": "out.finding.value", "value": 22.2, "tol": 0.05}
+  ],
+  "grounding": {
+    "items": [
+      {"id": "g_top_quarter", "kind": "closed_id", "track": "synthetic",
+       "gold": ["Q3"], "weight": 1.0, "media_type": "image",
+       "asset_uri": "assets/real/samples/chart_quarterly_arr.png",
+       "annotation_source": "human"},
+      {"id": "g_q3_value", "kind": "numeric", "track": "synthetic",
+       "gold": 22.2, "tol": 0.05, "weight": 1.0, "media_type": "image"}
+    ]
+  },
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "read_chart", "args": {}},
+    {"action_id": "a1", "tool": "submit_finding",
+     "args": {"finding": {"top": "Q3", "value": 22.2}}}
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "template": "u3_chart",
+    "difficulty": "pilot",
+    "media_template": "chart",
+    "real_trusted": false
+  },
+  "canary": "AGENIX-CANARY-u3-chart-pilot-s0-DO-NOT-TRAIN"
+}

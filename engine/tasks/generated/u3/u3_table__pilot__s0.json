@@ -1,0 +1,55 @@
+{
+  "task_id": "u3_table__pilot__s0",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {"U3": 1.0},
+  "title": "U3 pilot table structure grounding fixture",
+  "instruction": "Read the financial table and submit Revenue for FY2022.",
+  "modalities": ["image", "table", "text"],
+  "assets": {"real_manifest_id": "real_table_financials_sample"},
+  "tools": [
+    {"name": "read_table", "writes": [], "effect": null},
+    {"name": "submit_finding", "writes": ["out.finding"],
+     "effect": {"type": "set", "target": "out.finding", "value_from": "finding"}}
+  ],
+  "initial_state": {},
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_table",
+     "predicate": {"op": "tool_called", "value": "read_table"}},
+    {"id": "M2", "type": "required", "weight": 2.0, "deps": ["M1"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "approx", "path": "out.finding.cell", "value": 160.4, "tol": 0.005}}
+  ],
+  "success_predicates": [
+    {"op": "approx", "path": "out.finding.cell", "value": 160.4, "tol": 0.005}
+  ],
+  "grounding": {
+    "items": [
+      {"id": "g_table_teds", "kind": "table_teds", "track": "synthetic",
+       "gold": {"grid": [
+         ["Metric", "FY2022", "FY2023", "FY2024"],
+         ["Revenue", "160.4", "162.3", "174.7"],
+         ["COGS", "73.5", "84.5", "88.9"]
+       ]},
+       "weight": 1.0, "media_type": "table",
+       "asset_uri": "assets/real/samples/financial_table_scan.png",
+       "annotation_source": "human"},
+      {"id": "g_cell_value", "kind": "numeric", "track": "synthetic",
+       "gold": 160.4, "tol": 0.005, "weight": 1.0, "media_type": "table"}
+    ]
+  },
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "read_table", "args": {}},
+    {"action_id": "a1", "tool": "submit_finding",
+     "args": {"finding": {"cell": 160.4}}}
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "template": "u3_table",
+    "difficulty": "pilot",
+    "media_template": "table",
+    "real_trusted": false
+  },
+  "canary": "AGENIX-CANARY-u3-table-pilot-s0-DO-NOT-TRAIN"
+}

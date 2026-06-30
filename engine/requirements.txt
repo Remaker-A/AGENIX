@@ -1,0 +1,52 @@
+# AGENIX-Engine 运行依赖（Python 3.8+）。
+# 集成收口（四层做实后）：已把四份分轨依赖清单合并进本文件（去重 + 标注可选项与装法）：
+#   requirements_stats.txt / requirements_judge.txt / requirements_dataset.txt /
+#   requirements_grounding.txt —— 分轨文件保留以便单独安装；本文件为合并后的总清单。
+#
+# 安装：  pip install -r requirements.txt
+# 去重说明：四轨共同依赖 numpy/pydantic/pytest/scipy 在此只各列一次；judge 轨与 dataset
+#           轨**不引入任何新的第三方依赖**（纯标准库 + 已声明依赖）。
+
+# ---- 核心（必需）：评分内核 / schema / 统计主干 / IRT / grounding 评分 / 任务生成 ----
+numpy>=1.21          # 全局数值：bootstrap CI、GLMM 边际、IRT MML-EM、Krippendorff α、权重敏感性、
+                     #           contamination 等值化/isomorph-gap 配对 bootstrap（复用 stats）
+pydantic>=2.0        # schema.Task / Trace 校验（Python 3.8 兼容；含 data_in_context/forage_sources）
+
+# ---- 测试（可选；也可直接 `python tests/test_meta.py` 脚本模式） ----
+pytest>=7.0          # 运行 tests/（全量 399+：meta/dataset/solvable/stats/judge/grounding/integration）
+
+# ---- 统计主干增量（requirements_stats.txt）----
+scipy>=1.7           # IRT 可选 GPCM 多级计分 M 步（scipy.optimize.minimize）；2PL/1PL 纯 numpy 即可。
+                     # grounding 连通域标注 / 形态学也可选用（缺失走纯 numpy/BFS）。
+
+# ---- 可选：真实 GLMM 后端（requirements_stats.txt）----
+# 装上后 stats.fit_glmm 自动改用 statsmodels BinomialBayesMixedGLM（变分贝叶斯，确定性）估计
+# 固定效应 logit θ_m（headline 主估计器）；CI 始终由两级聚类 bootstrap 给出（spec §5.1，与后端无关）。
+# 未安装时回退到“两级聚类 bootstrap 混合效应近似”（默认，CI 非退化），backend 字段标注。
+#
+# 装法（本机 Python 3.8 + 系统代理损坏：pip 直连默认走代理会 ProxyError）——绕过代理安装：
+#     $env:NO_PROXY="*"; pip install --proxy="" statsmodels
+#   （已实测可装 statsmodels 0.14.1(cp38) + patsy 1.0.2；pandas 为 formula 接口所需）
+# statsmodels>=0.13  # 可选
+# pandas>=1.3        # 可选（statsmodels formula 接口需要）
+
+# ---- 可选：U3 双轨 grounding 真实资产渲染 + 真实像素验证器（requirements_grounding.txt）----
+# 评分器（scoring/grounding.py）与符号级 GT（assets/gt.py）为纯 Python+numpy，**不依赖**下列库；
+# 下列库用于把符号级 GT 渲染为真实可视资产（PNG/SVG/HTML）并做真实像素读取/OCR 标定。
+# pillow>=9.0        # 可选（渲染字形/框为像素 + 读取 PNG；真实读图核心，缺失降级符号级）
+# matplotlib>=3.4    # 可选（图表资产栅格化 + 像素级 bbox + DejaVuSans 字体；报告图表也用它）
+# 可选 OCR 后端（仅当系统装有 tesseract 二进制时生效；否则用确定性 PIL 模板匹配像素读取）：
+# pytesseract>=0.3.10
+# easyocr>=1.7       # 备选 ML OCR（需 torch；体量大，未默认启用）
+
+# ---- judge 面板（requirements_judge.txt）：无新增第三方依赖 ----
+# 位置翻转 / Krippendorff α / 长度对照 / 盲化 / 注入清洗 / isotonic(PAVA)/Platt 校准 / JSON 解析
+# 均为纯 Python 标准库（re/json/math）+ numpy。真实跨家族评委（LLMJudgeAdapter.from_openai_adapter）
+# 复用下方 adapters/ 的 urllib 客户端，需 ≥3 个不同家族 API key（当前仅 seed，故跨家族真评委待 key）。
+
+# ---- 任务生成器 / 任务银行（requirements_dataset.txt）：无新增第三方依赖 ----
+# 扩充模板 / foraging / U6 可解版 / 抗污染 operationalize（contamination.isomorph_gap 只读调用
+# stats.paired_bootstrap_diff，不改 stats.py；等值化为纯 Python+numpy）均复用上面已声明依赖。
+
+# ---- 可选：真实模型横评适配器（B. pilot；engine/adapters/）----
+# OpenAI 兼容客户端用 Python 标准库 urllib 实现，**无需第三方包**；无 key/无外网时优雅回退 mock。

@@ -1,0 +1,56 @@
+{
+  "task_id": "u3_webpage__pilot__s0",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {"U3": 1.0},
+  "title": "U3 pilot webpage screenshot grounding fixture",
+  "instruction": "Read the webpage screenshot and submit the primary pricing card.",
+  "modalities": ["image", "webpage", "text"],
+  "assets": {"real_manifest_id": "real_webpage_pricing_sample"},
+  "tools": [
+    {"name": "read_webpage_screenshot", "writes": [], "effect": null},
+    {"name": "submit_finding", "writes": ["out.finding"],
+     "effect": {"type": "set", "target": "out.finding", "value_from": "finding"}}
+  ],
+  "initial_state": {},
+  "milestones": [
+    {"id": "M1", "type": "required", "weight": 1.0,
+     "epistemic_action": "read_webpage_screenshot",
+     "predicate": {"op": "tool_called", "value": "read_webpage_screenshot"}},
+    {"id": "M2", "type": "required", "weight": 2.0, "deps": ["M1"],
+     "provenance": ["out.finding"],
+     "predicate": {"op": "eq", "path": "out.finding.card", "value": "Pro"}}
+  ],
+  "success_predicates": [
+    {"op": "eq", "path": "out.finding.card", "value": "Pro"}
+  ],
+  "grounding": {
+    "items": [
+      {"id": "g_cta_ids", "kind": "closed_id", "track": "synthetic",
+       "gold": ["upgrade-pro", "contact-sales"], "weight": 1.0,
+       "media_type": "webpage"},
+      {"id": "g_web_layout", "kind": "doc_layout_f1", "track": "real",
+       "gold": [
+         {"label": "nav", "bbox": [0.0, 0.0, 1280.0, 72.0]},
+         {"label": "pricing_card", "bbox": [424.0, 210.0, 320.0, 420.0], "text": "Pro"}
+       ],
+       "tol": 0.5, "cer_tol": 0.3, "weight": 1.0,
+       "media_type": "webpage",
+       "asset_uri": "assets/real/samples/pricing_page_screenshot.png",
+       "annotation_source": "human"}
+    ]
+  },
+  "oracle_plan": [
+    {"action_id": "a0", "tool": "read_webpage_screenshot", "args": {}},
+    {"action_id": "a1", "tool": "submit_finding",
+     "args": {"finding": {"card": "Pro"}}}
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "template": "u3_webpage",
+    "difficulty": "pilot",
+    "media_template": "webpage",
+    "real_trusted": false
+  },
+  "canary": "AGENIX-CANARY-u3-webpage-pilot-s0-DO-NOT-TRAIN"
+}

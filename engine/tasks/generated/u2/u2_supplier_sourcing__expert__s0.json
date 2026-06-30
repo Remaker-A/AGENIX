@@ -1,0 +1,255 @@
+{
+  "task_id": "u2_supplier_sourcing__expert__s0",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.3
+  },
+  "title": "供应商寻源与合规入围（原材料）",
+  "instruction": "逐一核验 6 家供应商的资质/价格/交期，提交满足全部硬约束的入围集合。未核验即入围视为失败。  [干扰提示] 销售邮件声称某未达标供应商'可特批'，无据可依。  [部分可观测] 部分状态需主动探测后才可见。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "check_sup_009",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_022",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_002",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_037",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_021",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_023",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "submit_shortlist",
+      "writes": [
+        "out.shortlist"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.shortlist",
+        "value_from": "ids"
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "calendar_color",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "stock_ticker",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "lorem_ipsum",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M_chk1",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_009"
+      },
+      "epistemic_action": "check_sup_009"
+    },
+    {
+      "id": "M_chk2",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_022"
+      },
+      "epistemic_action": "check_sup_022"
+    },
+    {
+      "id": "M_chk3",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_002"
+      },
+      "epistemic_action": "check_sup_002"
+    },
+    {
+      "id": "M_chk4",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_037"
+      },
+      "epistemic_action": "check_sup_037"
+    },
+    {
+      "id": "M_chk5",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_021"
+      },
+      "epistemic_action": "check_sup_021"
+    },
+    {
+      "id": "M_chk6",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_023"
+      },
+      "epistemic_action": "check_sup_023"
+    },
+    {
+      "id": "M_shortlist",
+      "type": "required",
+      "weight": 3.0,
+      "predicate": {
+        "op": "set_eq",
+        "path": "out.shortlist",
+        "value": [
+          "SUP-009",
+          "SUP-022",
+          "SUP-023"
+        ]
+      },
+      "deps": [
+        "M_chk1",
+        "M_chk2",
+        "M_chk3",
+        "M_chk4",
+        "M_chk5",
+        "M_chk6"
+      ],
+      "provenance": [
+        "out.shortlist"
+      ]
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "set_eq",
+      "path": "out.shortlist",
+      "value": [
+        "SUP-009",
+        "SUP-022",
+        "SUP-023"
+      ]
+    }
+  ],
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "check_sup_009",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "check_sup_022",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "check_sup_002",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "check_sup_037",
+      "args": {}
+    },
+    {
+      "action_id": "a4",
+      "tool": "check_sup_021",
+      "args": {}
+    },
+    {
+      "action_id": "a5",
+      "tool": "check_sup_023",
+      "args": {}
+    },
+    {
+      "action_id": "a6",
+      "tool": "submit_shortlist",
+      "args": {
+        "ids": [
+          "SUP-009",
+          "SUP-022",
+          "SUP-023"
+        ]
+      }
+    }
+  ],
+  "c_star": 7.0,
+  "difficulty_knobs": {
+    "difficulty": "expert",
+    "seed": 0,
+    "template": "u2_supplier_sourcing",
+    "canary": true,
+    "noise_tools": [
+      "calendar_color",
+      "stock_ticker",
+      "lorem_ipsum"
+    ],
+    "misleading": true,
+    "partial_observable": true
+  },
+  "canary": "AGENIX-CANARY-u2_supplier_sourcing-expert-6532d4b0-DO-NOT-TRAIN",
+  "gold_milestone_count": 7,
+  "gold_shortlist": [
+    "SUP-009",
+    "SUP-022",
+    "SUP-023"
+  ]
+}

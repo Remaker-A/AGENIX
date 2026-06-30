@@ -1,0 +1,224 @@
+{
+  "task_id": "u2_supplier_sourcing__hard__s0",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.3
+  },
+  "title": "供应商寻源与合规入围（代工）",
+  "instruction": "逐一核验 5 家供应商的资质/价格/交期，提交满足全部硬约束的入围集合。未核验即入围视为失败。  [干扰提示] 销售邮件声称某未达标供应商'可特批'，无据可依。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "check_sup_030",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_028",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_024",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_009",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "check_sup_023",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "submit_shortlist",
+      "writes": [
+        "out.shortlist"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.shortlist",
+        "value_from": "ids"
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "currency_convert",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "lorem_ipsum",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M_chk1",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_030"
+      },
+      "epistemic_action": "check_sup_030"
+    },
+    {
+      "id": "M_chk2",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_028"
+      },
+      "epistemic_action": "check_sup_028"
+    },
+    {
+      "id": "M_chk3",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_024"
+      },
+      "epistemic_action": "check_sup_024"
+    },
+    {
+      "id": "M_chk4",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_009"
+      },
+      "epistemic_action": "check_sup_009"
+    },
+    {
+      "id": "M_chk5",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "check_sup_023"
+      },
+      "epistemic_action": "check_sup_023"
+    },
+    {
+      "id": "M_shortlist",
+      "type": "required",
+      "weight": 3.0,
+      "predicate": {
+        "op": "set_eq",
+        "path": "out.shortlist",
+        "value": [
+          "SUP-009",
+          "SUP-023",
+          "SUP-030"
+        ]
+      },
+      "deps": [
+        "M_chk1",
+        "M_chk2",
+        "M_chk3",
+        "M_chk4",
+        "M_chk5"
+      ],
+      "provenance": [
+        "out.shortlist"
+      ]
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "set_eq",
+      "path": "out.shortlist",
+      "value": [
+        "SUP-009",
+        "SUP-023",
+        "SUP-030"
+      ]
+    }
+  ],
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "check_sup_030",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "check_sup_028",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "check_sup_024",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "check_sup_009",
+      "args": {}
+    },
+    {
+      "action_id": "a4",
+      "tool": "check_sup_023",
+      "args": {}
+    },
+    {
+      "action_id": "a5",
+      "tool": "submit_shortlist",
+      "args": {
+        "ids": [
+          "SUP-009",
+          "SUP-023",
+          "SUP-030"
+        ]
+      }
+    }
+  ],
+  "c_star": 6.0,
+  "difficulty_knobs": {
+    "difficulty": "hard",
+    "seed": 0,
+    "template": "u2_supplier_sourcing",
+    "canary": true,
+    "noise_tools": [
+      "currency_convert",
+      "lorem_ipsum"
+    ],
+    "misleading": true,
+    "partial_observable": false
+  },
+  "canary": "AGENIX-CANARY-u2_supplier_sourcing-hard-a2710cb1-DO-NOT-TRAIN",
+  "gold_milestone_count": 6,
+  "gold_shortlist": [
+    "SUP-009",
+    "SUP-023",
+    "SUP-030"
+  ]
+}

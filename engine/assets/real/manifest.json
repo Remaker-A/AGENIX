@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "description": "Example real-media manifest for U3 grounding. Entries are lightweight fixtures: replace asset_uri with licensed local media before promoting to trusted real track.",
+  "assets": [
+    {
+      "id": "real_chart_quarterly_arr_sample",
+      "media_type": "image",
+      "asset_uri": "samples/chart_quarterly_arr.png",
+      "license": "internal-fixture",
+      "split": "pilot",
+      "real_trusted": false,
+      "annotation_source": "human",
+      "typed_gt": {
+        "closed_ids": {
+          "top_quarter": ["Q3"]
+        },
+        "numeric": {
+          "q3_arr_musd": 22.2
+        },
+        "bboxes_xywh": {
+          "q3_bar": [227.8, 148.4, 75.2, 207.6]
+        },
+        "ocr_tokens": [
+          {"text": "Cloud ARR by Quarter (M USD)", "bbox": [28.0, 18.0, 252.0, 18.0]}
+        ]
+      }
+    },
+    {
+      "id": "real_document_receipt_scan_sample",
+      "media_type": "document",
+      "asset_uri": "samples/receipt_scan.png",
+      "license": "internal-fixture",
+      "split": "pilot",
+      "real_trusted": false,
+      "annotation_source": "human",
+      "typed_gt": {
+        "fields": {
+          "invoice_no": {"text": "INV-72042", "bbox": [230.0, 104.0, 92.0, 13.0]},
+          "total": {"text": "407.04", "bbox": [230.0, 256.0, 61.0, 13.0]}
+        },
+        "layout_blocks": [
+          {"label": "title", "bbox": [24.0, 23.0, 100.0, 18.0], "text": "RECEIPT"},
+          {"label": "field_label", "bbox": [23.0, 256.0, 65.0, 13.0], "text": "TOTAL:"},
+          {"label": "field_value", "bbox": [230.0, 256.0, 61.0, 13.0], "text": "407.04"}
+        ]
+      }
+    },
+    {
+      "id": "real_table_financials_sample",
+      "media_type": "table",
+      "asset_uri": "samples/financial_table_scan.png",
+      "license": "internal-fixture",
+      "split": "pilot",
+      "real_trusted": false,
+      "annotation_source": "human",
+      "typed_gt": {
+        "table": {
+          "grid": [
+            ["Metric", "FY2022", "FY2023", "FY2024"],
+            ["Revenue", "160.4", "162.3", "174.7"],
+            ["COGS", "73.5", "84.5", "88.9"]
+          ]
+        },
+        "cell_bboxes_xywh": {
+          "1,1": [140.0, 70.0, 130.0, 30.0]
+        }
+      }
+    },
+    {
+      "id": "real_webpage_pricing_sample",
+      "media_type": "webpage",
+      "asset_uri": "samples/pricing_page_screenshot.png",
+      "license": "internal-fixture",
+      "split": "pilot",
+      "real_trusted": false,
+      "annotation_source": "human",
+      "typed_gt": {
+        "closed_ids": {
+          "cta_ids": ["upgrade-pro", "contact-sales"]
+        },
+        "layout_blocks": [
+          {"label": "nav", "bbox": [0.0, 0.0, 1280.0, 72.0]},
+          {"label": "pricing_card", "bbox": [424.0, 210.0, 320.0, 420.0], "text": "Pro"}
+        ]
+      }
+    },
+    {
+      "id": "real_video_incident_frames_sample",
+      "media_type": "video",
+      "asset_uri": "samples/incident_clip_frames/",
+      "license": "internal-fixture",
+      "split": "pilot",
+      "real_trusted": false,
+      "annotation_source": "human",
+      "typed_gt": {
+        "events": [
+          {"event_id": "forklift_enters_zone", "span": [3.2, 6.8], "keyframe": "frame_0032.png"},
+          {"event_id": "operator_warns", "span": [7.0, 8.5], "keyframe": "frame_0070.png"}
+        ]
+      }
+    }
+  ]
+}

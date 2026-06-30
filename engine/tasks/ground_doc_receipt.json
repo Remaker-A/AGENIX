@@ -1,0 +1,180 @@
+{
+  "task_id": "ground_doc_receipt",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {
+    "U3": 1.0
+  },
+  "title": "文档读数 grounding（收据截图：金额/单号/定位/反事实最小对 + 真实 OCR 轨）",
+  "instruction": "阅读收据截图，报告 TOTAL 金额；并完成单号/定位/反事实最小对/OCR 的 grounding。",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "assets": {
+    "doc": "assets/generated/doc_receipt.png",
+    "doc_cf": "assets/generated/doc_receipt_cf.png"
+  },
+  "tools": [
+    {
+      "name": "read_doc",
+      "writes": [],
+      "effect": null
+    },
+    {
+      "name": "submit_finding",
+      "writes": [
+        "out.finding"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.finding",
+        "value_from": "finding"
+      }
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M1",
+      "type": "required",
+      "weight": 1.0,
+      "epistemic_action": "read_doc",
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_doc"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "required",
+      "weight": 2.0,
+      "deps": [
+        "M1"
+      ],
+      "provenance": [
+        "out.finding"
+      ],
+      "predicate": {
+        "op": "approx",
+        "path": "out.finding.total",
+        "value": 407.04,
+        "tol": 0.005
+      }
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "approx",
+      "path": "out.finding.total",
+      "value": 407.04,
+      "tol": 0.005
+    }
+  ],
+  "grounding": {
+    "items": [
+      {
+        "id": "g_total",
+        "kind": "numeric",
+        "track": "synthetic",
+        "gold": 407.04,
+        "tol": 0.005,
+        "weight": 1.0,
+        "note": "金额数值容差 0.5%"
+      },
+      {
+        "id": "g_invoice_id",
+        "kind": "closed_id",
+        "track": "synthetic",
+        "gold": [
+          "INV-72042"
+        ],
+        "weight": 1.0,
+        "note": "发票单号（闭式 ID）"
+      },
+      {
+        "id": "g_total_box",
+        "kind": "iou",
+        "track": "synthetic",
+        "gold": [
+          230.0,
+          256.0,
+          61.0,
+          13.0
+        ],
+        "tol": 0.5,
+        "weight": 1.0,
+        "note": "TOTAL 字段 bbox"
+      },
+      {
+        "id": "g_minimal_pair",
+        "kind": "minimal_pair",
+        "track": "synthetic",
+        "gold": {
+          "pair_id": "doc_total",
+          "image0": "assets/generated/doc_receipt.png",
+          "image1": "assets/generated/doc_receipt_cf.png",
+          "caption0": "The total amount is 407.04.",
+          "caption1": "The total amount is 507.04.",
+          "assignment": {
+            "i0": "c0",
+            "i1": "c1"
+          },
+          "change": {
+            "type": "field_text",
+            "field": "total",
+            "from": "407.04",
+            "to": "507.04"
+          }
+        },
+        "weight": 1.0,
+        "note": "反事实最小对 group-score（金额改一处）"
+      },
+      {
+        "id": "g_real_total_ocr",
+        "kind": "cer",
+        "track": "real",
+        "gold": "407.04",
+        "weight": 1.0,
+        "calibration": {
+          "verifier": "ocr_extractor_hi",
+          "metric": "ocr_cer_acc",
+          "threshold": 0.95,
+          "samples": [
+            {
+              "gold": "407.04"
+            },
+            {
+              "gold": "INV-72042"
+            },
+            {
+              "gold": "2024-07-10"
+            }
+          ]
+        },
+        "note": "真实生态轨：TOTAL OCR；ML 抽取器须先过标定门"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "read_doc",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "submit_finding",
+      "args": {
+        "finding": {
+          "total": 407.04
+        }
+      }
+    }
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "modalities": 2
+  },
+  "canary": "AGENIX-CANARY-ground-doc-e5f6-DO-NOT-TRAIN"
+}

@@ -1,0 +1,206 @@
+{
+  "task_id": "u2_trip_replan__hard__s0",
+  "version": "1.0.0",
+  "dimension": "U2",
+  "capability_load": {
+    "U2": 1.0,
+    "U1": 0.4
+  },
+  "title": "动态重订路线 → 迪拜",
+  "instruction": "在以下硬约束下为前往 迪拜 重订路线并选定唯一可行最优方案：visa_transit, loyalty, carbon_cap, calendar。必须先查询每项约束再决策；存在一条更便宜但不可行的诱饵方案。  [干扰提示] 方案 RT-005 票价最低——但其过境点需要你不持有的签证。  [部分可观测] 部分状态需主动探测后才可见。",
+  "modalities": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "query_visa_transit",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "query_loyalty",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "query_carbon_cap",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "query_calendar",
+      "writes": [],
+      "effect": null,
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "select_option",
+      "writes": [
+        "out.plan.selected"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.plan.selected",
+        "value_from": "option"
+      },
+      "is_noise": false,
+      "is_honeypot": false
+    },
+    {
+      "name": "crm_lookup",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "font_preview",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    },
+    {
+      "name": "calendar_color",
+      "writes": [],
+      "effect": null,
+      "is_noise": true,
+      "is_honeypot": false
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M_q1",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_visa_transit"
+      },
+      "epistemic_action": "query_visa_transit"
+    },
+    {
+      "id": "M_q2",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_loyalty"
+      },
+      "epistemic_action": "query_loyalty"
+    },
+    {
+      "id": "M_q3",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_carbon_cap"
+      },
+      "epistemic_action": "query_carbon_cap"
+    },
+    {
+      "id": "M_q4",
+      "type": "required",
+      "weight": 1.0,
+      "predicate": {
+        "op": "tool_called",
+        "value": "query_calendar"
+      },
+      "epistemic_action": "query_calendar"
+    },
+    {
+      "id": "M_select",
+      "type": "required",
+      "weight": 3.0,
+      "predicate": {
+        "op": "eq",
+        "path": "out.plan.selected",
+        "value": "RT-010"
+      },
+      "deps": [
+        "M_q1",
+        "M_q2",
+        "M_q3",
+        "M_q4"
+      ],
+      "provenance": [
+        "out.plan.selected"
+      ]
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "eq",
+      "path": "out.plan.selected",
+      "value": "RT-010"
+    }
+  ],
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "query_visa_transit",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "query_loyalty",
+      "args": {}
+    },
+    {
+      "action_id": "a2",
+      "tool": "query_carbon_cap",
+      "args": {}
+    },
+    {
+      "action_id": "a3",
+      "tool": "query_calendar",
+      "args": {}
+    },
+    {
+      "action_id": "a4",
+      "tool": "select_option",
+      "args": {
+        "option": "RT-010"
+      }
+    }
+  ],
+  "c_star": 5.0,
+  "difficulty_knobs": {
+    "difficulty": "hard",
+    "seed": 0,
+    "template": "u2_trip_replan",
+    "canary": true,
+    "dynamic_inventory": true,
+    "noise_tools": [
+      "crm_lookup",
+      "font_preview",
+      "calendar_color"
+    ],
+    "misleading": true,
+    "partial_observable": true
+  },
+  "canary": "AGENIX-CANARY-u2_trip_replan-hard-fce4a68c-DO-NOT-TRAIN",
+  "env_events": [
+    {
+      "id": "inventory_shift",
+      "after_action_index": 1,
+      "effect": {
+        "type": "set",
+        "target": "market.cheapest",
+        "value": "RT-005"
+      }
+    }
+  ],
+  "gold_milestone_count": 5,
+  "gold_selected": "RT-010",
+  "trap_option": "RT-005"
+}

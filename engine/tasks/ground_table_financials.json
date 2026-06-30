@@ -1,0 +1,159 @@
+{
+  "task_id": "ground_table_financials",
+  "version": "1.0.0",
+  "dimension": "U3",
+  "capability_load": {
+    "U3": 1.0
+  },
+  "title": "表格读数 grounding（财务表：表头集合/单元格数值/定位 + 真实 OCR 轨）",
+  "instruction": "阅读财务表图片，报告指标 'Revenue' 在 'FY2022' 列的数值（第一指标行 × 第一数据年列）；调用 submit_finding，参数 finding={\"cell\": <数字>}。并完成表头/定位/OCR 的 grounding。",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "assets": {
+    "table_png": "assets/generated/table_fin.png",
+    "table_html": "assets/generated/table_fin.html"
+  },
+  "tools": [
+    {
+      "name": "read_table",
+      "writes": [],
+      "effect": null
+    },
+    {
+      "name": "submit_finding",
+      "writes": [
+        "out.finding"
+      ],
+      "effect": {
+        "type": "set",
+        "target": "out.finding",
+        "value_from": "finding"
+      }
+    }
+  ],
+  "initial_state": {},
+  "milestones": [
+    {
+      "id": "M1",
+      "type": "required",
+      "weight": 1.0,
+      "epistemic_action": "read_table",
+      "predicate": {
+        "op": "tool_called",
+        "value": "read_table"
+      }
+    },
+    {
+      "id": "M2",
+      "type": "required",
+      "weight": 2.0,
+      "deps": [
+        "M1"
+      ],
+      "provenance": [
+        "out.finding"
+      ],
+      "predicate": {
+        "op": "approx",
+        "path": "out.finding.cell",
+        "value": 160.4,
+        "tol": 0.005
+      }
+    }
+  ],
+  "success_predicates": [
+    {
+      "op": "approx",
+      "path": "out.finding.cell",
+      "value": 160.4,
+      "tol": 0.005
+    }
+  ],
+  "grounding": {
+    "items": [
+      {
+        "id": "g_headers",
+        "kind": "closed_id",
+        "track": "synthetic",
+        "gold": [
+          "Metric",
+          "FY2022",
+          "FY2023",
+          "FY2024"
+        ],
+        "weight": 1.0,
+        "note": "列表头集合（闭式 ID）"
+      },
+      {
+        "id": "g_cell_value",
+        "kind": "numeric",
+        "track": "synthetic",
+        "gold": 160.4,
+        "tol": 0.005,
+        "weight": 1.0,
+        "note": "财务数值容差 0.5%"
+      },
+      {
+        "id": "g_cell_box",
+        "kind": "iou",
+        "track": "synthetic",
+        "gold": [
+          140.0,
+          70.0,
+          130.0,
+          30.0
+        ],
+        "tol": 0.5,
+        "weight": 1.0,
+        "note": "单元格 bbox"
+      },
+      {
+        "id": "g_real_cell_ocr",
+        "kind": "cer",
+        "track": "real",
+        "gold": "160.4",
+        "weight": 1.0,
+        "calibration": {
+          "verifier": "ocr_extractor_hi",
+          "metric": "ocr_cer_acc",
+          "threshold": 0.95,
+          "samples": [
+            {
+              "gold": "160.4"
+            },
+            {
+              "gold": "FY2022"
+            },
+            {
+              "gold": "73.5"
+            }
+          ]
+        },
+        "note": "真实生态轨：单元格 OCR；ML 抽取器须先过标定门"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "action_id": "a0",
+      "tool": "read_table",
+      "args": {}
+    },
+    {
+      "action_id": "a1",
+      "tool": "submit_finding",
+      "args": {
+        "finding": {
+          "cell": 160.4
+        }
+      }
+    }
+  ],
+  "c_star": 2,
+  "difficulty_knobs": {
+    "modalities": 2
+  },
+  "canary": "AGENIX-CANARY-ground-table-c3d4-DO-NOT-TRAIN"
+}
